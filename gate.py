@@ -92,16 +92,18 @@ def _():
     return "PASS", f"{rep['evaluable_rows']:,} rows; {verified} verified literature rows"
 
 
-@gate("G-PREREG", "DEL-2 card unchanged since freeze; every run used the frozen card")
+@gate("G-PREREG", "every frozen pre-registration is unchanged; every DEL-2 run used the frozen card")
 def _():
     with (ROOT / "registry/preregistration.csv").open() as fh:
-        reg = {r["experiment"]: r for r in csv.DictReader(fh)}
-    r = reg["DEL2-SX-13-01/03/04"]
-    if sha(ROOT / r["file"]) != r["sha256"]:
-        return "FAIL", "experiments/DEL2/card.md changed after freeze"
+        reg = list(csv.DictReader(fh))
+    changed = [r["experiment"] for r in reg if sha(ROOT / r["file"]) != r["sha256"]]
+    if changed:
+        return "FAIL", f"changed after freeze: {changed}"
+    card = next(r for r in reg if r["experiment"] == "DEL2-SX-13-01/03/04")["sha256"]
     runs = sorted((ROOT / "experiments/DEL2/runs").glob("*/metrics.json"))
-    bad = [m.parent.name for m in runs if json.loads(m.read_text()).get("card_sha256") != r["sha256"]]  # missing = FAIL
-    return ("FAIL", f"runs with another card: {bad}") if bad else ("PASS", f"card sha {r['sha256'][:12]}; {len(runs)} completed run(s)")
+    bad = [m.parent.name for m in runs if json.loads(m.read_text()).get("card_sha256") != card]  # missing = FAIL
+    return ("FAIL", f"DEL-2 runs with another card: {bad}") if bad else \
+        ("PASS", f"{len(reg)} frozen file(s) unchanged; {len(runs)} DEL-2 run(s) on the frozen card")
 
 
 @gate("G-UNITS", "no volume/count unit converts to grams (no invented grams)")
