@@ -21,9 +21,7 @@ Categories:
 """
 from __future__ import annotations
 
-import csv
 import hashlib
-import html
 import json
 import pathlib
 import re
@@ -37,10 +35,9 @@ ENUM_ROLE = {"RETENTION_REPORTED", "PROCESSED_VALUE", "RAW_REFERENCE", "STAT_OR_
 
 
 def load_cells():
-    v0 = pd.read_csv(LIT / "candidates_v0.csv", keep_default_na=False)
     v1 = pd.read_csv(LIT / "candidates_v1.csv", keep_default_na=False)
     r2 = pd.read_csv(LIT / "candidates_r2.csv", keep_default_na=False) if (LIT / "candidates_r2.csv").exists() else None
-    v0to1 = dict(zip(v1.v0_cand_id, v1.cand_id))
+    v0to1 = dict(zip(v1.v0_cand_id, v1.cand_id, strict=True))
     cells = {r.cand_id: r._asdict() for r in v1.itertuples(index=False)}
     if r2 is not None:
         cells.update({r.cand_id: r._asdict() for r in r2.itertuples(index=False)})
