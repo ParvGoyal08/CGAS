@@ -53,6 +53,9 @@ def simulate(cfg: Config, seed: int) -> Result:
     founders = {int(i) for r in recipes for i in r}
     steps = cfg.T - cfg.R0 if cfg.stop == "R_equals_T" else cfg.T
     res = Result([], np.empty(0), founders)
+    # each recipe's mean fitness is fixed once the recipe exists (ingredient fitness never changes),
+    # so F_Total is a running mean of per-recipe means — identical to recomputing it, and O(1) per step
+    mean_sum = float(sum(np.mean([fit[int(i)] for i in r]) for r in recipes))
     for _ in range(steps):
         mother = recipes[int(rng.integers(len(recipes)))]                    # A9: uniform over all recipes
         d = mother.copy()
@@ -70,8 +73,8 @@ def simulate(cfg: Config, seed: int) -> Result:
         if target > len(fit):
             fit.extend(rng.random(target - len(fit)))
         res.pool_sizes.append(len(fit))
-        fa = np.asarray(fit)
-        res.total_fitness.append(float(np.mean([fa[r].mean() for r in recipes])))
+        mean_sum += float(np.mean([fit[int(i)] for i in d]))
+        res.total_fitness.append(mean_sum / len(recipes))
     res.recipes, res.fitness = recipes, np.asarray(fit)
     return res
 

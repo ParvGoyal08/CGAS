@@ -30,3 +30,10 @@ def test_selection_only_accepts_fitter_ingredients():
 def test_deterministic_given_seed():
     a, b = simulate(Config(**SMALL), 7), simulate(Config(**SMALL), 7)
     assert all((x == y).all() for x, y in zip(a.recipes, b.recipes, strict=True))
+
+
+def test_running_total_fitness_equals_recomputation():
+    r = simulate(Config(**SMALL), seed=3)
+    f = np.asarray(r.fitness)
+    direct = np.mean([f[x].mean() for x in r.recipes])
+    assert abs(r.total_fitness[-1] - direct) < 1e-12

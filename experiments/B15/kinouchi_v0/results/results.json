@@ -1,0 +1,569 @@
+{
+  "prereg_sha256": "3602f58dc6d1e6728ab58227691775bf822c21a8e22bed550775b0b11374c28a",
+  "seeds": [
+    20261008,
+    20261009,
+    20261010,
+    20261011,
+    20261012
+  ],
+  "variants": {
+    "primary": {
+      "config": {
+        "T": 1200,
+        "K": 11,
+        "L": 4,
+        "M": 3,
+        "R0": 20,
+        "initial": "IC-a",
+        "stop": "R_equals_T",
+        "loci": "with_replacement",
+        "duplicate": "reject",
+        "selection": "fitness"
+      },
+      "AC1": {
+        "share_within_0.2_decade": 1.0,
+        "ranks_compared": 500,
+        "pass": true
+      },
+      "AC2": {
+        "argmax_t": 21,
+        "rises_then_decays": false,
+        "gamma": null,
+        "r2": null,
+        "pass": false
+      },
+      "AC2_per_seed_gamma": [
+        0.0884107502107221,
+        null,
+        null,
+        0.0991629987074932,
+        0.08328872072515467
+      ],
+      "AC3": {
+        "per_seed": [
+          {
+            "a_mean_fitness_gt_0.5": true,
+            "b_low_fitness_founder_top": true,
+            "c_high_fitness_low_rank": true,
+            "all": true
+          },
+          {
+            "a_mean_fitness_gt_0.5": true,
+            "b_low_fitness_founder_top": true,
+            "c_high_fitness_low_rank": true,
+            "all": true
+          },
+          {
+            "a_mean_fitness_gt_0.5": true,
+            "b_low_fitness_founder_top": true,
+            "c_high_fitness_low_rank": true,
+            "all": true
+          },
+          {
+            "a_mean_fitness_gt_0.5": true,
+            "b_low_fitness_founder_top": true,
+            "c_high_fitness_low_rank": true,
+            "all": true
+          },
+          {
+            "a_mean_fitness_gt_0.5": true,
+            "b_low_fitness_founder_top": true,
+            "c_high_fitness_low_rank": true,
+            "all": true
+          }
+        ],
+        "pass": true
+      },
+      "AC5": {
+        "per_seed": [
+          {
+            "R_equals_expected": true,
+            "pool_rule": true,
+            "K_slots": true,
+            "pass": true
+          },
+          {
+            "R_equals_expected": true,
+            "pool_rule": true,
+            "K_slots": true,
+            "pass": true
+          },
+          {
+            "R_equals_expected": true,
+            "pool_rule": true,
+            "K_slots": true,
+            "pass": true
+          },
+          {
+            "R_equals_expected": true,
+            "pool_rule": true,
+            "K_slots": true,
+            "pass": true
+          },
+          {
+            "R_equals_expected": true,
+            "pool_rule": true,
+            "K_slots": true,
+            "pass": true
+          }
+        ],
+        "pass": true
+      },
+      "founder_share_top_KR0": 0.26181818181818184,
+      "used_ingredients_mean": 941.6
+    },
+    "IC-b": {
+      "config": {
+        "T": 1200,
+        "K": 11,
+        "L": 4,
+        "M": 3,
+        "R0": 20,
+        "initial": "IC-b",
+        "stop": "R_equals_T",
+        "loci": "with_replacement",
+        "duplicate": "reject",
+        "selection": "fitness"
+      },
+      "AC1": {
+        "share_within_0.2_decade": 0.182,
+        "ranks_compared": 500,
+        "pass": false
+      },
+      "AC2": {
+        "argmax_t": 21,
+        "rises_then_decays": false,
+        "gamma": null,
+        "r2": null,
+        "pass": false
+      },
+      "AC2_per_seed_gamma": [
+        null,
+        null,
+        0.10514914708368166,
+        null,
+        0.08698539700058247
+      ],
+      "AC3": {
+        "per_seed": [
+          {
+            "a_mean_fitness_gt_0.5": true,
+            "b_low_fitness_founder_top": true,
+            "c_high_fitness_low_rank": true,
+            "all": true
+          },
+          {
+            "a_mean_fitness_gt_0.5": true,
+            "b_low_fitness_founder_top": true,
+            "c_high_fitness_low_rank": true,
+            "all": true
+          },
+          {
+            "a_mean_fitness_gt_0.5": true,
+            "b_low_fitness_founder_top": true,
+            "c_high_fitness_low_rank": true,
+            "all": true
+          },
+          {
+            "a_mean_fitness_gt_0.5": true,
+            "b_low_fitness_founder_top": true,
+            "c_high_fitness_low_rank": true,
+            "all": true
+          },
+          {
+            "a_mean_fitness_gt_0.5": true,
+            "b_low_fitness_founder_top": true,
+            "c_high_fitness_low_rank": true,
+            "all": true
+          }
+        ],
+        "pass": true
+      },
+      "AC5": {
+        "per_seed": [
+          {
+            "R_equals_expected": true,
+            "pool_rule": true,
+            "K_slots": true,
+            "pass": true
+          },
+          {
+            "R_equals_expected": true,
+            "pool_rule": true,
+            "K_slots": true,
+            "pass": true
+          },
+          {
+            "R_equals_expected": true,
+            "pool_rule": true,
+            "K_slots": true,
+            "pass": true
+          },
+          {
+            "R_equals_expected": true,
+            "pool_rule": true,
+            "K_slots": true,
+            "pass": true
+          },
+          {
+            "R_equals_expected": true,
+            "pool_rule": true,
+            "K_slots": true,
+            "pass": true
+          }
+        ],
+        "pass": true
+      },
+      "founder_share_top_KR0": 0.8309090909090908,
+      "used_ingredients_mean": 1017.8
+    },
+    "A3_T_steps": {
+      "config": {
+        "T": 1200,
+        "K": 11,
+        "L": 4,
+        "M": 3,
+        "R0": 20,
+        "initial": "IC-a",
+        "stop": "T_steps",
+        "loci": "with_replacement",
+        "duplicate": "reject",
+        "selection": "fitness"
+      },
+      "AC1": {
+        "share_within_0.2_decade": 1.0,
+        "ranks_compared": 500,
+        "pass": true
+      },
+      "AC2": {
+        "argmax_t": 21,
+        "rises_then_decays": false,
+        "gamma": null,
+        "r2": null,
+        "pass": false
+      },
+      "AC2_per_seed_gamma": [
+        0.08855481958540061,
+        null,
+        null,
+        0.09914389134436152,
+        0.08319761932966913
+      ],
+      "AC3": {
+        "per_seed": [
+          {
+            "a_mean_fitness_gt_0.5": true,
+            "b_low_fitness_founder_top": true,
+            "c_high_fitness_low_rank": true,
+            "all": true
+          },
+          {
+            "a_mean_fitness_gt_0.5": true,
+            "b_low_fitness_founder_top": true,
+            "c_high_fitness_low_rank": true,
+            "all": true
+          },
+          {
+            "a_mean_fitness_gt_0.5": true,
+            "b_low_fitness_founder_top": true,
+            "c_high_fitness_low_rank": true,
+            "all": true
+          },
+          {
+            "a_mean_fitness_gt_0.5": true,
+            "b_low_fitness_founder_top": true,
+            "c_high_fitness_low_rank": true,
+            "all": true
+          },
+          {
+            "a_mean_fitness_gt_0.5": true,
+            "b_low_fitness_founder_top": true,
+            "c_high_fitness_low_rank": true,
+            "all": true
+          }
+        ],
+        "pass": true
+      },
+      "AC5": {
+        "per_seed": [
+          {
+            "R_equals_expected": true,
+            "pool_rule": true,
+            "K_slots": true,
+            "pass": true
+          },
+          {
+            "R_equals_expected": true,
+            "pool_rule": true,
+            "K_slots": true,
+            "pass": true
+          },
+          {
+            "R_equals_expected": true,
+            "pool_rule": true,
+            "K_slots": true,
+            "pass": true
+          },
+          {
+            "R_equals_expected": true,
+            "pool_rule": true,
+            "K_slots": true,
+            "pass": true
+          },
+          {
+            "R_equals_expected": true,
+            "pool_rule": true,
+            "K_slots": true,
+            "pass": true
+          }
+        ],
+        "pass": true
+      },
+      "founder_share_top_KR0": 0.26181818181818184,
+      "used_ingredients_mean": 954.2
+    },
+    "A4_without_replacement": {
+      "config": {
+        "T": 1200,
+        "K": 11,
+        "L": 4,
+        "M": 3,
+        "R0": 20,
+        "initial": "IC-a",
+        "stop": "R_equals_T",
+        "loci": "without_replacement",
+        "duplicate": "reject",
+        "selection": "fitness"
+      },
+      "AC1": {
+        "share_within_0.2_decade": 0.998,
+        "ranks_compared": 500,
+        "pass": true
+      },
+      "AC2": {
+        "argmax_t": 21,
+        "rises_then_decays": false,
+        "gamma": null,
+        "r2": null,
+        "pass": false
+      },
+      "AC2_per_seed_gamma": [
+        0.10312928987077635,
+        null,
+        null,
+        null,
+        null
+      ],
+      "AC3": {
+        "per_seed": [
+          {
+            "a_mean_fitness_gt_0.5": true,
+            "b_low_fitness_founder_top": true,
+            "c_high_fitness_low_rank": true,
+            "all": true
+          },
+          {
+            "a_mean_fitness_gt_0.5": true,
+            "b_low_fitness_founder_top": true,
+            "c_high_fitness_low_rank": true,
+            "all": true
+          },
+          {
+            "a_mean_fitness_gt_0.5": true,
+            "b_low_fitness_founder_top": true,
+            "c_high_fitness_low_rank": true,
+            "all": true
+          },
+          {
+            "a_mean_fitness_gt_0.5": true,
+            "b_low_fitness_founder_top": true,
+            "c_high_fitness_low_rank": true,
+            "all": true
+          },
+          {
+            "a_mean_fitness_gt_0.5": true,
+            "b_low_fitness_founder_top": true,
+            "c_high_fitness_low_rank": true,
+            "all": true
+          }
+        ],
+        "pass": true
+      },
+      "AC5": {
+        "per_seed": [
+          {
+            "R_equals_expected": true,
+            "pool_rule": true,
+            "K_slots": true,
+            "pass": true
+          },
+          {
+            "R_equals_expected": true,
+            "pool_rule": true,
+            "K_slots": true,
+            "pass": true
+          },
+          {
+            "R_equals_expected": true,
+            "pool_rule": true,
+            "K_slots": true,
+            "pass": true
+          },
+          {
+            "R_equals_expected": true,
+            "pool_rule": true,
+            "K_slots": true,
+            "pass": true
+          },
+          {
+            "R_equals_expected": true,
+            "pool_rule": true,
+            "K_slots": true,
+            "pass": true
+          }
+        ],
+        "pass": true
+      },
+      "founder_share_top_KR0": 0.2636363636363636,
+      "used_ingredients_mean": 965.8
+    },
+    "N1_no_selection": {
+      "config": {
+        "T": 1200,
+        "K": 11,
+        "L": 4,
+        "M": 3,
+        "R0": 20,
+        "initial": "IC-a",
+        "stop": "R_equals_T",
+        "loci": "with_replacement",
+        "duplicate": "reject",
+        "selection": "always"
+      },
+      "AC1": {
+        "share_within_0.2_decade": 0.388,
+        "ranks_compared": 500,
+        "pass": false
+      },
+      "AC2": {
+        "argmax_t": 695,
+        "rises_then_decays": true,
+        "gamma": 0.002667018000060396,
+        "r2": 0.7203585562554989,
+        "pass": false
+      },
+      "AC2_per_seed_gamma": [
+        0.006961618407244247,
+        0.002386669328687632,
+        -0.0005402505659496429,
+        0.022221987665901506,
+        0.011314918705167825
+      ],
+      "AC3": {
+        "per_seed": [
+          {
+            "a_mean_fitness_gt_0.5": false,
+            "b_low_fitness_founder_top": true,
+            "c_high_fitness_low_rank": true,
+            "all": false
+          },
+          {
+            "a_mean_fitness_gt_0.5": false,
+            "b_low_fitness_founder_top": true,
+            "c_high_fitness_low_rank": true,
+            "all": false
+          },
+          {
+            "a_mean_fitness_gt_0.5": true,
+            "b_low_fitness_founder_top": true,
+            "c_high_fitness_low_rank": true,
+            "all": true
+          },
+          {
+            "a_mean_fitness_gt_0.5": true,
+            "b_low_fitness_founder_top": true,
+            "c_high_fitness_low_rank": true,
+            "all": true
+          },
+          {
+            "a_mean_fitness_gt_0.5": false,
+            "b_low_fitness_founder_top": true,
+            "c_high_fitness_low_rank": true,
+            "all": false
+          }
+        ],
+        "pass": false
+      },
+      "AC5": {
+        "per_seed": [
+          {
+            "R_equals_expected": true,
+            "pool_rule": true,
+            "K_slots": true,
+            "pass": true
+          },
+          {
+            "R_equals_expected": true,
+            "pool_rule": true,
+            "K_slots": true,
+            "pass": true
+          },
+          {
+            "R_equals_expected": true,
+            "pool_rule": true,
+            "K_slots": true,
+            "pass": true
+          },
+          {
+            "R_equals_expected": true,
+            "pool_rule": true,
+            "K_slots": true,
+            "pass": true
+          },
+          {
+            "R_equals_expected": true,
+            "pool_rule": true,
+            "K_slots": true,
+            "pass": true
+          }
+        ],
+        "pass": true
+      },
+      "founder_share_top_KR0": 0.26454545454545453,
+      "used_ingredients_mean": 1929.2
+    }
+  },
+  "AC4": {
+    "with_selection": 0.26181818181818184,
+    "without_selection": 0.26454545454545453,
+    "pass": true
+  },
+  "overall": "NOT REPRODUCED",
+  "T2_heavy_tail_seed0": {
+    "xmin": 2,
+    "alpha": 1.6962173696120704,
+    "ks": 0.031146501197941823,
+    "n_tail": 582,
+    "gof_p_1000": 0.077,
+    "comparisons": {
+      "power_law_vs_exponential": {
+        "R": 449.70965062894766,
+        "normalised_R": 11.403700609945652,
+        "p": 4.007159135382578e-30,
+        "favours": "power_law"
+      },
+      "power_law_vs_lognormal": {
+        "R": -4.142193832084917,
+        "normalised_R": -2.0041208098086503,
+        "p": 0.045057120761265876,
+        "favours": "lognormal"
+      },
+      "power_law_vs_truncated_power_law": {
+        "R": -7.421041706102814,
+        "p_nested_chi2_1": 0.00011689769773661983,
+        "favours": "truncated_power_law"
+      }
+    }
+  }
+}
