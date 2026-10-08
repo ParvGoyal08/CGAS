@@ -101,11 +101,19 @@ def tables(xml: bytes):
         yield label, cap, grid(head), grid(body), len(head)
 
 
-def main() -> int:
+def main(argv=None) -> int:
+    import argparse
+    ap = argparse.ArgumentParser()
+    ap.add_argument("--all-tables", action="store_true", help="extract every table, not only cue-word captions")
+    ap.add_argument("--only", nargs="*", help="restrict to these PMCIDs")
+    ap.add_argument("--out", default=str(OUT))
+    ap.add_argument("--id-prefix", default="LITC1")
+    a = ap.parse_args(argv)
+    out_path = pathlib.Path(a.out)
     snaps = {}
     for line in (ROOT / "ledgers/snapshots/literature_snapshots.jsonl").read_text().splitlines():
         s = json.loads(line)
-        if s.get("kind") == "fulltext":
+        if s.get("kind") == "fulltext" and s.get("status", 200) == 200:
             snaps[s["pmcid"]] = s
     v0 = {}
     with (ROOT / "ledgers/literature/candidates_v0.csv").open() as fh:
@@ -115,9 +123,11 @@ def main() -> int:
     rows, n = [], 0
     for path in sorted(RAW.glob("PMC*.xml")):
         pmcid = path.stem
+        if a.only and pmcid not in a.only:
+            continue
         s = snaps.get(pmcid, {})
         for label, cap, hgrid, bgrid, nhead in tables(path.read_bytes()):
-            if not CAPTION_CUE.search(cap or ""):
+            if not a.all_tables and not CAPTION_CUE.search(cap or ""):
                 continue
             width = max((len(x) for x in hgrid + bgrid), default=0)
             colhead = []
@@ -161,14 +171,14 @@ def main() -> int:
                             fl.append("LEADING_MARKER:" + m.group("lead").strip() + " (ambiguous: footnote or value?)")
                         flags = " ".join(x for x in fl if x)
                     rows.append({
-                        "cand_id": f"LITC1-{n:06d}", "v0_cand_id": v0hit[0] if v0hit and v0hit[1] == t else "",
-                        "family": fam_of.get(pmcid, ""), "pmcid": pmcid, "doi": s.get("doi") or "",
+                        "cand_id": f"{a.id_prefix}-{n:06d}", "v0_cand_id": v0hit[0] if v0hit and v0hit[1] == t else "",
+                        "family": fam_of.get(pmcid, s.get("family", "")), "pmcid": pmcid, "doi": s.get("doi") or "",
                         "licence": s.get("license", ""), "year": s.get("year", ""), "table": label, "caption": cap[:400],
                         "row_index": ri, "row_header": row_header, "grid_col": ci, "tr_position": pos,
                         "col_header": colhead[ci] if ci < len(colhead) else "", "header_levels": nhead,
                         "cell_verbatim": t, "parsed_value": val, "parsed_sd": sd, "cell_flags": flags,
                         "tier": "E5", "verification": "UNVERIFIED"})
-    with OUT.open("w", newline="") as fh:
+    with out_path.open("w", newline="") as fh:
         w = csv.DictWriter(fh, fieldnames=list(rows[0]))
         w.writeheader()
         w.writerows(rows)

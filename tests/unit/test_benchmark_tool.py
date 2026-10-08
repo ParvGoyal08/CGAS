@@ -35,3 +35,11 @@ def test_rules_fire():
 def test_tiers():
     assert tier(103) == "below_minimum" and tier(104) == "minimum" and tier(320) == "target" and tier(440) == "stretch"
     assert stats([item()])["achieved_tier"] == "below_minimum"
+
+
+def test_ai_draft_cannot_enter_authoring_without_promotion():
+    errs = "\n".join(validate([item(item_id="AI1", origin="AI_DRAFT", status="UNVERIFIED")]))
+    assert "AI_DRAFT item in authoring/ without promotion" in errs
+    ok = validate([item(item_id="AI2", origin="AI_DRAFT", status="BENCHMARK_CANDIDATE", human_reviewer="Kush",
+                        rewrite_note="tightened wording")])
+    assert not any("AI_DRAFT" in e for e in ok)

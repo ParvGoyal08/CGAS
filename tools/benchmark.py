@@ -72,6 +72,10 @@ def validate(items: list[dict]) -> list[str]:
                 errs.append(f"{w}: must_abstain items need gold_mode ABSTAIN and no required evidence")
         if it.get("task_type") == "process_effect" and it.get("evidence_regime") in ("observed", "near") and not req:
             errs.append(f"{w}: observed/near process_effect items need required_evidence_ids")
+        if it.get("origin") == "AI_DRAFT" and not (it.get("status") == "BENCHMARK_CANDIDATE" and it.get("human_reviewer")
+                                                    and it.get("rewrite_note")):
+            errs.append(f"{w}: AI_DRAFT item in authoring/ without promotion (status BENCHMARK_CANDIDATE + human_reviewer "
+                        f"+ rewrite_note) — keep it in authoring/ai_candidates/ (DEC-041)")
         if it.get("task_type") in SESSION_TASKS:
             s = it.get("session") or {}
             if not s.get("recipe_id"):
@@ -89,6 +93,26 @@ def validate(items: list[dict]) -> list[str]:
         errs.append(f"{k}: question duplicates {src}")
     for k, src, j in leak["near_duplicates"]:
         errs.append(f"{k}: question near-duplicates {src} (Jaccard {j})")
+    return errs
+
+
+AI_FIELDS = ("origin", "model", "prompt_version", "timestamp", "evidence_source_ids", "status")
+AI_STATUSES = ("UNVERIFIED", "REVIEWED", "EVIDENCE_CHECKED", "REWRITTEN", "ADJUDICATED", "BENCHMARK_CANDIDATE")
+
+
+def validate_ai_pool() -> list[str]:
+    """Checks benchmark/authoring/ai_candidates/*.yaml: provenance fields present, origin AI_DRAFT, valid status."""
+    errs = []
+    for f in sorted((B / "authoring/ai_candidates").glob("*.yaml")):
+        for k, it in enumerate(yaml.safe_load(f.read_text()) or []):
+            w = f"{f.name}#{k} ({it.get('item_id')})"
+            for fld in AI_FIELDS:
+                if fld not in it:
+                    errs.append(f"{w}: missing {fld}")
+            if it.get("origin") != "AI_DRAFT":
+                errs.append(f"{w}: origin must be AI_DRAFT in the AI pool")
+            if it.get("status") not in AI_STATUSES:
+                errs.append(f"{w}: status must be one of {AI_STATUSES}")
     return errs
 
 
@@ -130,6 +154,10 @@ def freeze(items):
 if __name__ == "__main__":
     cmd = sys.argv[1] if len(sys.argv) > 1 else "validate"
     items = load_items()
+    if cmd == "validate-ai":
+        e = validate_ai_pool()
+        print("\n".join(e) if e else "OK — AI candidate pool valid")
+        sys.exit(1 if e else 0)
     if cmd == "validate":
         e = validate(items)
         print("\n".join(e) if e else f"OK — {len(items)} items valid")
