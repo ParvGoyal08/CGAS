@@ -1,0 +1,40 @@
+scope_id,kind,title,lane,status,owner,reviewer,restart_condition
+B00,BLOCK,Governance/repo/CI,A,ACTIVE_COURSE,Kush,Parv,
+B01,BLOCK,SSOT index/registries,A,ACTIVE_COURSE,Parv,Kush,
+B02,BLOCK,Sources/APIs/licences,A,ACTIVE_COURSE,Kush,Parv,
+B03,BLOCK,Classical replication — B03-lite,B,ACTIVE_PARALLEL,Kush,Parv,
+B04,BLOCK,Molecules/ingredients — B04-lite,B,ACTIVE_PARALLEL,Kush,Parv,
+B05,BLOCK,Process ontology v0,B,ACTIVE_PARALLEL,Parv,Kush,
+B06,BLOCK,State-change evidence (DEL-1),A,ACTIVE_COURSE,Kush,Parv,
+B07,BLOCK,Recipe corpus factory — 10k pilot,C,BLOCKED_GATE,Parv,Kush,W3 §257P gate = GO
+B08,BLOCK,NER — foundation only,C,BLOCKED_EXTERNAL,Parv,Kush,RecipeDB3 artefact permission
+B09,BLOCK,Canonical vocabulary,B,ACTIVE_PARALLEL,Parv,Kush,
+B10,BLOCK,Quantity system (CQPO),B,ACTIVE_PARALLEL,Kush,Parv,
+B11,BLOCK,Event/state graph (DEL-3),A,ACTIVE_COURSE,Parv,Kush,
+B12,BLOCK,Process-conditioned representation (L14),C,BLOCKED_GATE,Kush,Parv,G14 data gates on DEL-1 v1
+B13,BLOCK,Transition/kinetics/sparsity (DEL-2),A,ACTIVE_COURSE,Parv,Kush,
+B14,BLOCK,Recipe/cuisine representation (L13),C,PARKED_POST_COURSE,Parv,Kush,B04-lite + B11 frozen
+B15,BLOCK,L13E cultural evolution — bounded chain,B,ACTIVE_PARALLEL,Parv,Kush,
+B16,BLOCK,CulinaryState-RAG (DEL-4/5),A,ACTIVE_COURSE,Kush,Parv,
+B17,BLOCK,Evaluation/papers/course/release,A,ACTIVE_COURSE,Joint,Joint,
+DEL-1,DELIVERABLE,Process-Effect Evidence Ledger + data card,A,ACTIVE_COURSE,per WP,per WP,
+DEL-2,DELIVERABLE,Sparsity-aware completion + cold-split benchmark,A,ACTIVE_COURSE,per WP,per WP,
+DEL-3,DELIVERABLE,Event-sourced state-tracking engine,A,ACTIVE_COURSE,per WP,per WP,
+DEL-4,DELIVERABLE,Evidence-aware retrieval + calibrated abstention,A,ACTIVE_COURSE,per WP,per WP,
+DEL-5,DELIVERABLE,End-to-end CulinaryState-RAG + benchmark + demo,A,ACTIVE_COURSE,per WP,per WP,
+LC-SILVER-100K,LANE_C,25k → 60k → 100k Silver,C,BLOCKED_GATE,Joint,Joint,10k pilot says 'scale'; §257P; licence; H3
+LC-EVID-100K,LANE_C,≥100k tiered evidence rows,C,PARKED_POST_COURSE,Joint,Joint,sources genuinely support it; VOI-ranked
+LC-ING-10K,LANE_C,10k+ coverage-gated ingredient concepts,C,PARKED_POST_COURSE,Joint,Joint,B09 growth audit + crosswalk access
+LC-MOL,LANE_C,Broader molecule master / sensory evidence,C,PARKED_POST_COURSE,Joint,Joint,B04-lite complete
+LC-ENCODERS,LANE_C,Advanced L12–L15 encoders,C,BLOCKED_COMPUTE,Joint,Joint,GPU access + level gates
+LC-KINETICS,LANE_C,Learned transition + kinetic hybrids / simulators,C,BLOCKED_GATE,Joint,Joint,G15-4/5/10
+LC-NER-SOTA,LANE_C,NER SOTA programme,C,BLOCKED_COMPUTE,Joint,Joint,GPU + AW10 conditions
+LC-L13E,LANE_C,Full Level-13E programme,C,PARKED_POST_COURSE,Joint,Joint,historical-corpus licence audit
+LC-FLAVORTWIN,LANE_C,FlavorTwin V2,C,BLOCKED_GATE,Joint,Joint,G16-FT
+LC-L17,LANE_C,Level-17 multimodal / sensors,C,PARKED_POST_COURSE,Joint,Joint,core gates pass
+LC-RELEASE,LANE_C,Publication/release programme,C,PARKED_POST_COURSE,Joint,Joint,H6/H7 + CLM- ledger complete
+LC-WARNINGS,LANE_C,Warnings layer (SX-16-11),C,PARKED_POST_COURSE,Joint,Joint,authority sources per warning class
+LC-DEPLOY,LANE_C,Deployment (FastAPI + DB + vector index),C,PARKED_POST_COURSE,Joint,Joint,DEL-5 complete
+DOC-RND-PLAN-V2,MISSING_INPUT,CulinaryState_Detailed_RnD_Execution_Plan_v2.md (AG4 rank 4),-,BLOCKED_EXTERNAL,Joint,Joint,file provided
+DOC-PROMPT-V3,MISSING_INPUT,…Final_Execution_Plan_v3_0.md (Part AU),-,BLOCKED_EXTERNAL,Joint,Joint,file provided
+DOC-MERGED-PLAN,MISSING_INPUT,CulinaryState_Recipe_Compiler_FINAL_MERGED_PLAN.md (E0–E14),-,BLOCKED_EXTERNAL,Joint,Joint,file provided

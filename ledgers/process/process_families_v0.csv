@@ -1,0 +1,29 @@
+family_id,family,group,scope_note,status
+PROC-FAM-THERMAL_WET,THERMAL_WET,THERMAL,"heat transferred through water, steam or another aqueous liquid",PROPOSED
+PROC-FAM-THERMAL_DRY,THERMAL_DRY,THERMAL,"heat by hot air, radiant or contact heat without a fat medium",PROPOSED
+PROC-FAM-THERMAL_FAT,THERMAL_FAT,THERMAL,heat transferred through a fat/oil medium,PROPOSED
+PROC-FAM-THERMAL_GENERAL,THERMAL_GENERAL,THERMAL,heating where the medium is not specified by the verb,PROPOSED
+PROC-FAM-THERMAL_DIELECTRIC,THERMAL_DIELECTRIC,THERMAL,microwave (dielectric) heating,PROPOSED
+PROC-FAM-SMOKE,SMOKE,THERMAL_CHEMICAL,"exposure to smoke; hot vs cold smoking is a condition, not a separate verb here",PROPOSED
+PROC-FAM-COLD,COLD,COLD,"cooling, chilling, freezing, thawing",PROPOSED
+PROC-FAM-SIZE_REDUCTION,SIZE_REDUCTION,MECHANICAL,"cutting, comminution, pureeing",PROPOSED
+PROC-FAM-SURFACE_REMOVAL,SURFACE_REMOVAL,MECHANICAL,"removing peel, skin, veins or trim",PROPOSED
+PROC-FAM-PIERCE_SCORE,PIERCE_SCORE,MECHANICAL,piercing or scoring without dividing,PROPOSED
+PROC-FAM-MIXING,MIXING,MECHANICAL,combining or agitating materials,PROPOSED
+PROC-FAM-SEPARATION,SEPARATION,MECHANICAL,"separating phases or particles (drain, strain, sift, skim)",PROPOSED
+PROC-FAM-SHAPING,SHAPING,MECHANICAL,changing shape without dividing,PROPOSED
+PROC-FAM-MANIPULATION,MANIPULATION,MECHANICAL,"moving or orienting a food or vessel (flip, rotate, invert)",PROPOSED
+PROC-FAM-COATING,COATING,SURFACE_APPLICATION,applying a layer to a surface,PROPOSED
+PROC-FAM-SEASON_FLAVOUR,SEASON_FLAVOUR,SURFACE_APPLICATION,adding seasoning or dressing,PROPOSED
+PROC-FAM-ASSEMBLY,ASSEMBLY,ASSEMBLY_TRANSFER,"building a composite item (stuff, layer, thread)",PROPOSED
+PROC-FAM-TRANSFER,TRANSFER,ASSEMBLY_TRANSFER,moving material between vessels/locations,PROPOSED
+PROC-FAM-PORTION_SPLIT,PORTION_SPLIT,ASSEMBLY_TRANSFER,dividing into portions or reserving part,PROPOSED
+PROC-FAM-SERVE,SERVE,ASSEMBLY_TRANSFER,plating/serving,PROPOSED
+PROC-FAM-CONTAINER,CONTAINER,CONTAINER_TOOL,"operations on lids, wraps, seals",PROPOSED
+PROC-FAM-TOOL_STATE,TOOL_STATE,CONTAINER_TOOL,"changing the state of a tool (preheat, adjust heat)",PROPOSED
+PROC-FAM-STORAGE,STORAGE,CONTAINER_TOOL,holding food for later use,PROPOSED
+PROC-FAM-CHEMICAL,CHEMICAL,CHEMICAL,"acid, salt, alkali or solvent treatment",PROPOSED
+PROC-FAM-BIOLOGICAL,BIOLOGICAL,BIOLOGICAL,"fermentation, proofing, sprouting",PROPOSED
+PROC-FAM-REST_HOLD,REST_HOLD,REST_HOLD,letting food stand/rest/hold over time,PROPOSED
+PROC-FAM-LIQUID_HOLD,LIQUID_HOLD,REST_HOLD,"holding in a liquid without stated heat (soak, steep)",PROPOSED
+PROC-FAM-CLEAN_PREP,CLEAN_PREP,HYGIENE,"washing, drying, sorting",PROPOSED

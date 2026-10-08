@@ -1,0 +1,274 @@
+{
+  "corpus": "A1 (BBC Good Food, 11,934 recipes; local only)",
+  "distinct_names": 6346,
+  "mentions": 115197,
+  "mention_share_by_outcome": {
+    "MAPPED_CATEGORY": 0.3557,
+    "NO_R6_CLASS": 0.2513,
+    "DERIVED_PRODUCT": 0.2262,
+    "MAPPED_CONCEPT": 0.1129,
+    "UNRESOLVED": 0.045,
+    "A1_ARTEFACT": 0.0089
+  },
+  "name_share_by_outcome": {
+    "MAPPED_CATEGORY": 0.2934,
+    "UNRESOLVED": 0.2652,
+    "DERIVED_PRODUCT": 0.1894,
+    "NO_R6_CLASS": 0.1409,
+    "MAPPED_CONCEPT": 0.109,
+    "A1_ARTEFACT": 0.002
+  },
+  "mapped_mentions_by_ing": {
+    "ING-vegetable-other": 16080,
+    "ING-fruit-citrus": 3767,
+    "ING-egg": 3546,
+    "ING-fruit-non-citrus": 3468,
+    "ING-flour-meal": 3204,
+    "ING-cheese": 3125,
+    "ING-nut": 1942,
+    "ING-vegetable-greens": 1868,
+    "ING-tomato": 1839,
+    "ING-alcoholic-beverage": 1704,
+    "ING-milk": 1668,
+    "ING-vegetable-roots": 1646,
+    "ING-potato": 1384,
+    "ING-chicken": 1178,
+    "ING-finfish": 1078,
+    "ING-legume": 940,
+    "ING-rice": 851,
+    "ING-pasta": 621,
+    "ING-shellfish": 554,
+    "ING-bacon": 531,
+    "ING-fruit": 523,
+    "ING-beef": 519,
+    "ING-sausage": 450,
+    "ING-pork": 372,
+    "ING-lamb": 312,
+    "ING-ham": 294,
+    "ING-oatmeal": 250,
+    "ING-turkey": 148,
+    "ING-sweet-potato": 78,
+    "ING-liver": 27,
+    "ING-organ-meat-non-liver": 10,
+    "ING-veal": 8
+  },
+  "no_r6_class_mentions": {
+    "herb_or_seed_spice": 8202,
+    "spice_or_seasoning": 5681,
+    "fat": 3677,
+    "cream_or_cultured_dairy": 3162,
+    "sweetener_or_confection": 2102,
+    "condiment_or_other": 1922,
+    "condiment": 1509,
+    "spice": 923,
+    "leavening_or_setting_agent": 674,
+    "grain_not_in_r6": 533,
+    "generic_term_needs_context": 289,
+    "spice_ambiguous_bare_pepper": 178,
+    "beverage_non_alcoholic": 97
+  },
+  "unresolved_top50": [
+    [
+      "nut",
+      60
+    ],
+    [
+      "custard",
+      60
+    ],
+    [
+      "baguette",
+      55
+    ],
+    [
+      "coffee",
+      53
+    ],
+    [
+      "mace",
+      52
+    ],
+    [
+      "bean",
+      50
+    ],
+    [
+      "horseradish",
+      49
+    ],
+    [
+      "sourdough",
+      47
+    ],
+    [
+      "curry",
+      47
+    ],
+    [
+      "sprinkle",
+      45
+    ],
+    [
+      "flatbread",
+      44
+    ],
+    [
+      "caper",
+      44
+    ],
+    [
+      "rapeseed",
+      41
+    ],
+    [
+      "rosewater",
+      40
+    ],
+    [
+      "marshmallow",
+      40
+    ],
+    [
+      "mincemeat",
+      39
+    ],
+    [
+      "yolk",
+      38
+    ],
+    [
+      "caramel",
+      37
+    ],
+    [
+      "ciabatta",
+      30
+    ],
+    [
+      "gherkin",
+      29
+    ],
+    [
+      "vegetable bouillon",
+      29
+    ],
+    [
+      "cornichon",
+      28
+    ],
+    [
+      "espresso",
+      27
+    ],
+    [
+      "coffee granule",
+      27
+    ],
+    [
+      "burger bun",
+      26
+    ],
+    [
+      "sriracha",
+      26
+    ],
+    [
+      "shop",
+      26
+    ],
+    [
+      "petit pois",
+      26
+    ],
+    [
+      "guacamole",
+      26
+    ],
+    [
+      "marmite",
+      25
+    ],
+    [
+      "triple sec",
+      24
+    ],
+    [
+      "duck breast",
+      23
+    ],
+    [
+      "duck",
+      23
+    ],
+    [
+      "icing",
+      22
+    ],
+    [
+      "gold",
+      22
+    ],
+    [
+      "groundnut",
+      21
+    ],
+    [
+      "brown",
+      21
+    ],
+    [
+      "duck leg",
+      21
+    ],
+    [
+      "ciabatta loaf",
+      20
+    ],
+    [
+      "soya bean",
+      20
+    ],
+    [
+      "sausagemeat",
+      19
+    ],
+    [
+      "rose petal",
+      19
+    ],
+    [
+      "pink food colouring",
+      19
+    ],
+    [
+      "cocktail",
+      19
+    ],
+    [
+      "pretzel",
+      19
+    ],
+    [
+      "ribbon",
+      19
+    ],
+    [
+      "stir-fry vegetable",
+      18
+    ],
+    [
+      "toast",
+      18
+    ],
+    [
+      "meringue nest",
+      18
+    ],
+    [
+      "madeira",
+      18
+    ]
+  ],
+  "rules": 58,
+  "status": "all links PROPOSED — human audit pending (sample ≥ 200 aliases, stratified by rule)"
+}

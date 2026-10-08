@@ -1,0 +1,95 @@
+term,allergen_id,provenance,note
+wheat,ALLERGEN-01,EXPLICIT_SOURCE,listed in Reg. 5(14)
+rye,ALLERGEN-01,EXPLICIT_SOURCE,listed in Reg. 5(14)
+barley,ALLERGEN-01,EXPLICIT_SOURCE,listed in Reg. 5(14)
+oats,ALLERGEN-01,EXPLICIT_SOURCE,listed in Reg. 5(14)
+spelt,ALLERGEN-01,EXPLICIT_SOURCE,listed in Reg. 5(14)
+milk,ALLERGEN-03,EXPLICIT_SOURCE,listed in Reg. 5(14)
+egg,ALLERGEN-04,EXPLICIT_SOURCE,listed in Reg. 5(14)
+eggs,ALLERGEN-04,EXPLICIT_SOURCE,listed in Reg. 5(14)
+fish,ALLERGEN-05,EXPLICIT_SOURCE,listed in Reg. 5(14)
+peanut,ALLERGEN-06,EXPLICIT_SOURCE,listed in Reg. 5(14)
+peanuts,ALLERGEN-06,EXPLICIT_SOURCE,listed in Reg. 5(14)
+almond,ALLERGEN-06,EXPLICIT_SOURCE,listed in Reg. 5(14)
+almonds,ALLERGEN-06,EXPLICIT_SOURCE,listed in Reg. 5(14)
+walnut,ALLERGEN-06,EXPLICIT_SOURCE,listed in Reg. 5(14)
+walnuts,ALLERGEN-06,EXPLICIT_SOURCE,listed in Reg. 5(14)
+pistachio,ALLERGEN-06,EXPLICIT_SOURCE,listed in Reg. 5(14)
+cashew,ALLERGEN-06,EXPLICIT_SOURCE,listed in Reg. 5(14)
+cashew nuts,ALLERGEN-06,EXPLICIT_SOURCE,listed in Reg. 5(14)
+soybean,ALLERGEN-07,EXPLICIT_SOURCE,listed in Reg. 5(14)
+soybeans,ALLERGEN-07,EXPLICIT_SOURCE,listed in Reg. 5(14)
+sulphite,ALLERGEN-08,EXPLICIT_SOURCE,listed in Reg. 5(14)
+atta,ALLERGEN-01,INFERRED_LLM,proposed mapping — needs human review against the authority definition
+maida,ALLERGEN-01,INFERRED_LLM,proposed mapping — needs human review against the authority definition
+semolina,ALLERGEN-01,INFERRED_LLM,proposed mapping — needs human review against the authority definition
+sooji,ALLERGEN-01,INFERRED_LLM,proposed mapping — needs human review against the authority definition
+suji,ALLERGEN-01,INFERRED_LLM,proposed mapping — needs human review against the authority definition
+rava,ALLERGEN-01,INFERRED_LLM,proposed mapping — needs human review against the authority definition
+durum,ALLERGEN-01,INFERRED_LLM,proposed mapping — needs human review against the authority definition
+bread,ALLERGEN-01,INFERRED_LLM,proposed mapping — needs human review against the authority definition
+pasta,ALLERGEN-01,INFERRED_LLM,proposed mapping — needs human review against the authority definition
+noodles,ALLERGEN-01,INFERRED_LLM,proposed mapping — needs human review against the authority definition
+couscous,ALLERGEN-01,INFERRED_LLM,proposed mapping — needs human review against the authority definition
+bulgur,ALLERGEN-01,INFERRED_LLM,proposed mapping — needs human review against the authority definition
+seitan,ALLERGEN-01,INFERRED_LLM,proposed mapping — needs human review against the authority definition
+flour (wheat),ALLERGEN-01,INFERRED_LLM,proposed mapping — needs human review against the authority definition
+shrimp,ALLERGEN-02,INFERRED_LLM,proposed mapping — needs human review against the authority definition
+prawn,ALLERGEN-02,INFERRED_LLM,proposed mapping — needs human review against the authority definition
+prawns,ALLERGEN-02,INFERRED_LLM,proposed mapping — needs human review against the authority definition
+crab,ALLERGEN-02,INFERRED_LLM,proposed mapping — needs human review against the authority definition
+lobster,ALLERGEN-02,INFERRED_LLM,proposed mapping — needs human review against the authority definition
+crayfish,ALLERGEN-02,INFERRED_LLM,proposed mapping — needs human review against the authority definition
+shellfish (crustacean),ALLERGEN-02,INFERRED_LLM,proposed mapping — needs human review against the authority definition
+paneer,ALLERGEN-03,INFERRED_LLM,proposed mapping — needs human review against the authority definition
+ghee,ALLERGEN-03,INFERRED_LLM,proposed mapping — needs human review against the authority definition
+butter,ALLERGEN-03,INFERRED_LLM,proposed mapping — needs human review against the authority definition
+curd,ALLERGEN-03,INFERRED_LLM,proposed mapping — needs human review against the authority definition
+dahi,ALLERGEN-03,INFERRED_LLM,proposed mapping — needs human review against the authority definition
+yogurt,ALLERGEN-03,INFERRED_LLM,proposed mapping — needs human review against the authority definition
+yoghurt,ALLERGEN-03,INFERRED_LLM,proposed mapping — needs human review against the authority definition
+cream,ALLERGEN-03,INFERRED_LLM,proposed mapping — needs human review against the authority definition
+cheese,ALLERGEN-03,INFERRED_LLM,proposed mapping — needs human review against the authority definition
+khoya,ALLERGEN-03,INFERRED_LLM,proposed mapping — needs human review against the authority definition
+mawa,ALLERGEN-03,INFERRED_LLM,proposed mapping — needs human review against the authority definition
+buttermilk,ALLERGEN-03,INFERRED_LLM,proposed mapping — needs human review against the authority definition
+whey,ALLERGEN-03,INFERRED_LLM,proposed mapping — needs human review against the authority definition
+condensed milk,ALLERGEN-03,INFERRED_LLM,proposed mapping — needs human review against the authority definition
+milk powder,ALLERGEN-03,INFERRED_LLM,proposed mapping — needs human review against the authority definition
+lassi,ALLERGEN-03,INFERRED_LLM,proposed mapping — needs human review against the authority definition
+chhena,ALLERGEN-03,INFERRED_LLM,proposed mapping — needs human review against the authority definition
+egg white,ALLERGEN-04,INFERRED_LLM,proposed mapping — needs human review against the authority definition
+egg yolk,ALLERGEN-04,INFERRED_LLM,proposed mapping — needs human review against the authority definition
+mayonnaise,ALLERGEN-04,INFERRED_LLM,proposed mapping — needs human review against the authority definition
+salmon,ALLERGEN-05,INFERRED_LLM,proposed mapping — needs human review against the authority definition
+tuna,ALLERGEN-05,INFERRED_LLM,proposed mapping — needs human review against the authority definition
+cod,ALLERGEN-05,INFERRED_LLM,proposed mapping — needs human review against the authority definition
+sardine,ALLERGEN-05,INFERRED_LLM,proposed mapping — needs human review against the authority definition
+anchovy,ALLERGEN-05,INFERRED_LLM,proposed mapping — needs human review against the authority definition
+anchovies,ALLERGEN-05,INFERRED_LLM,proposed mapping — needs human review against the authority definition
+pomfret,ALLERGEN-05,INFERRED_LLM,proposed mapping — needs human review against the authority definition
+rohu,ALLERGEN-05,INFERRED_LLM,proposed mapping — needs human review against the authority definition
+hilsa,ALLERGEN-05,INFERRED_LLM,proposed mapping — needs human review against the authority definition
+mackerel,ALLERGEN-05,INFERRED_LLM,proposed mapping — needs human review against the authority definition
+fish sauce,ALLERGEN-05,INFERRED_LLM,proposed mapping — needs human review against the authority definition
+groundnut,ALLERGEN-06,INFERRED_LLM,proposed mapping — needs human review against the authority definition
+groundnuts,ALLERGEN-06,INFERRED_LLM,proposed mapping — needs human review against the authority definition
+hazelnut,ALLERGEN-06,INFERRED_LLM,proposed mapping — needs human review against the authority definition
+pecan,ALLERGEN-06,INFERRED_LLM,proposed mapping — needs human review against the authority definition
+macadamia,ALLERGEN-06,INFERRED_LLM,proposed mapping — needs human review against the authority definition
+brazil nut,ALLERGEN-06,INFERRED_LLM,proposed mapping — needs human review against the authority definition
+pine nut,ALLERGEN-06,INFERRED_LLM,proposed mapping — needs human review against the authority definition
+chironji,ALLERGEN-06,INFERRED_LLM,proposed mapping — needs human review against the authority definition
+peanut butter,ALLERGEN-06,INFERRED_LLM,proposed mapping — needs human review against the authority definition
+almond flour,ALLERGEN-06,INFERRED_LLM,proposed mapping — needs human review against the authority definition
+marzipan,ALLERGEN-06,INFERRED_LLM,proposed mapping — needs human review against the authority definition
+soy,ALLERGEN-07,INFERRED_LLM,proposed mapping — needs human review against the authority definition
+soya,ALLERGEN-07,INFERRED_LLM,proposed mapping — needs human review against the authority definition
+tofu,ALLERGEN-07,INFERRED_LLM,proposed mapping — needs human review against the authority definition
+soy sauce,ALLERGEN-07,INFERRED_LLM,proposed mapping — needs human review against the authority definition
+tempeh,ALLERGEN-07,INFERRED_LLM,proposed mapping — needs human review against the authority definition
+edamame,ALLERGEN-07,INFERRED_LLM,proposed mapping — needs human review against the authority definition
+miso,ALLERGEN-07,INFERRED_LLM,proposed mapping — needs human review against the authority definition
+soya chunks,ALLERGEN-07,INFERRED_LLM,proposed mapping — needs human review against the authority definition
+wine (sulphited),ALLERGEN-08,INFERRED_LLM,proposed mapping — needs human review against the authority definition
+dried fruit (sulphited),ALLERGEN-08,INFERRED_LLM,proposed mapping — needs human review against the authority definition

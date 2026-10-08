@@ -1,0 +1,17 @@
+# K1 — CI: lint, unit + property tests, data/registry validation, gate harness.
+# Activates when the repository is created (WP-04 / gate H7).
+name: ci
+on: [push, pull_request]
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with: {python-version: "3.12"}
+      - run: pip install -r requirements.lock.txt
+      - run: ruff check src tools tests
+      - run: pytest
+      - run: python tools/seed_registries.py docs/SSOT/Plan_SSOT15_v4_0.md docs/SSOT/computational_gastronomy_master_ssot_v15_0.md
+      - run: python tools/build_proc_v0.py
+      - run: python gate.py

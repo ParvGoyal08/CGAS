@@ -1,0 +1,18 @@
+{
+  "ledger_version": "v0",
+  "sha256_jsonl": "cf5a1f7c4cc0157a8f1be421c6b1df565a09b6cf414314050c67735a44e0fc93",
+  "rows": 7018,
+  "by_source": {
+    "SRC-0001 USDA-R6": 7018
+  },
+  "usda_r6": {
+    "rows": 7018,
+    "codes": 270,
+    "defects": 24,
+    "censored_right": 2620
+  },
+  "evaluable_rows": 6994,
+  "distinct_ingredients": 36,
+  "distinct_targets": 26,
+  "rows_with_time_condition": 753
+}

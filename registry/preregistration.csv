@@ -1,0 +1,3 @@
+experiment,file,sha256,frozen_utc,data_seen_before_freeze
+DEL2-SX-13-01/03/04,experiments/DEL2/card.md,da8430244208f88c29a2afb63201a4288949036340cf2cd0cc8dcb940bd06031,2026-10-07T19:09:07Z,R6 structure only (no value distributions)
+B08-RECIPEDB3-REPRO,experiments/B08/recipedb3_repro/card.md,1881a731ff64ca3b3ef9144a2ea65eb4b3ff2637b4b8e10811026ee3faff2418,2026-10-08T18:54:49Z,none (no data access; NER outputs read from public notebook only)

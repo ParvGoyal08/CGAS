@@ -1,0 +1,14 @@
+{
+  "names": 27,
+  "resolved": 27,
+  "failures": [],
+  "rdkit_parsed": 27,
+  "inchikey_roundtrip_ok": 27,
+  "new_requests": 0,
+  "tanimoto_smoke": {
+    "alpha-carotene~beta-carotene": 0.688,
+    "lutein~zeaxanthin": 0.7,
+    "pyridoxal~pyridoxine": 0.576,
+    "ascorbic acid~ethanol": 0.107
+  }
+}

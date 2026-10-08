@@ -1,0 +1,76 @@
+# RecipeDB quantity/unit cubits — Bagler G., arXiv:2211.09059v1 (2022), Supplementary Table S4
+# ('The list of units from the Quantity-and-Units (Q) cubit (71) that appear in RecipeDB').
+# Terms only (cited vocabulary seed). Extracted 2026-10-08 (pdftotext -layout; cells split on ≥2 spaces).
+cup
+teaspoon
+tablespoon
+ounce
+can
+lb
+package
+clove
+pinch
+slice
+gm
+pound
+bunch
+dash
+pods
+jar
+stalks
+ml
+quart
+sprig
+halved
+piece
+inch
+pint
+box
+bag
+bottle
+loaf
+packet
+drop
+envelope
+kg
+sheet
+fluid ounce
+leaves
+head
+cubes
+carton
+gallon
+stick
+scoop
+bottles
+thin
+glass
+container
+square
+ear
+liters
+dozen
+scotch
+cup halved
+strip
+can bottle
+thick
+cm
+long
+handful
+round
+splash
+jar
+thick slices
+chips
+big
+slightly
+thin slices
+stems
+cloves
+pound
+sprinkles
+balls
+few
+halved
+halved

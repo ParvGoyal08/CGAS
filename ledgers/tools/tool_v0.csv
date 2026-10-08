@@ -1,0 +1,29 @@
+tool_id,label,aliases,kind,process_compatibility,material,geometry,capacity,heat_source_compatibility,physical_implications,safety_warning_ids,source,status
+TOOL-air-fryer,air fryer,,APPLIANCE,PROC-air-fry,UNKNOWN,UNKNOWN,UNKNOWN,UNKNOWN,UNKNOWN,,decision.core definitional requirement; proc_v0.encodes_tool,PROPOSED
+TOOL-barbecue,barbecue,bbq,HEAT_SOURCE,PROC-barbecue,UNKNOWN,UNKNOWN,UNKNOWN,UNKNOWN,UNKNOWN,,decision.core definitional requirement; proc_v0.encodes_tool,PROPOSED
+TOOL-brush,brush,,UTENSIL,PROC-brush,UNKNOWN,UNKNOWN,UNKNOWN,UNKNOWN,UNKNOWN,,decision.core definitional requirement; proc_v0.encodes_tool,PROPOSED
+TOOL-foil,foil,,MATERIAL,,UNKNOWN,UNKNOWN,UNKNOWN,UNKNOWN,UNKNOWN,,"RecipeDB process vocabulary (Bagler 2022, Table S2)",PROPOSED
+TOOL-freezer,freezer,,APPLIANCE,PROC-freeze,UNKNOWN,UNKNOWN,UNKNOWN,UNKNOWN,UNKNOWN,,decision.core definitional requirement; proc_v0.encodes_tool,PROPOSED
+TOOL-grater,grater,,UTENSIL,PROC-grate,UNKNOWN,UNKNOWN,UNKNOWN,UNKNOWN,UNKNOWN,,decision.core definitional requirement; proc_v0.encodes_tool,PROPOSED
+TOOL-griddle,griddle,,COOKWARE,PROC-griddle,UNKNOWN,UNKNOWN,UNKNOWN,UNKNOWN,UNKNOWN,,decision.core definitional requirement; proc_v0.encodes_tool,PROPOSED
+TOOL-grill,grill,,HEAT_SOURCE,PROC-broil|PROC-grill,UNKNOWN,UNKNOWN,UNKNOWN,UNKNOWN,UNKNOWN,,decision.core definitional requirement; proc_v0.encodes_tool,PROPOSED
+TOOL-hob,hob,stove|stovetop|burner,HEAT_SOURCE,PROC-adjust-heat,UNKNOWN,UNKNOWN,UNKNOWN,UNKNOWN,UNKNOWN,,decision.core definitional requirement; proc_v0.encodes_tool,PROPOSED
+TOOL-ladle,ladle,,UTENSIL,PROC-ladle,UNKNOWN,UNKNOWN,UNKNOWN,UNKNOWN,UNKNOWN,,decision.core definitional requirement; proc_v0.encodes_tool,PROPOSED
+TOOL-lid,lid,,COOKWARE,PROC-cover|PROC-uncover,UNKNOWN,UNKNOWN,UNKNOWN,UNKNOWN,UNKNOWN,,decision.core definitional requirement; proc_v0.encodes_tool,PROPOSED
+TOOL-microwave-oven,microwave oven,microwave,APPLIANCE,PROC-microwave,UNKNOWN,UNKNOWN,UNKNOWN,UNKNOWN,UNKNOWN,,decision.core definitional requirement; proc_v0.encodes_tool,PROPOSED
+TOOL-oven,oven,,APPLIANCE,PROC-adjust-heat|PROC-bake|PROC-broil|PROC-preheat|PROC-roast,UNKNOWN,UNKNOWN,UNKNOWN,UNKNOWN,UNKNOWN,,decision.core definitional requirement; proc_v0.encodes_tool,PROPOSED
+TOOL-pan,pan,frying pan|skillet,COOKWARE,PROC-pan-fry|PROC-preheat,UNKNOWN,UNKNOWN,UNKNOWN,UNKNOWN,UNKNOWN,,decision.core definitional requirement; proc_v0.encodes_tool,PROPOSED
+TOOL-pot-with-lid,pot with lid,,COOKWARE,PROC-steam,UNKNOWN,UNKNOWN,UNKNOWN,UNKNOWN,UNKNOWN,,decision.core definitional requirement,PROPOSED
+TOOL-pressure-cooker,pressure cooker,,APPLIANCE,PROC-pressure-cook,UNKNOWN,UNKNOWN,UNKNOWN,UNKNOWN,UNKNOWN,,decision.core definitional requirement; proc_v0.encodes_tool,PROPOSED
+TOOL-refrigerator,refrigerator,,APPLIANCE,PROC-refrigerate,UNKNOWN,UNKNOWN,UNKNOWN,UNKNOWN,UNKNOWN,,decision.core definitional requirement; proc_v0.encodes_tool,PROPOSED
+TOOL-sealed-bag,sealed bag,,CONTAINER,PROC-sous-vide,UNKNOWN,UNKNOWN,UNKNOWN,UNKNOWN,UNKNOWN,,decision.core definitional requirement; proc_v0.encodes_tool,PROPOSED
+TOOL-sealed-container,sealed container,,CONTAINER,PROC-can,UNKNOWN,UNKNOWN,UNKNOWN,UNKNOWN,UNKNOWN,,decision.core definitional requirement; proc_v0.encodes_tool,PROPOSED
+TOOL-sealed-pot,sealed pot,,COOKWARE,PROC-dum,UNKNOWN,UNKNOWN,UNKNOWN,UNKNOWN,UNKNOWN,,decision.core definitional requirement; proc_v0.encodes_tool,PROPOSED
+TOOL-sifter,sifter,,UTENSIL,PROC-sift,UNKNOWN,UNKNOWN,UNKNOWN,UNKNOWN,UNKNOWN,,decision.core definitional requirement; proc_v0.encodes_tool,PROPOSED
+TOOL-skewer,skewer,,UTENSIL,PROC-thread,UNKNOWN,UNKNOWN,UNKNOWN,UNKNOWN,UNKNOWN,,decision.core definitional requirement; proc_v0.encodes_tool,PROPOSED
+TOOL-slow-cooker,slow cooker,crockpot|crock pot|crock-pot,APPLIANCE,,UNKNOWN,UNKNOWN,UNKNOWN,UNKNOWN,UNKNOWN,,"RecipeDB process vocabulary (Bagler 2022, Table S2)",PROPOSED
+TOOL-steamer,steamer,,COOKWARE,PROC-steam,UNKNOWN,UNKNOWN,UNKNOWN,UNKNOWN,UNKNOWN,,decision.core definitional requirement,PROPOSED
+TOOL-string,string,,MATERIAL,PROC-tie,UNKNOWN,UNKNOWN,UNKNOWN,UNKNOWN,UNKNOWN,,decision.core definitional requirement; proc_v0.encodes_tool,PROPOSED
+TOOL-water-bath,water bath,,APPLIANCE,PROC-sous-vide,UNKNOWN,UNKNOWN,UNKNOWN,UNKNOWN,UNKNOWN,,decision.core definitional requirement; proc_v0.encodes_tool,PROPOSED
+TOOL-whisk,whisk,,UTENSIL,PROC-whisk,UNKNOWN,UNKNOWN,UNKNOWN,UNKNOWN,UNKNOWN,,decision.core definitional requirement; proc_v0.encodes_tool,PROPOSED
+TOOL-wok,wok,,COOKWARE,,UNKNOWN,UNKNOWN,UNKNOWN,UNKNOWN,UNKNOWN,,"RecipeDB process vocabulary (Bagler 2022, Table S2)",PROPOSED

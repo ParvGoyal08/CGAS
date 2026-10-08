@@ -1,0 +1,75 @@
+gate_id,family,definition_from_ssot,ssot_line,applies_to,status
+G13-0,G13,no learned Level-13 headline result until leakage audits and explicit baselines exist.,15118,—,PARKED_POST_COURSE
+G13-1,G13,promote a learned set aggregator only if gains exceed seed/split uncertainty on at least two task families.,15139,—,PARKED_POST_COURSE
+G13-2,G13,freeze no objective based solely on the task it directly optimizes; require transfer or non-circular secondary evaluation.,15157,—,PARKED_POST_COURSE
+G13-3,G13,procedural/graph complexity is promoted only if it improves process-sensitive or cross-source tasks beyond set/text baselines and survives extraction-error analysis.,15171,—,PARKED_POST_COURSE
+G13-4,G13,learned \(z_C\) must add value beyond explicit cuisine fingerprints on at least one non-circular held-out task and remain stable under matched resampling.,15191,—,PARKED_POST_COURSE
+G14-1,G14,Versioned process-event schema + provenance/evidence tier/missingness.,17078,DEL-1,ACTIVE_COURSE
+G14-2,G14,"Dataset card with per-field coverage, source/study/platform distribution.",17079,DEL-1,ACTIVE_COURSE
+G14-3,G14,Human-verified held-out test labels.,17080,DEL-2,ACTIVE_COURSE
+G14-4,G14,Shortcut/null/tabular baselines completed.,17081,DEL-2,ACTIVE_COURSE
+G14-5,G14,Ingredient × process pair-holdout completed.,17082,DEL-2,ACTIVE_COURSE
+G14-6,G14,Source/study-disjoint evaluation completed where study IDs exist.,17083,DEL-2,ACTIVE_COURSE
+G14-7,G14,Condition contribution tested against label-only.,17084,DEL-2,ACTIVE_COURSE
+G14-8,G14,Missingness robustness reported.,17085,DEL-2,ACTIVE_COURSE
+G14-9,G14,Calibration / interval coverage / risk–coverage reported.,17086,DEL-2,ACTIVE_COURSE
+G14-10,G14,Evidence-quality stratification reported.,17087,DEL-2,ACTIVE_COURSE
+G14-11,G14,Multiple-seed / clustered uncertainty reported for learned models.,17088,DEL-2,ACTIVE_COURSE
+G14-12,G14,"Final decision record states what is supported, what is extrapolated, and where the system abstains.",17089,DEL-2,ACTIVE_COURSE
+G15-1,G15,"Data audit: Every quantitative row has source/study, evidence tier, units/target definition, yield/normalization status, and censoring/missingness status.",22382,DEL-2,ACTIVE_COURSE
+G15-2,G15,Baselines: Canonical D0–D6 are reported on all eligible headline splits before D7+ claims.,22383,DEL-2,ACTIVE_COURSE
+G15-3,G15,"Process signal: Process-conditioned modeling adds value over food-identity-only on a process-disjoint or equivalent controlled split; report CI/effect, not just point gain.",22384,DEL-2,ACTIVE_COURSE
+G15-4,G15,Kinetic fit: At least one focused D-C dataset supports an identifiable/useful kinetic fit with profile/bootstrap/posterior uncertainty.,22385,—,BLOCKED_GATE
+G15-5,G15,Condition-OOD: Kinetic/hybrid/physics model adds value over the best non-kinetic tabular baseline on held-out temperature/condition.,22386,—,BLOCKED_GATE
+G15-6,G15,"Calibration: Real, study-disjoint calibration is reported; intervals/sets achieve acceptable task-specific coverage/width.",22387,DEL-2,ACTIVE_COURSE
+G15-7,G15,Abstention: Risk–coverage/selective prediction improves over always-answering and abstention rules are defined on REAL calibration data.,22388,DEL-2,ACTIVE_COURSE
+G15-8,G15,"Consistency: Relevant non-negativity, semigroup/order/balance/constraint diagnostics are reported on scientifically valid subsets.",22389,DEL-2,ACTIVE_COURSE
+G15-9,G15,"Completion: Evidence-aware D7 completion beats D5/D6 on masked-real-cell and cold food/process/compound/pair tests, or is rejected.",22390,DEL-2,ACTIVE_COURSE
+G15-10,G15,Synthetic/imputed utility: Synthetic/imputed training rows improve REAL-only study-disjoint performance in a ratio sweep without unacceptable calibration damage; no synthetic/imputed target enters final test/calibration.,22391,—,BLOCKED_GATE
+G15-11,G15,Rollout: A trust horizon is empirically established on D-C/D-D where true intermediate states exist; no rollout claim otherwise.,22392,—,BLOCKED_GATE
+G15-12,G15,Inverse design: At least one supported inverse-design case passes an ID-level benchmark beyond nearest-evidence/random/grid and remains inside the safe support region.,22393,—,BLOCKED_GATE
+G15-R,G15,"Reproducibility: Seeds, versions, hashes/snapshots, splits and parameter settings permit rerun within declared tolerance.",22394,DEL-2,ACTIVE_COURSE
+G15-H,G15,Human verification: Every LLM-extracted row used in held-out test/calibration is human verified against the cited source span/table.,22395,DEL-2,ACTIVE_COURSE
+G15-I,G15,"Integration: CulinaryState-RAG / FlavorTwin end-to-end evaluation logs evidence class, uncertainty, abstention and provenance.",22396,DEL-5,ACTIVE_COURSE
+G15-RXN,G15,reaction-model gate: Promote a reaction graph only if: 1. species/reactions have evidence; 2. dynamics data exist; 3. topology adds value beyond set/tabular baselines;,22402,—,BLOCKED_GATE
+G15-HYB,G15,"hybrid-model gate: Promote a mechanistic-neural hybrid only if it adds meaningful held-out/OOD/calibration value beyond both the mechanistic model and pure ML, or provides a separately demonstrated physical-consistency a",22412,—,BLOCKED_GATE
+G15-INV,G15,inverse-design credibility gate: \[ \boxed{ \text{inverse-design ceiling} \le \text{forward-model credibility},22416,—,BLOCKED_GATE
+G16-DATA,G16,Deep Gold exists with independent annotation/adjudication; Silver quality and source/duplicate controls documented.,27446,—,ACTIVE_PARALLEL
+G16-VOCAB,G16,High mention coverage is achieved; high-frequency unresolved/ambiguous concepts below declared threshold; concept/alias fragmentation audited.,27449,—,ACTIVE_PARALLEL
+G16-QTY,G16,Deterministic units correct; food-specific portion conversions have provenance; qualitative/unknown quantities are not fabricated; interval calibration reported where distributional.,27452,—,ACTIVE_PARALLEL
+G16-SEM,G16,Ingredient/action/state/coreference parsers meet declared Deep-Gold thresholds and source-disjoint performance is reported.,27455,—,ACTIVE_PARALLEL
+G16-GRAPH,G16,"Recipe graph temporal integrity, intermediate, merge/split and coreference metrics meet declared acceptance criteria.",27458,DEL-3,ACTIVE_COURSE
+G16-EVID,G16,Evidence retrieval has acceptable compatible Recall@K/citation support and preserves exact provenance.,27461,DEL-4,ACTIVE_COURSE
+G16-CONFLICT,G16,Conflicting evidence is detected/qualified rather than silently collapsed.,27464,DEL-4,ACTIVE_COURSE
+G16-CAL,G16,Confidence/abstention calibrated on held-out independent gold; risk–coverage reported.,27467,DEL-4,ACTIVE_COURSE
+G16-TRANS,G16,No Level-15 fallback is used for a target/domain until the relevant G15 gates pass.,27470,DEL-5,ACTIVE_COURSE
+G16-DEC,G16,Structured decision system reduces unsupported/infeasible actions relative to strong RAG baselines while maintaining useful coverage.,27473,DEL-5,ACTIVE_COURSE
+G16-REC,G16,Diagnosis/recovery relations are separately evidenced and recoverability uncertainty is explicit.,27476,DEL-5,ACTIVE_COURSE
+G16-PROV,G16,Every factual/scientific response claim is traceable to evidence or explicit model output.,27479,DEL-4/5,ACTIVE_COURSE
+G16-OOD,G16,Cold ingredient/process/source/condition behavior and abstention are measured.,27482,DEL-4,ACTIVE_COURSE
+G16-FT,G16,FlavorTwin process/context complexity is promoted only if it beats static baselines on process-sensitive held-out tasks.,27485,stretch,BLOCKED_GATE
+G13E-01,G13E,"DATA: Are historical dates/sources usable? → sufficient dated, source-diverse corpus for stated RQ",45278,—,PARKED_POST_COURSE
+G13E-02,G13E,LINEAGE: Is duplicate/edition leakage controlled? → lineage groups frozen before split,45279,—,PARKED_POST_COURSE
+G13E-03,G13E,RANK: Is power-law/Zipf claim justified? → GOF + alternative comparison supports it,45280,—,ACTIVE_PARALLEL
+G13E-04,G13E,REPRO-K: Is Kinouchi reproduction credible? → reference summaries reproduced/documented,45281,—,ACTIVE_PARALLEL
+G13E-05,G13E,REPRO-I: Are Indian model baselines reproduced? → published-style baseline behavior recovered,45282,—,BLOCKED_EXTERNAL
+G13E-06,G13E,NULL: Does pairing survive strong nulls? → effect robust to required matched controls,45283,—,BLOCKED_EXTERNAL
+G13E-07,G13E,ID: Is recipe identity calibrated? → stable source-held-out discrimination + calibration,45284,—,PARKED_POST_COURSE
+G13E-08,G13E,NOV: Is novelty more than rarity? → expert-aligned signal after rarity/source controls,45285,—,PARKED_POST_COURSE
+G13E-09,G13E,QTY: Is quantity coverage adequate for soft mutation? → declared coverage/uncertainty threshold from data audit,45286,—,PARKED_POST_COURSE
+G13E-10,G13E,TEMP: Does evolution beat persistence? → future-era gain beyond uncertainty,45287,—,PARKED_POST_COURSE
+G13E-11,G13E,CONTACT: Does contact help? → held-out gain vs internal prevalence + shuffled-contact null,45288,—,PARKED_POST_COURSE
+G13E-12,G13E,SBI: Are parameters recoverable? → synthetic recovery + coverage passes,45289,—,PARKED_POST_COURSE
+G13E-13,G13E,PRETRAIN: Does simulator pretraining help real data? → real held-out gain vs real-only + random-sim control,45290,—,PARKED_POST_COURSE
+G13E-14,G13E,FT: Does cultural prior improve FlavorTwin? → ranking gain without evidence-quality loss,45291,—,PARKED_POST_COURSE
+G13E-15,G13E,RAG-HIST: Does historical retrieval improve evidence? → citation/UCR gain with calibrated abstention,45292,—,PARKED_POST_COURSE
+L12-G1,L12-183B,Learned molecule encoder vs FP2/Morgan/descriptors,13148,—,ACTIVE_PARALLEL
+L12-G2,L12-183B,Single-view vs multi-view,13149,—,PARKED_POST_COURSE
+L12-G3,L12-183B,Mean/weighted pooling vs learned set aggregation,13150,—,PARKED_POST_COURSE
+L12-G4,L12-183B,Attention vs Deep Sets,13151,—,PARKED_POST_COURSE
+L12-G5,L12-183B,Set Transformer vs explicit interaction graph,13152,—,PARKED_POST_COURSE
+L12-G6,L12-183B,Static vs process-conditioned representation,13153,—,PARKED_POST_COURSE
+L12-G7,L12-183B,Universal embedding vs task-conditioned representation,13154,—,PARKED_POST_COURSE
+L12-G8,L12-183B,Frozen pretrained encoder vs fine-tuning vs PEFT,13155,—,PARKED_POST_COURSE
+L12-G9,L12-183B,Presence-only vs concentration-aware vs OAV/evidence-aware,13156,—,ACTIVE_PARALLEL
+L12-G10,L12-183B,Automatic metrics vs external/expert/sensory validation,13157,—,PARKED_POST_COURSE

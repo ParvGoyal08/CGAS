@@ -1,0 +1,17 @@
+# CulinaryState-RAG — pinned at first install (2026-10-08); exact versions locked in requirements.lock.txt
+pydantic>=2.6
+pyyaml>=6
+numpy>=1.26
+pandas>=2.2
+pyarrow>=15
+scipy>=1.12
+scikit-learn>=1.4
+lightgbm>=4.3
+rank-bm25>=0.2.2
+rdkit>=2024.3
+streamlit>=1.35
+requests>=2.31
+pytest>=8
+hypothesis>=6.100
+ruff>=0.4
+matplotlib>=3.8

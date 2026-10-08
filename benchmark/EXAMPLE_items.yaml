@@ -1,0 +1,29 @@
+# Format reference only — NOT a benchmark item (this file is outside benchmark/authoring/).
+# Copy into benchmark/authoring/<author>_<batch>.yaml and write your own items.
+- item_id: BM-PARV-0001
+  task_type: process_effect          # state | next_action | constraints | diagnosis | recovery | process_effect | conflict | abstain
+  question: "<write the user's question in your own words>"
+  gold_mode: ANSWER                  # ANSWER | COMPARE | ASK | DIAGNOSE | RECOVER | RECOMMEND | ABSTAIN
+  gold_answer: "<what a correct answer must say, incl. allowed precision>"
+  evidence_regime: observed          # observed | near | qualitative | conflict | unsupported | not_applicable
+  required_evidence_ids: [EVD-000001]   # EVD- ids that MUST support the answer (checked against the ledger)
+  must_abstain: false
+  difficulty: easy                   # easy | medium | hard
+  constraints: {}                    # e.g. {allergens_avoid: [nut], tools_available: [hob]}
+  ingredient_family: "<anchor family>"
+  process_family: "<PROC family>"
+  source_family: USDA-R6
+  answer_kind: percent_range         # percent_point | percent_range | mode_only | free_text
+  author: Parv
+  reviewer: Kush
+- item_id: BM-KUSH-0001
+  task_type: state
+  question: "<question asked mid-session>"
+  gold_mode: ANSWER
+  gold_answer: "<entities + quantities as the replayed state says; unresolved amounts stay symbolic>"
+  evidence_regime: not_applicable
+  must_abstain: false
+  difficulty: medium
+  session: {recipe_id: "<RecipeDB Recipe_ID>", steps_done: 3, observations: ["sauce looks split"]}
+  author: Kush
+  reviewer: Parv

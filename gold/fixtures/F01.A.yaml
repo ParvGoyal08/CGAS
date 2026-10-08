@@ -1,0 +1,43 @@
+gold_format: DEL3-GOLD-v0
+recipe_id: FIX-F01            # fixture text written by us; real gold uses the RecipeDB Recipe_ID
+annotator: A
+guideline_version: v0
+source_text: >-
+  Melt 50 g butter. Reserve 1 tbsp of the melted butter. Cook 2 chopped garlic cloves
+  in the rest until fragrant. Toss with 200 g cooked pasta and the reserved butter.
+steps:
+  - step: 1
+    text: Melt 50 g butter.
+    events:
+      - op: CREATE
+        outputs: [{id: butter, concept: butter, label: butter, qty: {raw: 50 g, unit: g, value: 50}}]
+      - {op: TRANSFORM, input: butter, process: melt, plan: {phase: melted}}
+  - step: 2
+    text: Reserve 1 tbsp of the melted butter.
+    events:
+      - op: RESERVE
+        input: butter
+        process: reserve
+        outputs:
+          - {id: butter_res, concept: butter, label: reserved butter, qty: {raw: 1 tbsp, unit: tbsp, value: 1}}
+          - {id: butter_rest, concept: butter, label: rest of the butter}
+  - step: 3
+    text: Cook 2 chopped garlic cloves in the rest until fragrant.
+    events:
+      - op: CREATE
+        outputs: [{id: garlic, concept: garlic, label: garlic, qty: {raw: 2 cloves, unit: clove, value: 2}}]
+      - {op: TRANSFORM, input: garlic, process: chop, plan: {form: chopped}}
+      - op: MERGE
+        inputs: [garlic, butter_rest]
+        process: cook
+        outputs: [{id: garlic_butter, label: garlic butter}]
+        plan: {aroma_endpoint: fragrant}
+  - step: 4
+    text: Toss with 200 g cooked pasta and the reserved butter.
+    events:
+      - op: CREATE
+        outputs: [{id: pasta, concept: pasta, label: cooked pasta, qty: {raw: 200 g, unit: g, value: 200}}]
+      - op: RECOMBINE
+        inputs: [garlic_butter, pasta, butter_res]
+        process: toss
+        outputs: [{id: dish, label: garlic butter pasta}]
