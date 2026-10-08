@@ -1,6 +1,6 @@
 # T07 pre-registration — Kinouchi et al. 2008 copy–mutate reproduction (bounded)
 
-**Status: PROPOSED — not frozen.** No paper-scale run happens before Parv freezes this file. Freezing means:
+**Status: FROZEN (2026-10-09).** Frozen by Parv's instruction in session; executed by Claude after the missing fields were added. No run had been made. The hash and commit are in `FREEZE.md`. Freezing means:
 
 1. Edit any choice below.
 2. Change the status to FROZEN, with name and date.
@@ -131,4 +131,4 @@ These are frozen together with the choices above. Full text in the card, §7.3.
 
 **Not comparable:** B15's α = 1.63 (CSN discrete MLE on the A1 corpus) and the paper's α ≅ 1.73 (a line fit over an unstated range).
 
-**Frozen by:** ____ **Date:** ____ **sha256:** ____
+**Frozen by:** Parv (session instruction 2026-10-09). The sha256 and git commit are in `FREEZE.md`.
