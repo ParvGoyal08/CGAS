@@ -106,6 +106,13 @@ def _():
         ("PASS", f"{len(reg)} frozen file(s) unchanged; {len(runs)} DEL-2 run(s) on the frozen card")
 
 
+@gate("G-IDS", "every id is well-formed, defined once, and references resolve (tools/audit_ids.py)")
+def _():
+    import subprocess
+    r = subprocess.run([sys.executable, str(ROOT / "tools/audit_ids.py")], capture_output=True, text=True)
+    return ("PASS" if r.returncode == 0 else "FAIL"), r.stdout.strip().splitlines()[0] if r.stdout else r.stderr[-200:]
+
+
 @gate("G-UNITS", "no volume/count unit converts to grams (no invented grams)")
 def _():
     from culinarystate.quantity.units import Units
