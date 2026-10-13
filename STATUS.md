@@ -22,18 +22,23 @@ Decisions: DEC-001…041 · Plan: `docs/LANE_PLAN_v5.md` · Git: local `main` (n
 | NER: common span scorer + leakage audit; 18-resource landscape; RecipeDB3 correction (DEC-040); frozen B08 reproduction card | `src/culinarystate/ner/`, `research/briefs/RS-08-ner-landscape.md`, `experiments/B08/` |
 | A2 package | `../../Group-17_Assignment_2.zip` |
 
-## 2. ACTIVE now (this session, in priority order)
+## 2. Done this session (2026-10-13)
 
-1. **P1 Evidence:**
-   - finish the ranked queue in the five categories, with a conflict queue and a rejected list;
-   - extract the round-2 papers (24 new: red meat, poultry, legumes).
-2. **P2 Core ID / ledger schemas:** one ID registry for every prefix, validators, and a cross-ledger ID audit.
-3. **P10/D4:** the INTERPOLATED and MODEL_ESTIMATED evidence classes. **D5:** Pareto trade-offs.
-4. **P5B:** scorer extensions (linking Acc@1/R@5, event/relation F1, quantity/attribute accuracy).
-5. **P4:** gold schema, checklist and adjudication template.
-6. **P8:** study/source-family split for DEL-2, plus one-command scripts.
-7. **P14:** the EDA report generator.
-8. **P15:** handoff runbooks (mandatory).
+All on `main`.
+
+| Item | Result |
+|---|---|
+| P1 evidence queue | VERIFY_NOW 195 · STRONG 351 · NEEDS_SOURCE 787 · SUPPORT_RAW_REFERENCE 420 · REJECT 1,112. Outputs: `conflict_queue.csv`, `rejected_candidates.csv`, `eda/literature/evidence_precheck_report.html`. Round 2 extracted (9,147 cells, 24 papers). FDC snapshots written |
+| P2 | ID registry for every prefix + cross-ledger audit (gate G-IDS: 29,333 ids, 0 errors); schemas for STUDY/MEAS/COND/SVAR/CLM/WARN/SPLIT/MODEL/DATASET |
+| D4 | INTERPOLATED (bracketing range, no extrapolation) and MODEL_ESTIMATED (gated off: D7 not promoted; tier E6). Fix: rows at a different time are no longer direct evidence (they were being reported as a conflict) |
+| D5 | Pareto trade-offs (no imputation of unknowns); demo S11 "boiled instead of browned" |
+| P5B | Scorer: linking Acc@1/R@k, attribute accuracy, relation F1, frequency strata |
+| P4 | Gold JSON schema + validator (schema, then replay), checklist, adjudication template, 8 hard / 4 UNKNOWN / 3 invalid examples |
+| P8 | Study / source-family splits + study-level bootstrap (synthetic tests only) |
+| D1 | Promotion script (human-signed only; stable ids; logged derived retention) |
+| P14 | Data-report generator, 10 plugins + global report |
+| P7 | Silver factory prepared, with the 1k/5k/10k gates in code |
+| P15 | `docs/handoff/` (10 documents) + reusable pre-check prompt |
 
 ## 3. BLOCKED
 

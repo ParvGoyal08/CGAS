@@ -8,6 +8,7 @@ Local git repository (initialised 2026-10-09; no remote until gate H7 / WP-04). 
 4. `docs/DELTA_PLAN_v4.md` — the approved 8-week three-lane plan
 5. latest `logs/sessions/*` — last handoff
 6. `docs/SSOT_INDEX.md` — SSOT navigation. Never load the SSOT whole (§D4).
+7. `docs/handoff/` — RUNBOOK, EXPERIMENT_QUEUE (every unfinished task with its exact command), MANUAL_NEXT_STEPS, BLOCKERS and the guides.
 
 Environment: `.venv` (Python 3.12; `requirements.lock.txt`). Run everything from this folder.
 
