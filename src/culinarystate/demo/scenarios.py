@@ -14,7 +14,7 @@ import functools
 import pathlib
 import re
 
-from ..decision.core import (Allergens, Candidate, Hypothesis, UserContext, diagnosis_answer, feasibility,
+from ..decision.core import (Allergens, Candidate, Hypothesis, UserContext, diagnosis_answer, feasibility, pareto,
                              route, tool_requirements, value_of_information, verify)
 from ..eval.ladder import Item, answer
 from ..llm.client import TemplateVerbaliser
@@ -153,6 +153,37 @@ def s10_conflict(llm=None):
                                         "human verification), so no real conflict can be shown yet.", "detail": {}}
 
 
+def s11_recovery_boiled_not_browned(llm=None):
+    """Brief D5 example. Plan said 'brown the onions'; the cook reports they were boiled. The observation overrides
+    the planned state (prediction kept in the audit trail); recovery options are feasibility-filtered, then
+    Pareto-ranked on what is KNOWN — nothing about flavour chemistry is asserted without an evidence row."""
+    from ..state_graph.engine import replay
+    from ..state_graph.model import Amount, Belief, Event, NewLot, Op, Provenance, Quantity, Trajectory
+    ev = [Event("EVT-R11-01", 1, Op.CREATE, outputs=(NewLot("ENTITY-R11-onion", "ING-onion", "onion",
+                                                                Quantity.of(Amount("2 onions", "piece", 2))),)),
+          Event("EVT-R11-02", 2, Op.TRANSFORM, inputs=("ENTITY-R11-onion",), process_raw="brown",
+                belief=Belief("colour", "browned", Trajectory.PLANNED, Provenance.EXPLICIT_SOURCE, "EVT-R11-02")),
+          Event("EVT-R11-03", 3, Op.OBSERVE, inputs=("ENTITY-R11-onion",),
+                belief=Belief("colour", "pale, boiled", Trajectory.OBSERVED_SESSION, Provenance.EXPLICIT_SOURCE, "EVT-R11-03"))]
+    g = replay(ev)
+    onion = g.entity("ENTITY-R11-onion")
+    c = ctx()
+    cands = [Candidate("Drain, then sauté in oil until browned", ("PROC-drain", "PROC-saute"), ("onion", "oil")),
+             Candidate("Drain and continue the recipe with the boiled onions", ("PROC-drain",), ("onion",)),
+             Candidate("Start again with fresh onions, browned in a pan", ("PROC-saute",), ("onion", "oil"))]
+    feas = feasibility(cands, UserContext({"hob", "pan"}, set(), None), c["allergens"], c["tools"])
+    ok = [x["candidate"] for x in feas if x["feasible"]]
+    opts = [{"label": lab, "minutes": None, "retention_lo": None, "n_tools": len({c["tools"].get(p) for p in cd.processes} - {None})}
+            for lab, cd in ((cd.label, cd) for cd in cands) if lab in ok]
+    front = pareto(opts)
+    return {"mode": route("I accidentally boiled the onions instead of browning them — can I still fix it?"),
+            "answer": "Your onions are recorded as boiled (your observation overrides the plan to brown them). Feasible "
+                      "options: " + "; ".join(o["label"] for o in front["front"]) + ". Times and flavour effects are "
+                      "not stated because no evidence row covers them here.",
+            "detail": {"current_colour": onion.fields["colour"].to_dict(), "audit": onion.to_dict()["audit"],
+                       "feasibility": feas, "pareto": front}}
+
+
 SCENARIOS = [
     ("S01", "state", "What's in the pan, and how much butter is left?", s01_state),
     ("S02", "next_action", "I've done steps 1–2. What next?", s02_next_action),
@@ -164,6 +195,7 @@ SCENARIOS = [
     ("S08", "abstain / unsupported", "Lycopene kept in sous-vide tomato?", s08_abstain),
     ("S09", "quantity", "How many grams is 1 cup of flour?", s09_quantity),
     ("S10", "conflict", "Two sources disagree — what then?", s10_conflict),
+    ("S11", "recovery / Pareto", "I boiled the onions instead of browning them — can I fix it?", s11_recovery_boiled_not_browned),
 ]
 
 

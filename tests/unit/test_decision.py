@@ -52,3 +52,14 @@ def test_diagnosis_never_states_unverified_causes():
     assert v[-1]["status"] == "REJECTED_BY_STATE"
     ans = diagnosis_answer(v)
     assert ans["statement"] is None and "acid added to hot dairy" in ans["possibilities_unverified"]
+
+
+def test_pareto_never_imputes_unknowns():
+    from culinarystate.decision.core import pareto
+    opts = [{"label": "steam", "minutes": 10, "retention_lo": 80, "n_tools": 1},
+            {"label": "boil", "minutes": 15, "retention_lo": 60, "n_tools": 1},          # dominated by steam
+            {"label": "microwave", "minutes": 5, "retention_lo": None, "n_tools": 1},    # faster, retention unknown
+            {"label": "mystery", "minutes": None, "retention_lo": None, "n_tools": None}]  # nothing known
+    r = pareto(opts)
+    assert r["dominated"] == {"boil": ["steam"]}
+    assert {o["label"] for o in r["front"]} == {"steam", "microwave", "mystery"}

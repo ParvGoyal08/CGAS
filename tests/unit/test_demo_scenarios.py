@@ -3,7 +3,7 @@ and every cited id exists (template verbaliser — no network)."""
 from culinarystate.demo.scenarios import cited_ok, run_all
 
 EXPECTED = {"S01": "ANSWER", "S02": "ANSWER", "S03": "ASK", "S04": "DIAGNOSE", "S05": "RECOVER",
-            "S06": "ANSWER", "S07": "ANSWER", "S08": "ABSTAIN", "S09": "ANSWER", "S10": "BLOCKED"}
+            "S06": "ANSWER", "S07": "ANSWER", "S08": "ABSTAIN", "S09": "ANSWER", "S10": "BLOCKED", "S11": "RECOVER"}
 
 
 def test_all_scenarios():

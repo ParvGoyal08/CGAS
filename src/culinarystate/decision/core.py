@@ -186,3 +186,32 @@ def diagnosis_answer(verified: list[dict]) -> dict:
         return {"mode": "DIAGNOSE", "statement": None, "possibilities_unverified": [u["cause"] for u in unv],
                 "note": "no evidence links these causes; presented as possibilities to check, not as findings"}
     return {"mode": "ABSTAIN", "statement": None, "note": "no hypothesis survived the state check"}
+
+
+# ------------------------------------------------------------------ Pareto trade-offs (brief D5)
+OBJECTIVES = {"minutes": "min", "retention_lo": "max", "n_tools": "min"}
+
+
+def pareto(options: list[dict], objectives: dict = OBJECTIVES) -> dict:
+    """options: [{"label", "minutes"|None, "retention_lo"|None (evidence-backed lower bound, %), "n_tools"|None, ...}],
+    already feasibility-filtered. A dominates B iff A is KNOWN on every objective where B is known, no worse on all
+    of them, and strictly better on at least one. Unknown values are never imputed: an option with an unknown can
+    never beat one that is known on that objective. Returns the front and, for each dominated option, who beat it."""
+    def better(a, b, k):
+        return a < b if objectives[k] == "min" else a > b
+
+    def dominates(a, b):
+        known_b = [k for k in objectives if b.get(k) is not None]
+        # A must be KNOWN wherever B is known: an unknown never counts as "no worse" (no imputation by omission)
+        if not known_b or any(a.get(k) is None for k in known_b):
+            return False
+        return all(not better(b[k], a[k], k) for k in known_b) and any(better(a[k], b[k], k) for k in known_b)
+
+    dominated = {}
+    for b in options:
+        for a in options:
+            if a is not b and dominates(a, b):
+                dominated.setdefault(b["label"], []).append(a["label"])
+    front = [o for o in options if o["label"] not in dominated]
+    return {"front": front, "dominated": dominated,
+            "note": "unknown objective values are not imputed; options sharing no known objective are incomparable"}
