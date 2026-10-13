@@ -98,8 +98,27 @@ def _union_groups(cells: pd.DataFrame, unit: str, cluster: dict) -> pd.Series:
 
 
 # ------------------------------------------------------------------ splits (card F)
+GROUP_COLUMN_SPLITS = {"study": "study_id", "source_family": "source_family_id"}   # DEL-2 v2 (ledger v1); additive
+
+
+def _column_groups(cells: pd.DataFrame, split: str) -> pd.Series:
+    col = GROUP_COLUMN_SPLITS[split]
+    if col not in cells.columns or cells[col].isna().any() or (cells[col] == "").any():
+        raise ValueError(f"split '{split}' needs a complete '{col}' column (ledger v1 with literature/Phenol-Explorer "
+                         f"study ids); USDA R6 rows have no study id")
+    return cells[col].astype(str)
+
+
 def make_folds(cells: pd.DataFrame, split: str, seed: int, cluster: dict) -> np.ndarray:
     rng = np.random.default_rng(seed)
+    if split in GROUP_COLUMN_SPLITS:
+        groups = _column_groups(cells, split)
+        uniq = np.array(sorted(groups.unique()))
+        if len(uniq) < N_FOLDS:
+            raise ValueError(f"split '{split}' has {len(uniq)} groups < {N_FOLDS} folds")
+        rng.shuffle(uniq)
+        fold_of = {g: k % N_FOLDS for k, g in enumerate(uniq)}
+        return groups.map(fold_of).to_numpy()
     if split == "random":
         return rng.integers(0, N_FOLDS, len(cells))
     unit = {"pair": "code", "ingredient": "ingredient", "process": "proc_sig"}[split]
@@ -111,6 +130,8 @@ def make_folds(cells: pd.DataFrame, split: str, seed: int, cluster: dict) -> np.
 
 
 def group_ids(cells: pd.DataFrame, split: str, cluster: dict) -> pd.Series:
+    if split in GROUP_COLUMN_SPLITS:                     # study-level bootstrap = grouped_boot over study ids
+        return _column_groups(cells, split)
     if split == "random":
         return cells.index.to_series().astype(str)
     unit = {"pair": "code", "ingredient": "ingredient", "process": "proc_sig"}[split]
