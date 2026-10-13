@@ -229,21 +229,67 @@ def _interval(a: Atom):
     return lo, hi
 
 
-def evidence_class(q: Query, hits: list[tuple[Atom, dict]]) -> tuple[str, list]:
+def _measured(a: Atom, axis: str):
+    c = (a.conditions or {}).get(axis)
+    if c and c.get("status") == "MEASURED" and c.get("value") is not None:
+        return float(c["value"])
+    return None
+
+
+def interpolation(q: Query, hits: list[tuple[Atom, dict]]) -> Optional[dict]:
+    """INTERPOLATED: same food, process and target measured at conditions that BRACKET the query
+    (t1 < t_query < t2, or T1 < T_query < T2), all other axes compatible. Returns a RANGE between the two
+    bracketing values — never a point, never an extrapolation; assumes monotone change between them."""
+    for axis, qv in (("t", q.time_min), ("T", q.temperature_c)):
+        if qv is None:
+            continue
+        same = [(a, v) for a, v in hits if v["food"] == MATCH and v["process"] == MATCH and v["target"] == MATCH
+                and a.value is not None and _measured(a, axis) is not None]
+        below = [(a, v) for a, v in same if _measured(a, axis) < qv]
+        above = [(a, v) for a, v in same if _measured(a, axis) > qv]
+        if below and above:
+            lo_a = max(below, key=lambda av: _measured(av[0], axis))[0]
+            hi_a = min(above, key=lambda av: _measured(av[0], axis))[0]
+            return {"axis": axis, "query": qv, "lower_at": _measured(lo_a, axis), "upper_at": _measured(hi_a, axis),
+                    "range": (min(lo_a.value, hi_a.value), max(lo_a.value, hi_a.value)), "support": [lo_a, hi_a],
+                    "assumption": "monotone change between the two bracketing measurements"}
+    return None
+
+
+# MODEL_ESTIMATED is gated (DEL-2 card §Z): a completion model may answer only after it passes its promotion
+# gate. D7 was NOT promoted (DEC-032), so this registry is empty and the class never fires until a promoted model
+# id is registered here explicitly. Estimates are tier E7, flagged, and never enter test or calibration sets.
+PROMOTED_MODELS: dict = {}
+
+
+def evidence_class(q: Query, hits: list[tuple[Atom, dict]], estimator=None) -> tuple[str, list]:
+    """Hierarchy (brief D4): observed → conflict → interpolated → near → model-estimated → qualitative → unsupported.
+    `estimator(q) -> {"model_id", "lo", "hi", ...} | None` is consulted only for a model in PROMOTED_MODELS."""
+    # direct = same food/process/target AND any condition the query states is matched exactly or unknown;
+    # rows measured at a NEAR (different) time/temperature are a time/temperature course, not a conflict —
+    # they can support interpolation, never a direct answer
     direct = [(a, v) for a, v in hits if compatible(v, strict=True)
-              and v["food"] == MATCH and v["process"] == MATCH and v["target"] == MATCH]
+              and v["food"] == MATCH and v["process"] == MATCH and v["target"] == MATCH
+              and v["time"] in (MATCH, UNKNOWN) and v["temperature"] in (MATCH, UNKNOWN)]
     if direct:
         ivs = [_interval(a) for a, _ in direct]
         lo, hi = max(i[0] for i in ivs), min(i[1] for i in ivs)
         if len(direct) > 1 and lo > hi:
             return "conflict", direct
         return "observed", direct
+    interp = interpolation(q, hits)
+    if interp:
+        return "interpolated", [interp]
     # "near" needs the SAME process (dev decision DEC-021): family-level process similarity
     # (e.g. sous-vide vs canning, both thermal-wet) is too weak to support a retention answer
     near = [(a, v) for a, v in hits if compatible(v, strict=False) and v["target"] == MATCH
             and v["process"] == MATCH and v["food"] in (MATCH, NEAR)]
     if near:
         return "near", near
+    if estimator is not None:
+        est = estimator(q)
+        if est and est.get("model_id") in PROMOTED_MODELS:
+            return "model-estimated", [{**est, "tier": "E7", "flag": "MODEL_ESTIMATE_NOT_EVIDENCE"}]
     qual = [(a, v) for a, v in hits if a.value is None and compatible(v, strict=False)]
     if qual:
         return "qualitative", qual
@@ -313,4 +359,13 @@ def precision_policy(ecls: str, hits) -> str:
         return f"similar foods/processes: {min(vals):g}–{max(vals):g}% retained (range, not a point value)"
     if ecls == "conflict":
         return "sources disagree; both values reported with their conditions"
+    if ecls == "interpolated":
+        i = hits[0]
+        unit = "min" if i["axis"] == "t" else "°C"
+        return (f"between {i['range'][0]:g}% and {i['range'][1]:g}% retained (interpolated between measurements at "
+                f"{i['lower_at']:g} and {i['upper_at']:g} {unit}; assumes monotone change; a range, not a point)")
+    if ecls == "model-estimated":
+        e = hits[0]
+        return (f"MODEL ESTIMATE, not evidence ({e['model_id']}, tier E7): {e['lo']:g}–{e['hi']:g}% "
+                f"(empirical interval); no direct or near evidence exists")
     return "no compatible evidence; abstain"

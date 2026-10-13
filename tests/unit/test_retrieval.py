@@ -59,3 +59,34 @@ def test_mismatch_excludes_evidence(idx):
     v = compatibility(q, a, idx.fam)
     assert v["food"] == MISMATCH and not compatible(v, strict=False)
     assert v["process"] == MATCH and v["target"] == MATCH
+
+
+def test_interpolated_brackets_and_never_extrapolates(idx):
+    from culinarystate.retrieval.core import interpolation
+    milk = [a for a in idx.atoms if a.ingredient_id == "ING-milk" and a.target_code == "USDA-Nutr-404"
+            and "PROC-heat" in a.processes]
+    times = sorted({a.conditions["t"]["value"] for a in milk if "t" in a.conditions and a.conditions["t"]["status"] == "MEASURED"})
+    assert len(times) >= 2
+    mid = (times[0] + times[1]) / 2
+    q = Query("thiamin milk heated", "ING-milk", milk[0].food_group, None, ("PROC-heat",), "USDA-Nutr-404",
+              milk[0].nclass, time_min=mid)
+    hits = [(a, compatibility(q, a, idx.fam)) for a in milk]
+    cls, sup = evidence_class(q, hits)
+    assert cls == "interpolated" and sup[0]["lower_at"] == times[0] and sup[0]["upper_at"] == times[1]
+    assert "range, not a point" in precision_policy(cls, sup)
+    q_out = Query("x", "ING-milk", milk[0].food_group, None, ("PROC-heat",), "USDA-Nutr-404", milk[0].nclass,
+                  time_min=times[-1] * 3)
+    assert interpolation(q_out, [(a, compatibility(q_out, a, idx.fam)) for a in milk]) is None   # no extrapolation
+
+
+def test_model_estimated_is_gated_off_until_a_model_is_promoted(idx):
+    from culinarystate.retrieval import core
+    q = Query("lycopene tomato sous vide", "ING-tomato", None, None, ("PROC-sous-vide",), None, None)
+    est = lambda q: {"model_id": "MODEL-d7-fm", "lo": 60.0, "hi": 90.0}   # noqa: E731
+    assert evidence_class(q, [], estimator=est)[0] == "unsupported"            # D7 not promoted (DEC-032)
+    core.PROMOTED_MODELS["MODEL-d7-fm"] = "test only"
+    try:
+        cls, sup = evidence_class(q, [], estimator=est)
+        assert cls == "model-estimated" and sup[0]["tier"] == "E7" and "not evidence" in precision_policy(cls, sup)
+    finally:
+        core.PROMOTED_MODELS.clear()
