@@ -141,10 +141,12 @@ def main() -> int:
     conflict_keys = set(dirs[(dirs.ups > 0) & (dirs.downs > 0) & (dirs.papers > 1)].index)
 
     def category(r):
+        # raw/control cells are marked ai_relevant "no" by the pre-check convention, but processed values need them
+        # as their baseline → always kept as support, never rejected
+        if r["ai_role"] == "RAW_REFERENCE" and r["schema_ok"]:
+            return "SUPPORT_RAW_REFERENCE"
         if r["ai_relevant"] != "yes" or r["ai_role"] in ("EXTRACT_ERROR", "STAT_OR_SD") or not r["schema_ok"]:
             return "REJECT"
-        if r["ai_role"] == "RAW_REFERENCE":
-            return "SUPPORT_RAW_REFERENCE"
         if r["lineage_key"] in conflict_keys:
             return "CONFLICT"
         fl = r["ai_flags"]
