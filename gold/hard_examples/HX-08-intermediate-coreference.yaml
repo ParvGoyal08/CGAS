@@ -1,0 +1,22 @@
+gold_format: DEL3-GOLD-v0
+recipe_id: FIX-HX08
+annotator: CLAUDE-EXAMPLE
+guideline_version: v1
+source_text: Whisk the eggs with the milk. Pour the mixture over the bread and leave it to soak.
+# HARD: "the mixture" and "it" are coreferent with the MERGE output (an intermediate with no food concept)
+steps:
+  - step: 1
+    text: Whisk the eggs with the milk.
+    events:
+      - op: CREATE
+        outputs:
+          - {id: egg, concept: egg, label: eggs}
+          - {id: milk, concept: milk, label: milk}
+      - {op: MERGE, inputs: [egg, milk], process: whisk, outputs: [{id: custard, label: egg-milk mixture}]}
+  - step: 2
+    text: Pour the mixture over the bread and leave it to soak.
+    events:
+      - op: CREATE
+        outputs: [{id: bread, concept: bread, label: bread}]
+      - {op: MERGE, inputs: [custard, bread], process: pour, span: Pour the mixture over the bread, outputs: [{id: soaked, label: soaking bread}]}
+      - {op: TRANSFORM, input: soaked, process: soak}

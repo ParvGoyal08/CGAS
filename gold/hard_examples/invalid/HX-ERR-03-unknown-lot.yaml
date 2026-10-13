@@ -1,0 +1,8 @@
+# EXPECTED: rejected because the input lot was never created
+gold_format: DEL3-GOLD-v0
+recipe_id: FIX-HXE03
+annotator: CLAUDE-EXAMPLE
+steps:
+  - step: 1
+    events:
+      - {op: TRANSFORM, input: ghost, process: chop}

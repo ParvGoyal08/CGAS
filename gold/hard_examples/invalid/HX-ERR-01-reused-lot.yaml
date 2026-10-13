@@ -1,0 +1,11 @@
+# EXPECTED: rejected because a lot that was merged away is used again
+gold_format: DEL3-GOLD-v0
+recipe_id: FIX-HXE01
+annotator: CLAUDE-EXAMPLE
+steps:
+  - step: 1
+    events:
+      - op: CREATE
+        outputs: [{id: a, label: a}, {id: b, label: b}]
+      - {op: MERGE, inputs: [a, b], process: mix, outputs: [{id: ab, label: ab}]}
+      - {op: TRANSFORM, input: a, process: chop}

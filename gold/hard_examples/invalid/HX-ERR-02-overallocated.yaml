@@ -1,0 +1,13 @@
+# EXPECTED: rejected because the split fractions add up to more than the whole
+gold_format: DEL3-GOLD-v0
+recipe_id: FIX-HXE02
+annotator: CLAUDE-EXAMPLE
+steps:
+  - step: 1
+    events:
+      - op: CREATE
+        outputs: [{id: dough, label: dough, qty: {raw: 100 g, unit: g, value: 100}}]
+      - op: SPLIT
+        input: dough
+        process: divide
+        outputs: [{id: p1, label: p1, fraction: 0.7}, {id: p2, label: p2, fraction: 0.7}]
