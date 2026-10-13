@@ -112,3 +112,62 @@ def leakage_audit(train: dict[str, str], test: dict[str, str], jaccard: float = 
             near.append((k, best[1], round(best[0], 3)))
     return {"n_test": len(test), "exact_duplicates": exact, "near_duplicates": near,
             "leak_rate": (len(exact) + len(near)) / len(test) if test else 0.0, "jaccard": jaccard, "shingle_n": n}
+
+
+# ------------------------------------------------------------------ beyond spans (P5B): one scorer for the cascade
+# span → linking → attributes → relations/events → state graph. Event / edge / merge-split F1 and replay
+# consistency between a gold and a predicted recipe graph live in culinarystate.state_graph.agreement
+# (agreement(gold, pred)); this module covers the text-level layers.
+
+def linking_metrics(gold: dict, pred: dict, k: int = 5) -> dict:
+    """gold: mention_id → concept id; pred: mention_id → ranked list of concept ids ([] = abstained).
+    Acc@1 and Recall@k are over ALL gold mentions (abstentions count as misses); abstain rate reported beside."""
+    n = len(gold)
+    if n == 0:
+        return {"n": 0, "acc_at_1": 0.0, f"recall_at_{k}": 0.0, "abstain_rate": 0.0}
+    a1 = sum(1 for m, g in gold.items() if (pred.get(m) or [])[:1] == [g])
+    rk = sum(1 for m, g in gold.items() if g in (pred.get(m) or [])[:k])
+    ab = sum(1 for m in gold if not pred.get(m))
+    return {"n": n, "acc_at_1": a1 / n, f"recall_at_{k}": rk / n, "abstain_rate": ab / n}
+
+
+def _norm_attr(v):
+    if isinstance(v, (int, float)):
+        return round(float(v), 6)
+    if isinstance(v, (tuple, list)):
+        return tuple(_norm_attr(x) for x in v)
+    return re.sub(r"\s+", " ", str(v).strip().lower())
+
+
+def attribute_accuracy(gold: dict, pred: dict) -> dict:
+    """gold/pred: span_key → {attribute: value} (e.g. quantity=(2.0, 'UNIT-tbsp'), form='chopped', state='raw').
+    Accuracy per attribute over GOLD spans that carry it; a missing prediction is wrong; values compared after
+    light normalisation (numbers rounded, strings lower-cased) — no unit conversion is done here."""
+    per = defaultdict(lambda: [0, 0])
+    for key, attrs in gold.items():
+        for a, v in attrs.items():
+            per[a][1] += 1
+            if _norm_attr((pred.get(key) or {}).get(a)) == _norm_attr(v):
+                per[a][0] += 1
+    return {a: {"correct": c, "n": n, "accuracy": c / n} for a, (c, n) in sorted(per.items())}
+
+
+def relation_f1(gold: set, pred: set) -> dict:
+    """gold/pred: sets of (head_id, relation, tail_id). Per-relation and micro P/R/F1."""
+    rels = sorted({r for _, r, _ in gold | pred})
+    out = {"per_relation": {}}
+    for r in rels:
+        g = {t for t in gold if t[1] == r}
+        p = {t for t in pred if t[1] == r}
+        out["per_relation"][r] = _prf(len(g & p), len(p - g), len(g - p))
+    out["micro"] = _prf(len(gold & pred), len(pred - gold), len(gold - pred))
+    return out
+
+
+def frequency_strata(item_freq: dict, head_share: float = 0.2, tail_share: float = 0.5) -> dict:
+    """Assign each item to head / mid / tail by corpus frequency rank (top 20% head, bottom 50% tail by default),
+    so every metric can be reported per stratum (brief §8: errors stratified by ingredient frequency)."""
+    order = sorted(item_freq, key=lambda k: (-item_freq[k], k))
+    n = len(order)
+    h, t = int(round(n * head_share)), int(round(n * (1 - tail_share)))
+    return {k: ("head" if i < h else "tail" if i >= t else "mid") for i, k in enumerate(order)}

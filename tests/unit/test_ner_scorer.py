@@ -46,3 +46,17 @@ def test_leakage_exact_and_near():
     assert [e[0] for e in r["exact_duplicates"]] == ["x"]
     assert [n[0] for n in r["near_duplicates"]] == ["y"]
     assert abs(r["leak_rate"] - 2 / 3) < 1e-9
+
+
+def test_linking_attributes_relations_strata():
+    from culinarystate.ner.scorer import attribute_accuracy, frequency_strata, linking_metrics, relation_f1
+    lm = linking_metrics({"m1": "ING-onion", "m2": "ING-garlic", "m3": "ING-egg"},
+                         {"m1": ["ING-onion"], "m2": ["ING-shallot", "ING-garlic"], "m3": []})
+    assert lm["acc_at_1"] == 1 / 3 and lm["recall_at_5"] == 2 / 3 and lm["abstain_rate"] == 1 / 3
+    aa = attribute_accuracy({"s1": {"quantity": (2, "UNIT-tbsp"), "form": "Chopped"}, "s2": {"form": "whole"}},
+                            {"s1": {"quantity": (2.0, "UNIT-tbsp"), "form": "chopped"}})
+    assert aa["quantity"]["accuracy"] == 1.0 and aa["form"]["accuracy"] == 0.5
+    rf = relation_f1({("a", "MERGES_INTO", "c"), ("b", "MERGES_INTO", "c")}, {("a", "MERGES_INTO", "c"), ("a", "SPLITS_INTO", "d")})
+    assert rf["micro"]["tp"] == 1 and rf["per_relation"]["SPLITS_INTO"]["fp"] == 1
+    st = frequency_strata({f"i{k}": 100 - k for k in range(10)})
+    assert st["i0"] == "head" and st["i9"] == "tail" and list(st.values()).count("head") == 2
