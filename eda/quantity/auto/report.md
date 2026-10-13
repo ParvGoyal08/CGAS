@@ -1,0 +1,11 @@
+# Data report — quantity
+
+- **inputs**: `["ledgers/units/unit_map_v0.csv"]`
+- **sha256**: `"1bd4e3ad4f0b16fd6b4d9e3e3a9a5f314bb58570f00dd1a035ae4e39e655fd8b"`
+- **rows**: `81`
+- **columns**: `8`
+- **exact_duplicate_rows**: `0`
+- **missingness**: `{"si_value": {"empty": 0.1975, "unknown": 0.0}, "value_status": {"empty": 0.0, "unknown": 0.1852}, "si_unit": {"empty": 0.1358, "unknown": 0.0}}`
+- **long_tail**: `{"distinct": 7, "top10pct_share": 0.3086, "singletons": 1, "top5": {"CULINARY_VOLUME": 25, "COUNT": 20, "PHYSICAL": 12, "VERBAL": 11, "PACKAGE": 10}}`
+- **distributions**: `{"status": {"EXACT_DEFINITION": 55, "UNKNOWN": 15, "CONVENTION": 6, "REGULATORY": 5}, "locale": {"ANY": 58, "US": 7, "US-LABEL": 5, "UK": 4, "METRIC": 3, "AU": 3, "IN": 1}}`
+- **unresolved_mappings**: `15`
