@@ -87,6 +87,6 @@ def test_model_estimated_is_gated_off_until_a_model_is_promoted(idx):
     core.PROMOTED_MODELS["MODEL-d7-fm"] = "test only"
     try:
         cls, sup = evidence_class(q, [], estimator=est)
-        assert cls == "model-estimated" and sup[0]["tier"] == "E7" and "not evidence" in precision_policy(cls, sup)
+        assert cls == "model-estimated" and sup[0]["tier"] == "E6" and "not evidence" in precision_policy(cls, sup)
     finally:
         core.PROMOTED_MODELS.clear()

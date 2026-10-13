@@ -258,7 +258,7 @@ def interpolation(q: Query, hits: list[tuple[Atom, dict]]) -> Optional[dict]:
 
 # MODEL_ESTIMATED is gated (DEL-2 card §Z): a completion model may answer only after it passes its promotion
 # gate. D7 was NOT promoted (DEC-032), so this registry is empty and the class never fires until a promoted model
-# id is registered here explicitly. Estimates are tier E7, flagged, and never enter test or calibration sets.
+# id is registered here explicitly. Estimates are tier E6 (MODEL_ESTIMATED), flagged, and never enter test or calibration sets.
 PROMOTED_MODELS: dict = {}
 
 
@@ -289,7 +289,7 @@ def evidence_class(q: Query, hits: list[tuple[Atom, dict]], estimator=None) -> t
     if estimator is not None:
         est = estimator(q)
         if est and est.get("model_id") in PROMOTED_MODELS:
-            return "model-estimated", [{**est, "tier": "E7", "flag": "MODEL_ESTIMATE_NOT_EVIDENCE"}]
+            return "model-estimated", [{**est, "tier": "E6", "flag": "MODEL_ESTIMATE_NOT_EVIDENCE"}]
     qual = [(a, v) for a, v in hits if a.value is None and compatible(v, strict=False)]
     if qual:
         return "qualitative", qual
@@ -366,6 +366,6 @@ def precision_policy(ecls: str, hits) -> str:
                 f"{i['lower_at']:g} and {i['upper_at']:g} {unit}; assumes monotone change; a range, not a point)")
     if ecls == "model-estimated":
         e = hits[0]
-        return (f"MODEL ESTIMATE, not evidence ({e['model_id']}, tier E7): {e['lo']:g}–{e['hi']:g}% "
+        return (f"MODEL ESTIMATE, not evidence ({e['model_id']}, tier E6): {e['lo']:g}–{e['hi']:g}% "
                 f"(empirical interval); no direct or near evidence exists")
     return "no compatible evidence; abstain"
