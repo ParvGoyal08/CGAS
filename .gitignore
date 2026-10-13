@@ -17,3 +17,4 @@ logs/gate/
 
 # large regenerable run outputs (metrics, results and verdicts are kept)
 experiments/**/oof_*.parquet
+logs/id_audit.json
