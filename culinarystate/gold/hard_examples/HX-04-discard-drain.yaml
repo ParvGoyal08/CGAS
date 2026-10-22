@@ -1,0 +1,22 @@
+gold_format: DEL3-GOLD-v0
+recipe_id: FIX-HX04
+annotator: CLAUDE-EXAMPLE
+guideline_version: v1
+source_text: Boil the potatoes, then drain and discard the water.
+# HARD: drain = SPLIT of the pot into potatoes + liquid; "discard the water" = DISCARD of that lot (it leaves the recipe)
+steps:
+  - step: 1
+    text: Boil the potatoes, then drain and discard the water.
+    events:
+      - op: CREATE
+        outputs:
+          - {id: potato, concept: potato, label: potatoes}
+          - {id: water, concept: water, label: water}
+      - {op: MERGE, inputs: [potato, water], process: boil, outputs: [{id: pot, label: potatoes in water}]}
+      - op: SPLIT
+        input: pot
+        process: drain
+        outputs:
+          - {id: potato_drained, concept: potato, label: drained potatoes}
+          - {id: liquid, label: cooking water}
+      - {op: DISCARD, input: liquid, process: discard}

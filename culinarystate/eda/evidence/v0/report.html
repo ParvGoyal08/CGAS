@@ -1,0 +1,86 @@
+<!doctype html><meta charset=utf-8><title>DEL-1 data card v0</title><body style='font-family:sans-serif;max-width:900px;margin:auto'><p># DEL-1 data card + EDA — evidence ledger v0
+</p>
+<p>Ledger `ledgers/evidence/evidence_v0.jsonl` · sha256 `cf5a1f7c4cc0157a…` · built from `SNAP-0001` (USDA Retention Factors R6, CC0).
+</p>
+<p>## 1. Provenance and licence
+</p>
+<p>| Source | Rows | Licence | Raw storage | Origin type | Tier |
+|---|---|---|---|---|---|</p>
+<p>| SRC-0001 USDA Table of Nutrient Retention Factors, Release 6 (2007) | 7,018 | CC0 (catalog.data.gov) | allowed | DATABASE_AGGREGATE | E3 |</p>
+<p>
+Phenol-Explorer 3.0 is **not yet ingested** (ADR 0002, awaiting H2). Literature rows: **0 verified**; the ≥40 required are blocked on human verification.
+</p>
+<p>## 2. Size and duplication
+</p>
+<p>- rows **7,018**; evaluable (E1–E4, no defect) **6,994**; defects **24** (retention code 5005: factor missing in source)</p>
+<p>- retention codes (food category × preparation) **270**; ingredient categories **36**; targets **26**; distinct process signatures **47**</p>
+<p>- **duplicate audit:** 143 codes share an identical full nutrient vector with another code (49 clusters) — consistent with USDA&#x27;s documented imputation from similar foods/methods; grouped before any split (DEL-2 card §G)
+</p>
+<p>## 3. Schema validity and availability
+</p>
+<p>All rows validate against `EvidenceRow` v1 (Pydantic) on construction.
+</p>
+<p>| Field | Available (non-UNKNOWN) |
+|---|---|</p>
+<p>| time | 10.4% (729 rows) |</p>
+<p>| temperature | 0.0% (0 rows) |</p>
+<p>| water handling | 6.3% (442 rows) |</p>
+<p>| medium | 0.7% (52 rows) |</p>
+<p>| state_in | 19.7% (1,378 rows) |</p>
+<p>| food form | 43.1% (3,016 rows) |</p>
+<p>
+Temperature is UNKNOWN for **every** row: R6 states preparation methods, not temperatures. Times are stated for some legume, milk and alcohol preparations only.
+</p>
+<p>## 4. Distributions
+</p>
+<p>Retention values are integer percent reported **to the nearest 5%**, with values above 100 reported as 100 (right-censored).
+</p>
+<p>| Nutrient class | Rows | Median % | IQR | Share censored at 100 |
+|---|---|---|---|---|</p>
+<p>| alcohol | 269 | 100 | 100–100 | 97% |</p>
+<p>| carotenoid | 1,345 | 90 | 80–95 | 23% |</p>
+<p>| choline | 269 | 100 | 90–100 | 63% |</p>
+<p>| fat-soluble vitamin | 538 | 90 | 80–95 | 23% |</p>
+<p>| mineral | 2,152 | 100 | 95–100 | 65% |</p>
+<p>| water-soluble vitamin | 2,421 | 85 | 70–95 | 15% |</p>
+<p>
+![retention by nutrient class](retention_by_class.png)
+</p>
+<p>**Process long tail:** 47 process signatures over 270 codes; the top 5 cover 50% of codes; 23 signatures occur once.
+</p>
+<p>## 5. Coverage and sparsity
+</p>
+<p>Ingredient × process-signature matrix: **36 × 47**, filled cells **172** of 1692 (**10.2%** density). At the code × nutrient level the table is nearly dense (6,994 of 7,020 cells). **Sparsity lives in which food×process pairs were ever studied, not in which nutrients were measured** — the case SX-13-04 models.
+</p>
+<img src="coverage_food_x_process.png)
+" style="max-width:100%">
+<p>### 5b. Coverage of a real recipe vocabulary (K6/P12)
+</p>
+<p>Against the A1 course corpus (115,197 ingredient mentions, 6,346 names; rule crosswalk `ledgers/ingredients/alias_a1_v0.csv`, all links PROPOSED):
+</p>
+<p>| Outcome | Share of mentions |
+|---|---|</p>
+<p>| MAPPED_CATEGORY | 35.6% |</p>
+<p>| NO_R6_CLASS | 25.1% |</p>
+<p>| DERIVED_PRODUCT | 22.6% |</p>
+<p>| MAPPED_CONCEPT | 11.3% |</p>
+<p>| UNRESOLVED | 4.5% |</p>
+<p>| A1_ARTEFACT | 0.9% |</p>
+<p>
+Only **46.9%** of recipe ingredient mentions reach any R6 food, and only **11.3%** at concept level; the rest are category links (e.g. garlic → `VEG,OTHER`), derived products (stock, juice, purée), or classes R6 never measures (herbs, spices, fats, sugars). This bounds what DEL-4/5 can answer from R6 alone.
+</p>
+<p>## 10. Bias audit
+</p>
+<p>- food groups by number of preparation codes: group 11 53, group 15 40, group 10 38, group 13 26, group 17 23, group 16 19, group 20 14, group 1 13, group 5 13, group 9 13, group 14 10, group 8 4, group 12 4</p>
+<p>- **US-centric** (USDA, 1975–2007 compilations); **no Indian preparations** (tadka, dum, pressure cooking) are covered — relevant to the Indian-recipe use case</p>
+<p>- category-level foods (e.g. `VEG,ROOTS,ETC`) dominate several groups → linking to specific RecipeDB ingredients is one-to-many</p>
+<p>- source-level imputation (USDA-documented) cannot be separated per row
+</p>
+<p>## 13. Hypotheses generated (logged at ladder L1 — **not** claims)
+</p>
+<p>| ID | Pattern | Basis |
+|---|---|---|</p>
+<p>| HYP-0001 | Water-soluble vitamins show lower retention than minerals across preparations in R6 | EDA §4 medians |</p>
+<p>| HYP-0002 | Processes that discard cooking water retain less of water-soluble vitamins than those that consume it | water-handling field |</p>
+<p>| HYP-0003 | Study coverage (which food×process pairs exist) is non-random by food group | EDA §5 density |</p>
+</body>

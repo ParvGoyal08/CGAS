@@ -1,0 +1,17 @@
+[project]
+name = "culinarystate"
+version = "0.1.0"
+description = "CulinaryState-RAG — Group 17 (MDMA), Computational Gastronomy, IIIT-Delhi"
+requires-python = ">=3.11"
+
+[tool.pytest.ini_options]
+pythonpath = ["src", "."]
+testpaths = ["tests"]
+addopts = "-q"
+
+[tool.ruff]
+line-length = 110
+target-version = "py311"
+[tool.ruff.lint]
+select = ["E", "F", "W", "B"]
+ignore = ["E501", "E731", "E741"]

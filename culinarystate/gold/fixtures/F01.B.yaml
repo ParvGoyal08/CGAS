@@ -1,0 +1,40 @@
+gold_format: DEL3-GOLD-v0
+recipe_id: FIX-F01
+annotator: B
+guideline_version: v0
+steps:
+  - step: 1
+    text: Melt 50 g butter.
+    events:
+      # annotator B creates every ingredient up front, with different local names/labels
+      - op: CREATE
+        outputs:
+          - {id: b1, concept: butter, label: unsalted butter, qty: {raw: 50 g, unit: g, value: 50}}
+          - {id: g1, concept: garlic, label: garlic cloves, qty: {raw: 2 cloves, unit: clove, value: 2}}
+          - {id: p1, concept: pasta, label: pasta (cooked), qty: {raw: 200 g, unit: g, value: 200}}
+      - {op: TRANSFORM, input: b1, process: Melt, plan: {phase: melted}}
+  - step: 2
+    text: Reserve 1 tbsp of the melted butter.
+    events:
+      - op: RESERVE
+        input: b1
+        process: reserve
+        outputs:
+          - {id: kept, concept: butter, label: kept aside, qty: {raw: 1 tbsp, unit: tbsp, value: 1}}
+          - {id: remaining, concept: butter, label: remaining}
+  - step: 3
+    text: Cook 2 chopped garlic cloves in the rest until fragrant.
+    events:
+      - {op: TRANSFORM, input: g1, process: chop, plan: {form: chopped}}
+      - op: MERGE
+        inputs: [remaining, g1]
+        process: cook
+        outputs: [{id: gb, label: garlicky butter}]
+        plan: {aroma_endpoint: fragrant}
+  - step: 4
+    text: Toss with 200 g cooked pasta and the reserved butter.
+    events:
+      - op: RECOMBINE
+        inputs: [kept, gb, p1]
+        process: toss
+        outputs: [{id: final, label: pasta dish}]

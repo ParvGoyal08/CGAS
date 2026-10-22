@@ -1,0 +1,13 @@
+gold_format: DEL3-GOLD-v0
+recipe_id: FIX-HX07
+annotator: CLAUDE-EXAMPLE
+guideline_version: v1
+source_text: Add 2–3 tbsp olive oil and warm it.
+# HARD: a range quantity is lo/hi with no value; never pick the midpoint
+steps:
+  - step: 1
+    text: Add 2–3 tbsp olive oil and warm it.
+    events:
+      - op: CREATE
+        outputs: [{id: oil, concept: olive oil, label: olive oil, qty: {raw: 2–3 tbsp, unit: tbsp, lo: 2, hi: 3}}]
+      - {op: TRANSFORM, input: oil, process: warm}

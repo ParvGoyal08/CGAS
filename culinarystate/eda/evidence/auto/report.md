@@ -1,0 +1,14 @@
+# Data report — evidence
+
+- **inputs**: `["ledgers/evidence/evidence_v0.jsonl", "ledgers/evidence/literature_v1.jsonl"]`
+- **sha256**: `"cf5a1f7c4cc0157a8f1be421c6b1df565a09b6cf414314050c67735a44e0fc93"`
+- **rows**: `7018`
+- **columns**: `50`
+- **exact_duplicate_rows**: `0`
+- **key_duplicates**: `0`
+- **missingness**: `{"basis": {"empty": 0.0, "unknown": 1.0}, "retention_method": {"empty": 0.0, "unknown": 1.0}, "verification.status": {"empty": 0.0, "unknown": 1.0}}`
+- **long_tail**: `{"distinct": 36, "top10pct_share": 0.3112, "singletons": 0, "top5": {"ING-pork": 676, "ING-beef": 520, "ING-finfish": 494, "ING-legume": 494, "ING-potato": 416}}`
+- **distributions**: `{"source": {"SRC-0001": 7018}, "provenance": {"EXPLICIT_SOURCE": 7018}, "tier": {"E3": 7018}, "origin": {"DATABASE_AGGREGATE": 7018}}`
+- **condition_completeness**: `{"T": 0.0, "t": 0.10729552579082359, "pH": 0.0, "aw": 0.0, "moisture": 0.0, "pressure": 0.0, "medium": 0.007409518381305215, "water_handling": 0.06298090624109433}`
+- **validation_failures**: `{"count": 0, "examples": []}`
+- **unresolved_mappings**: `7018`

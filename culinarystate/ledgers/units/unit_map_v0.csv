@@ -1,0 +1,82 @@
+unit_id,type,dimension,si_unit,locale,si_value,value_status,source
+UNIT-g,PHYSICAL,mass,g,ANY,1.0,EXACT_DEFINITION,SI definition
+UNIT-kg,PHYSICAL,mass,g,ANY,1000.0,EXACT_DEFINITION,SI definition
+UNIT-mg,PHYSICAL,mass,g,ANY,0.001,EXACT_DEFINITION,SI definition
+UNIT-oz,PHYSICAL,mass,g,ANY,28.349523125,EXACT_DEFINITION,international yard and pound agreement (1959): lb = 0.45359237 kg [C]; derived exactly
+UNIT-oz,PHYSICAL,mass,g,US-LABEL,28.0,REGULATORY,"21 CFR 101.9(b)(5)(viii), nutrition labeling only [V 2026-10-08]"
+UNIT-lb,PHYSICAL,mass,g,ANY,453.59237,EXACT_DEFINITION,international yard and pound agreement (1959): lb = 0.45359237 kg [C]; derived exactly
+UNIT-ml,PHYSICAL,volume,ml,ANY,1.0,EXACT_DEFINITION,SI definition
+UNIT-cl,PHYSICAL,volume,ml,ANY,10.0,EXACT_DEFINITION,SI definition
+UNIT-dl,PHYSICAL,volume,ml,ANY,100.0,EXACT_DEFINITION,SI definition
+UNIT-l,PHYSICAL,volume,ml,ANY,1000.0,EXACT_DEFINITION,SI definition
+UNIT-fl-oz,CULINARY_VOLUME,volume,ml,US,29.573529562500003,EXACT_DEFINITION,"US customary: gallon = 231 in³, inch = 2.54 cm (NIST Handbook 44 App. C) [C]; derived exactly"
+UNIT-fl-oz,CULINARY_VOLUME,volume,ml,US-LABEL,30.0,REGULATORY,"21 CFR 101.9(b)(5)(viii), nutrition labeling only [V 2026-10-08]"
+UNIT-fl-oz,CULINARY_VOLUME,volume,ml,UK,28.413062500000002,EXACT_DEFINITION,imperial gallon = 4.54609 L (UK Weights and Measures Act 1985) [C]; derived exactly
+UNIT-tsp,CULINARY_VOLUME,volume,ml,US,4.92892159375,EXACT_DEFINITION,"US customary: gallon = 231 in³, inch = 2.54 cm (NIST Handbook 44 App. C) [C]; derived exactly"
+UNIT-tsp,CULINARY_VOLUME,volume,ml,US-LABEL,5.0,REGULATORY,"21 CFR 101.9(b)(5)(viii), nutrition labeling only [V 2026-10-08]"
+UNIT-tsp,CULINARY_VOLUME,volume,ml,METRIC,5.0,CONVENTION,"international metric culinary convention (tsp 5 mL, tbsp 15 mL, cup 250 mL) [C]"
+UNIT-tsp,CULINARY_VOLUME,volume,ml,AU,5.0,CONVENTION,"Australian convention (National Measurement Institute): tbsp 20 mL [C, secondary source only]"
+UNIT-tbsp,CULINARY_VOLUME,volume,ml,US,14.786764781250001,EXACT_DEFINITION,"US customary: gallon = 231 in³, inch = 2.54 cm (NIST Handbook 44 App. C) [C]; derived exactly"
+UNIT-tbsp,CULINARY_VOLUME,volume,ml,US-LABEL,15.0,REGULATORY,"21 CFR 101.9(b)(5)(viii), nutrition labeling only [V 2026-10-08]"
+UNIT-tbsp,CULINARY_VOLUME,volume,ml,METRIC,15.0,CONVENTION,"international metric culinary convention (tsp 5 mL, tbsp 15 mL, cup 250 mL) [C]"
+UNIT-tbsp,CULINARY_VOLUME,volume,ml,AU,20.0,CONVENTION,"Australian convention (National Measurement Institute): tbsp 20 mL [C, secondary source only]"
+UNIT-cup,CULINARY_VOLUME,volume,ml,US,236.58823650000002,EXACT_DEFINITION,"US customary: gallon = 231 in³, inch = 2.54 cm (NIST Handbook 44 App. C) [C]; derived exactly"
+UNIT-cup,CULINARY_VOLUME,volume,ml,US-LABEL,240.0,REGULATORY,"21 CFR 101.9(b)(5)(viii), nutrition labeling only [V 2026-10-08]"
+UNIT-cup,CULINARY_VOLUME,volume,ml,METRIC,250.0,CONVENTION,"international metric culinary convention (tsp 5 mL, tbsp 15 mL, cup 250 mL) [C]"
+UNIT-cup,CULINARY_VOLUME,volume,ml,AU,250.0,CONVENTION,"Australian convention (National Measurement Institute): tbsp 20 mL [C, secondary source only]"
+UNIT-pint,CULINARY_VOLUME,volume,ml,US,473.17647300000004,EXACT_DEFINITION,"US customary: gallon = 231 in³, inch = 2.54 cm (NIST Handbook 44 App. C) [C]; derived exactly"
+UNIT-pint,CULINARY_VOLUME,volume,ml,UK,568.26125,EXACT_DEFINITION,imperial gallon = 4.54609 L (UK Weights and Measures Act 1985) [C]; derived exactly
+UNIT-quart,CULINARY_VOLUME,volume,ml,US,946.3529460000001,EXACT_DEFINITION,"US customary: gallon = 231 in³, inch = 2.54 cm (NIST Handbook 44 App. C) [C]; derived exactly"
+UNIT-quart,CULINARY_VOLUME,volume,ml,UK,1136.5225,EXACT_DEFINITION,imperial gallon = 4.54609 L (UK Weights and Measures Act 1985) [C]; derived exactly
+UNIT-gallon,CULINARY_VOLUME,volume,ml,US,3785.4117840000004,EXACT_DEFINITION,"US customary: gallon = 231 in³, inch = 2.54 cm (NIST Handbook 44 App. C) [C]; derived exactly"
+UNIT-gallon,CULINARY_VOLUME,volume,ml,UK,4546.09,EXACT_DEFINITION,imperial gallon = 4.54609 L (UK Weights and Measures Act 1985) [C]; derived exactly
+UNIT-dessert-spoon,CULINARY_VOLUME,volume,ml,ANY,,UNKNOWN,no authoritative value found (RS-10-01)
+UNIT-glass,CULINARY_VOLUME,volume,ml,ANY,,UNKNOWN,no standard glass volume
+UNIT-katori,CULINARY_VOLUME,volume,ml,IN,,UNKNOWN,Indian bowl; no authoritative standard found (RS-10-01)
+UNIT-scoop,CULINARY_VOLUME,volume,ml,ANY,,UNKNOWN,scoop sizes vary by tool
+UNIT-inch,PHYSICAL,length,cm,ANY,2.54,EXACT_DEFINITION,international yard and pound agreement (1959): lb = 0.45359237 kg [C]; derived exactly
+UNIT-cm,PHYSICAL,length,cm,ANY,1.0,EXACT_DEFINITION,SI definition
+UNIT-dozen,COUNT_MULTIPLIER,count,count,ANY,12.0,EXACT_DEFINITION,definition
+UNIT-clove,COUNT,count,count,ANY,1.0,EXACT_DEFINITION,count of items
+UNIT-slice,COUNT,count,count,ANY,1.0,EXACT_DEFINITION,count of items
+UNIT-piece,COUNT,count,count,ANY,1.0,EXACT_DEFINITION,count of items
+UNIT-bunch,COUNT,count,count,ANY,1.0,EXACT_DEFINITION,count of items
+UNIT-sprig,COUNT,count,count,ANY,1.0,EXACT_DEFINITION,count of items
+UNIT-stalk,COUNT,count,count,ANY,1.0,EXACT_DEFINITION,count of items
+UNIT-pod,COUNT,count,count,ANY,1.0,EXACT_DEFINITION,count of items
+UNIT-leaf,COUNT,count,count,ANY,1.0,EXACT_DEFINITION,count of items
+UNIT-head,COUNT,count,count,ANY,1.0,EXACT_DEFINITION,count of items
+UNIT-ear,COUNT,count,count,ANY,1.0,EXACT_DEFINITION,count of items
+UNIT-stem,COUNT,count,count,ANY,1.0,EXACT_DEFINITION,count of items
+UNIT-stick,COUNT,count,count,ANY,1.0,EXACT_DEFINITION,count of items
+UNIT-strip,COUNT,count,count,ANY,1.0,EXACT_DEFINITION,count of items
+UNIT-ball,COUNT,count,count,ANY,1.0,EXACT_DEFINITION,count of items
+UNIT-cube,COUNT,count,count,ANY,1.0,EXACT_DEFINITION,count of items
+UNIT-fillet,COUNT,count,count,ANY,1.0,EXACT_DEFINITION,count of items
+UNIT-egg,COUNT,count,count,ANY,1.0,EXACT_DEFINITION,count of items
+UNIT-loaf,COUNT,count,count,ANY,1.0,EXACT_DEFINITION,count of items
+UNIT-sheet,COUNT,count,count,ANY,1.0,EXACT_DEFINITION,count of items
+UNIT-chip,COUNT,count,count,ANY,1.0,EXACT_DEFINITION,count of items
+UNIT-can,PACKAGE,count,count,ANY,1.0,EXACT_DEFINITION,count of packages
+UNIT-package,PACKAGE,count,count,ANY,1.0,EXACT_DEFINITION,count of packages
+UNIT-jar,PACKAGE,count,count,ANY,1.0,EXACT_DEFINITION,count of packages
+UNIT-box,PACKAGE,count,count,ANY,1.0,EXACT_DEFINITION,count of packages
+UNIT-bag,PACKAGE,count,count,ANY,1.0,EXACT_DEFINITION,count of packages
+UNIT-bottle,PACKAGE,count,count,ANY,1.0,EXACT_DEFINITION,count of packages
+UNIT-packet,PACKAGE,count,count,ANY,1.0,EXACT_DEFINITION,count of packages
+UNIT-envelope,PACKAGE,count,count,ANY,1.0,EXACT_DEFINITION,count of packages
+UNIT-carton,PACKAGE,count,count,ANY,1.0,EXACT_DEFINITION,count of packages
+UNIT-container,PACKAGE,count,count,ANY,1.0,EXACT_DEFINITION,count of packages
+UNIT-pinch,VERBAL,none,,ANY,,UNKNOWN,verbal quantity; qualitative by policy
+UNIT-dash,VERBAL,none,,ANY,,UNKNOWN,verbal quantity; qualitative by policy
+UNIT-smidgen,VERBAL,none,,ANY,,UNKNOWN,verbal quantity; qualitative by policy
+UNIT-drop,VERBAL,none,,ANY,,UNKNOWN,verbal quantity; qualitative by policy
+UNIT-splash,VERBAL,none,,ANY,,UNKNOWN,verbal quantity; qualitative by policy
+UNIT-handful,VERBAL,none,,ANY,,UNKNOWN,verbal quantity; qualitative by policy
+UNIT-sprinkle,VERBAL,none,,ANY,,UNKNOWN,verbal quantity; qualitative by policy
+UNIT-to-taste,VERBAL,none,,ANY,,UNKNOWN,verbal quantity; qualitative by policy
+UNIT-as-needed,VERBAL,none,,ANY,,UNKNOWN,verbal quantity; qualitative by policy
+UNIT-few,VERBAL,none,,ANY,,UNKNOWN,verbal quantity; qualitative by policy
+UNIT-some,VERBAL,none,,ANY,,UNKNOWN,verbal quantity; qualitative by policy
+UNIT-degC,TEMPERATURE,temperature,degC,ANY,1.0,EXACT_DEFINITION,SI definition
+UNIT-degF,TEMPERATURE,temperature,degC,ANY,,EXACT_DEFINITION,affine: (F − 32) × 5/9; handled in code

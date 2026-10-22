@@ -1,0 +1,912 @@
+<!doctype html><meta charset=utf-8><title>Literature cell pre-check</title><style>body{font-family:system-ui,sans-serif;max-width:1100px;margin:24px auto;padding:0 16px;color:#1d2420;background:#f7f8f6}table{border-collapse:collapse;font-size:12.5px;margin:8px 0 20px}th,td{border:1px solid #d6ddd8;padding:4px 7px;text-align:left}th{background:#e8eee9}h1{font-size:22px}h2{font-size:17px;margin-top:28px}.note{color:#55625a;font-size:13px}</style>
+<h1>Literature cell pre-check — ranked verification queue v1</h1>
+<p class=note>2,865 pre-checked cells from 27 open-access papers. AI pre-check (labels only) + deterministic checks. Nothing here is verified evidence until a human fills <code>verifier</code>. Source: <code>ledgers/literature/verification_queue_ranked_v1.csv</code>.</p>
+<p class=note>Not yet AI-pre-checked: 9,147 round-2 cells (24 papers: red meat, poultry, legumes) in <code>candidates_r2.csv</code>.</p>
+<h2>Queue categories</h2>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>cells</th>
+    </tr>
+    <tr>
+      <th>queue_category</th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>VERIFY_NOW</th>
+      <td>195</td>
+    </tr>
+    <tr>
+      <th>CONFLICT</th>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>STRONG_CANDIDATE</th>
+      <td>351</td>
+    </tr>
+    <tr>
+      <th>NEEDS_SOURCE</th>
+      <td>787</td>
+    </tr>
+    <tr>
+      <th>SUPPORT_RAW_REFERENCE</th>
+      <td>420</td>
+    </tr>
+    <tr>
+      <th>REJECT</th>
+      <td>1112</td>
+    </tr>
+  </tbody>
+</table>
+<h2>By anchor family</h2>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th>queue_category</th>
+      <th>VERIFY_NOW</th>
+      <th>CONFLICT</th>
+      <th>STRONG_CANDIDATE</th>
+      <th>NEEDS_SOURCE</th>
+      <th>SUPPORT_RAW_REFERENCE</th>
+      <th>REJECT</th>
+    </tr>
+    <tr>
+      <th>family</th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>allium</th>
+      <td>64</td>
+      <td>0</td>
+      <td>16</td>
+      <td>29</td>
+      <td>18</td>
+      <td>5</td>
+    </tr>
+    <tr>
+      <th>dairy_emulsion</th>
+      <td>30</td>
+      <td>0</td>
+      <td>78</td>
+      <td>90</td>
+      <td>120</td>
+      <td>306</td>
+    </tr>
+    <tr>
+      <th>egg_protein</th>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>102</td>
+      <td>60</td>
+      <td>45</td>
+    </tr>
+    <tr>
+      <th>fermented</th>
+      <td>9</td>
+      <td>0</td>
+      <td>81</td>
+      <td>54</td>
+      <td>42</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>fruit</th>
+      <td>9</td>
+      <td>0</td>
+      <td>70</td>
+      <td>239</td>
+      <td>42</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>grain_starch</th>
+      <td>0</td>
+      <td>0</td>
+      <td>18</td>
+      <td>74</td>
+      <td>75</td>
+      <td>115</td>
+    </tr>
+    <tr>
+      <th>leafy_green</th>
+      <td>65</td>
+      <td>0</td>
+      <td>19</td>
+      <td>72</td>
+      <td>34</td>
+      <td>135</td>
+    </tr>
+    <tr>
+      <th>legume</th>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>8</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>oil_frying_medium</th>
+      <td>6</td>
+      <td>0</td>
+      <td>36</td>
+      <td>72</td>
+      <td>12</td>
+      <td>236</td>
+    </tr>
+    <tr>
+      <th>poultry</th>
+      <td>0</td>
+      <td>0</td>
+      <td>24</td>
+      <td>0</td>
+      <td>0</td>
+      <td>103</td>
+    </tr>
+    <tr>
+      <th>red_meat</th>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>96</td>
+    </tr>
+    <tr>
+      <th>tuber</th>
+      <td>12</td>
+      <td>0</td>
+      <td>9</td>
+      <td>55</td>
+      <td>9</td>
+      <td>71</td>
+    </tr>
+  </tbody>
+</table>
+<h2>Deterministic checks (share of relevant cells passing)</h2>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>share</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>source_ok</th>
+      <td>1.000</td>
+    </tr>
+    <tr>
+      <th>matrix_ok</th>
+      <td>1.000</td>
+    </tr>
+    <tr>
+      <th>process_mapped</th>
+      <td>0.846</td>
+    </tr>
+    <tr>
+      <th>target_ok</th>
+      <td>0.992</td>
+    </tr>
+    <tr>
+      <th>unit_ok</th>
+      <td>0.919</td>
+    </tr>
+    <tr>
+      <th>basis_stated</th>
+      <td>0.262</td>
+    </tr>
+    <tr>
+      <th>cond_T</th>
+      <td>0.771</td>
+    </tr>
+    <tr>
+      <th>cond_t</th>
+      <td>0.767</td>
+    </tr>
+    <tr>
+      <th>secondary</th>
+      <td>0.009</td>
+    </tr>
+    <tr>
+      <th>span_ok</th>
+      <td>1.000</td>
+    </tr>
+    <tr>
+      <th>dup_source</th>
+      <td>0.000</td>
+    </tr>
+  </tbody>
+</table>
+<h2>Possible cross-paper contradictions (0 groups)</h2>
+<p class=note>Opposite raw→processed direction for the same ingredient × process × target in different papers. A human must adjudicate; conditions often differ.</p>
+<p>none</p>
+<h2>First 60 VERIFY_NOW cells</h2>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th>queue_rank</th>
+      <th>family</th>
+      <th>ai_food</th>
+      <th>ai_process_text</th>
+      <th>ai_target</th>
+      <th>cell_verbatim</th>
+      <th>raw_counterpart_verbatim</th>
+      <th>ai_unit</th>
+      <th>pmcid</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>1</td>
+      <td>allium</td>
+      <td>Welsh onion</td>
+      <td>washed under running water 1 min, cut into 8 mm slices, stir-fried with 8 mL refined vegetable oil in a pan preheated to 180 °C; 1 min</td>
+      <td>hexaconazole residue</td>
+      <td>0.13 ± 0.01 e</td>
+      <td>0.35 ± 0.01 a</td>
+      <td>mg/kg</td>
+      <td>PMC11764961</td>
+    </tr>
+    <tr>
+      <td>2</td>
+      <td>allium</td>
+      <td>Welsh onion</td>
+      <td>washed under running water 1 min, cut into 8 mm slices, stir-fried with 8 mL refined vegetable oil in a pan preheated to 180 °C; 1 min</td>
+      <td>hexaconazole residue</td>
+      <td>62.9</td>
+      <td></td>
+      <td>%</td>
+      <td>PMC11764961</td>
+    </tr>
+    <tr>
+      <td>3</td>
+      <td>allium</td>
+      <td>Welsh onion</td>
+      <td>washed under running water 1 min, cut into 8 mm slices, stir-fried with 8 mL refined vegetable oil in a pan preheated to 180 °C; 1 min</td>
+      <td>hexaconazole residue</td>
+      <td>1.24 ± 0.13 c</td>
+      <td>4.13 ± 0.12 a</td>
+      <td>mg/kg</td>
+      <td>PMC11764961</td>
+    </tr>
+    <tr>
+      <td>4</td>
+      <td>allium</td>
+      <td>Welsh onion</td>
+      <td>washed under running water 1 min, cut into 8 mm slices, stir-fried with 8 mL refined vegetable oil in a pan preheated to 180 °C; 1 min</td>
+      <td>hexaconazole residue</td>
+      <td>70.1</td>
+      <td></td>
+      <td>%</td>
+      <td>PMC11764961</td>
+    </tr>
+    <tr>
+      <td>5</td>
+      <td>allium</td>
+      <td>Welsh onion</td>
+      <td>washed under running water 1 min, cut into 8 mm slices, stir-fried with 8 mL refined vegetable oil in a pan preheated to 180 °C; 3 min</td>
+      <td>hexaconazole residue</td>
+      <td>0.18 ± 0.01 d</td>
+      <td>0.35 ± 0.01 a</td>
+      <td>mg/kg</td>
+      <td>PMC11764961</td>
+    </tr>
+    <tr>
+      <td>6</td>
+      <td>allium</td>
+      <td>Welsh onion</td>
+      <td>washed under running water 1 min, cut into 8 mm slices, stir-fried with 8 mL refined vegetable oil in a pan preheated to 180 °C; 3 min</td>
+      <td>hexaconazole residue</td>
+      <td>48.6</td>
+      <td></td>
+      <td>%</td>
+      <td>PMC11764961</td>
+    </tr>
+    <tr>
+      <td>7</td>
+      <td>allium</td>
+      <td>Welsh onion</td>
+      <td>washed under running water 1 min, cut into 8 mm slices, stir-fried with 8 mL refined vegetable oil in a pan preheated to 180 °C; 3 min</td>
+      <td>hexaconazole residue</td>
+      <td>1.19 ± 0.09 c</td>
+      <td>4.13 ± 0.12 a</td>
+      <td>mg/kg</td>
+      <td>PMC11764961</td>
+    </tr>
+    <tr>
+      <td>8</td>
+      <td>allium</td>
+      <td>Welsh onion</td>
+      <td>washed under running water 1 min, cut into 8 mm slices, stir-fried with 8 mL refined vegetable oil in a pan preheated to 180 °C; 3 min</td>
+      <td>hexaconazole residue</td>
+      <td>71.2</td>
+      <td></td>
+      <td>%</td>
+      <td>PMC11764961</td>
+    </tr>
+    <tr>
+      <td>9</td>
+      <td>allium</td>
+      <td>Welsh onion</td>
+      <td>washed under running water 1 min, cut into 8 mm slices, stir-fried with 8 mL refined vegetable oil in a pan preheated to 180 °C; 5 min</td>
+      <td>hexaconazole residue</td>
+      <td>0.21 ± 0.02 b</td>
+      <td>0.35 ± 0.01 a</td>
+      <td>mg/kg</td>
+      <td>PMC11764961</td>
+    </tr>
+    <tr>
+      <td>10</td>
+      <td>allium</td>
+      <td>Welsh onion</td>
+      <td>washed under running water 1 min, cut into 8 mm slices, stir-fried with 8 mL refined vegetable oil in a pan preheated to 180 °C; 5 min</td>
+      <td>hexaconazole residue</td>
+      <td>40.0</td>
+      <td></td>
+      <td>%</td>
+      <td>PMC11764961</td>
+    </tr>
+    <tr>
+      <td>11</td>
+      <td>allium</td>
+      <td>Welsh onion</td>
+      <td>washed under running water 1 min, cut into 8 mm slices, stir-fried with 8 mL refined vegetable oil in a pan preheated to 180 °C; 5 min</td>
+      <td>hexaconazole residue</td>
+      <td>1.12 ± 0.09 c</td>
+      <td>4.13 ± 0.12 a</td>
+      <td>mg/kg</td>
+      <td>PMC11764961</td>
+    </tr>
+    <tr>
+      <td>12</td>
+      <td>allium</td>
+      <td>Welsh onion</td>
+      <td>washed under running water 1 min, cut into 8 mm slices, stir-fried with 8 mL refined vegetable oil in a pan preheated to 180 °C; 5 min</td>
+      <td>hexaconazole residue</td>
+      <td>73.0</td>
+      <td></td>
+      <td>%</td>
+      <td>PMC11764961</td>
+    </tr>
+    <tr>
+      <td>13</td>
+      <td>allium</td>
+      <td>Welsh onion</td>
+      <td>washed under running water 1 min, cut into 5 cm lengths, baked in an oven preheated to 180 °C; 10 min</td>
+      <td>hexaconazole residue</td>
+      <td>0.11 ± 0.01 d</td>
+      <td>0.35 ± 0.01 a</td>
+      <td>mg/kg</td>
+      <td>PMC11764961</td>
+    </tr>
+    <tr>
+      <td>14</td>
+      <td>allium</td>
+      <td>Welsh onion</td>
+      <td>washed under running water 1 min, cut into 5 cm lengths, baked in an oven preheated to 180 °C; 10 min</td>
+      <td>hexaconazole residue</td>
+      <td>68.6</td>
+      <td></td>
+      <td>%</td>
+      <td>PMC11764961</td>
+    </tr>
+    <tr>
+      <td>15</td>
+      <td>allium</td>
+      <td>Welsh onion</td>
+      <td>washed under running water 1 min, cut into 5 cm lengths, baked in an oven preheated to 180 °C; 10 min</td>
+      <td>hexaconazole residue</td>
+      <td>0.91 ± 0.05 d</td>
+      <td>4.13 ± 0.12 a</td>
+      <td>mg/kg</td>
+      <td>PMC11764961</td>
+    </tr>
+    <tr>
+      <td>16</td>
+      <td>allium</td>
+      <td>Welsh onion</td>
+      <td>washed under running water 1 min, cut into 5 cm lengths, baked in an oven preheated to 180 °C; 10 min</td>
+      <td>hexaconazole residue</td>
+      <td>77.9</td>
+      <td></td>
+      <td>%</td>
+      <td>PMC11764961</td>
+    </tr>
+    <tr>
+      <td>17</td>
+      <td>allium</td>
+      <td>Welsh onion</td>
+      <td>washed under running water 1 min, cut into 5 cm lengths, baked in an oven preheated to 180 °C; 15 min</td>
+      <td>hexaconazole residue</td>
+      <td>0.10 ± 0.01 d</td>
+      <td>0.35 ± 0.01 a</td>
+      <td>mg/kg</td>
+      <td>PMC11764961</td>
+    </tr>
+    <tr>
+      <td>18</td>
+      <td>allium</td>
+      <td>Welsh onion</td>
+      <td>washed under running water 1 min, cut into 5 cm lengths, baked in an oven preheated to 180 °C; 15 min</td>
+      <td>hexaconazole residue</td>
+      <td>71.4</td>
+      <td></td>
+      <td>%</td>
+      <td>PMC11764961</td>
+    </tr>
+    <tr>
+      <td>19</td>
+      <td>allium</td>
+      <td>Welsh onion</td>
+      <td>washed under running water 1 min, cut into 5 cm lengths, baked in an oven preheated to 180 °C; 15 min</td>
+      <td>hexaconazole residue</td>
+      <td>0.72 ± 0.04 e</td>
+      <td>4.13 ± 0.12 a</td>
+      <td>mg/kg</td>
+      <td>PMC11764961</td>
+    </tr>
+    <tr>
+      <td>20</td>
+      <td>allium</td>
+      <td>Welsh onion</td>
+      <td>washed under running water 1 min, cut into 5 cm lengths, baked in an oven preheated to 180 °C; 15 min</td>
+      <td>hexaconazole residue</td>
+      <td>82.5</td>
+      <td></td>
+      <td>%</td>
+      <td>PMC11764961</td>
+    </tr>
+    <tr>
+      <td>21</td>
+      <td>allium</td>
+      <td>Welsh onion</td>
+      <td>washed under running water 1 min, cut into 5 cm lengths, baked in an oven preheated to 180 °C; 20 min</td>
+      <td>hexaconazole residue</td>
+      <td>0.08 ± 0.01 e</td>
+      <td>0.35 ± 0.01 a</td>
+      <td>mg/kg</td>
+      <td>PMC11764961</td>
+    </tr>
+    <tr>
+      <td>22</td>
+      <td>allium</td>
+      <td>Welsh onion</td>
+      <td>washed under running water 1 min, cut into 5 cm lengths, baked in an oven preheated to 180 °C; 20 min</td>
+      <td>hexaconazole residue</td>
+      <td>77.1</td>
+      <td></td>
+      <td>%</td>
+      <td>PMC11764961</td>
+    </tr>
+    <tr>
+      <td>23</td>
+      <td>allium</td>
+      <td>Welsh onion</td>
+      <td>washed under running water 1 min, cut into 5 cm lengths, baked in an oven preheated to 180 °C; 20 min</td>
+      <td>hexaconazole residue</td>
+      <td>0.45 ± 0.03 f</td>
+      <td>4.13 ± 0.12 a</td>
+      <td>mg/kg</td>
+      <td>PMC11764961</td>
+    </tr>
+    <tr>
+      <td>24</td>
+      <td>allium</td>
+      <td>Welsh onion</td>
+      <td>washed under running water 1 min, cut into 5 cm lengths, baked in an oven preheated to 180 °C; 20 min</td>
+      <td>hexaconazole residue</td>
+      <td>89.0</td>
+      <td></td>
+      <td>%</td>
+      <td>PMC11764961</td>
+    </tr>
+    <tr>
+      <td>25</td>
+      <td>dairy_emulsion</td>
+      <td>garlic (Allium sativum L.), peeled and sliced ~1 mm</td>
+      <td>Fried Garlic: stir-fried in hot canola oil (125 °C), frying continued until oil returned to 125 °C at approximately 12 min; oil removed with tissues; cooled 15 min</td>
+      <td>1,3-dithiane</td>
+      <td>65.9 ± 31.8</td>
+      <td>1240 ± 879</td>
+      <td>ppb (headspace)</td>
+      <td>PMC10420880</td>
+    </tr>
+    <tr>
+      <td>26</td>
+      <td>dairy_emulsion</td>
+      <td>garlic (Allium sativum L.), peeled and sliced ~1 mm</td>
+      <td>Fried Garlic: stir-fried in hot canola oil (125 °C), frying continued until oil returned to 125 °C at approximately 12 min; oil removed with tissues; cooled 15 min</td>
+      <td>2-ethylpyrazine</td>
+      <td>11.0 ± 4.5</td>
+      <td>7.20 ± 5.83</td>
+      <td>ppb (headspace)</td>
+      <td>PMC10420880</td>
+    </tr>
+    <tr>
+      <td>27</td>
+      <td>dairy_emulsion</td>
+      <td>garlic (Allium sativum L.), peeled and sliced ~1 mm</td>
+      <td>Fried Garlic: stir-fried in hot canola oil (125 °C), frying continued until oil returned to 125 °C at approximately 12 min; oil removed with tissues; cooled 15 min</td>
+      <td>2-methyl-2-butenal</td>
+      <td>23.6 ± 8.67</td>
+      <td>60.9 ± 49.1</td>
+      <td>ppb (headspace)</td>
+      <td>PMC10420880</td>
+    </tr>
+    <tr>
+      <td>28</td>
+      <td>dairy_emulsion</td>
+      <td>garlic (Allium sativum L.), peeled and sliced ~1 mm</td>
+      <td>Fried Garlic: stir-fried in hot canola oil (125 °C), frying continued until oil returned to 125 °C at approximately 12 min; oil removed with tissues; cooled 15 min</td>
+      <td>2-methylbenzaldehyde</td>
+      <td>1.36 ± 0.77</td>
+      <td>5.97 ± 3.37</td>
+      <td>ppb (headspace)</td>
+      <td>PMC10420880</td>
+    </tr>
+    <tr>
+      <td>29</td>
+      <td>dairy_emulsion</td>
+      <td>garlic (Allium sativum L.), peeled and sliced ~1 mm</td>
+      <td>Fried Garlic: stir-fried in hot canola oil (125 °C), frying continued until oil returned to 125 °C at approximately 12 min; oil removed with tissues; cooled 15 min</td>
+      <td>2-vinyl-4H-1,3-dithiin</td>
+      <td>8.26 ± 3.26</td>
+      <td>4.21 ± 2.94</td>
+      <td>ppb (headspace)</td>
+      <td>PMC10420880</td>
+    </tr>
+    <tr>
+      <td>30</td>
+      <td>dairy_emulsion</td>
+      <td>garlic (Allium sativum L.), peeled and sliced ~1 mm</td>
+      <td>Fried Garlic: stir-fried in hot canola oil (125 °C), frying continued until oil returned to 125 °C at approximately 12 min; oil removed with tissues; cooled 15 min</td>
+      <td>2,3-dimethylpyrazine</td>
+      <td>15.5 ± 10.7</td>
+      <td>4.81 ± 3.89</td>
+      <td>ppb (headspace)</td>
+      <td>PMC10420880</td>
+    </tr>
+    <tr>
+      <td>31</td>
+      <td>dairy_emulsion</td>
+      <td>garlic (Allium sativum L.), peeled and sliced ~1 mm</td>
+      <td>Fried Garlic: stir-fried in hot canola oil (125 °C), frying continued until oil returned to 125 °C at approximately 12 min; oil removed with tissues; cooled 15 min</td>
+      <td>2,5-dimethylthiophene</td>
+      <td>9.85 ± 1.62</td>
+      <td>134 ± 100</td>
+      <td>ppb (headspace)</td>
+      <td>PMC10420880</td>
+    </tr>
+    <tr>
+      <td>32</td>
+      <td>dairy_emulsion</td>
+      <td>garlic (Allium sativum L.), peeled and sliced ~1 mm</td>
+      <td>Fried Garlic: stir-fried in hot canola oil (125 °C), frying continued until oil returned to 125 °C at approximately 12 min; oil removed with tissues; cooled 15 min</td>
+      <td>Acetaldehyde</td>
+      <td>7990 ± 3390</td>
+      <td>19,100 ± 11,300</td>
+      <td>ppb (headspace)</td>
+      <td>PMC10420880</td>
+    </tr>
+    <tr>
+      <td>33</td>
+      <td>dairy_emulsion</td>
+      <td>garlic (Allium sativum L.), peeled and sliced ~1 mm</td>
+      <td>Fried Garlic: stir-fried in hot canola oil (125 °C), frying continued until oil returned to 125 °C at approximately 12 min; oil removed with tissues; cooled 15 min</td>
+      <td>Allicin</td>
+      <td>81.4 ± 42.1</td>
+      <td>1330 ± 1190</td>
+      <td>ppb (headspace)</td>
+      <td>PMC10420880</td>
+    </tr>
+    <tr>
+      <td>34</td>
+      <td>dairy_emulsion</td>
+      <td>garlic (Allium sativum L.), peeled and sliced ~1 mm</td>
+      <td>Fried Garlic: stir-fried in hot canola oil (125 °C), frying continued until oil returned to 125 °C at approximately 12 min; oil removed with tissues; cooled 15 min</td>
+      <td>Allyl mercaptan</td>
+      <td>121 ± 8</td>
+      <td>116,000 ± 20,200</td>
+      <td>ppb (headspace)</td>
+      <td>PMC10420880</td>
+    </tr>
+    <tr>
+      <td>35</td>
+      <td>dairy_emulsion</td>
+      <td>garlic (Allium sativum L.), peeled and sliced ~1 mm</td>
+      <td>Fried Garlic: stir-fried in hot canola oil (125 °C), frying continued until oil returned to 125 °C at approximately 12 min; oil removed with tissues; cooled 15 min</td>
+      <td>Allyl methyl disulfide</td>
+      <td>79.8 ± 29.2</td>
+      <td>13,400 ± 8780</td>
+      <td>ppb (headspace)</td>
+      <td>PMC10420880</td>
+    </tr>
+    <tr>
+      <td>36</td>
+      <td>dairy_emulsion</td>
+      <td>garlic (Allium sativum L.), peeled and sliced ~1 mm</td>
+      <td>Fried Garlic: stir-fried in hot canola oil (125 °C), frying continued until oil returned to 125 °C at approximately 12 min; oil removed with tissues; cooled 15 min</td>
+      <td>Allyl methyl sulfide</td>
+      <td>73.3 ± 9.3</td>
+      <td>1380 ± 385</td>
+      <td>ppb (headspace)</td>
+      <td>PMC10420880</td>
+    </tr>
+    <tr>
+      <td>37</td>
+      <td>dairy_emulsion</td>
+      <td>garlic (Allium sativum L.), peeled and sliced ~1 mm</td>
+      <td>Fried Garlic: stir-fried in hot canola oil (125 °C), frying continued until oil returned to 125 °C at approximately 12 min; oil removed with tissues; cooled 15 min</td>
+      <td>Allyl methyl tetrasulfide</td>
+      <td>1.66 ± 0.57</td>
+      <td>2.56 ± 1.25</td>
+      <td>ppb (headspace)</td>
+      <td>PMC10420880</td>
+    </tr>
+    <tr>
+      <td>38</td>
+      <td>dairy_emulsion</td>
+      <td>garlic (Allium sativum L.), peeled and sliced ~1 mm</td>
+      <td>Fried Garlic: stir-fried in hot canola oil (125 °C), frying continued until oil returned to 125 °C at approximately 12 min; oil removed with tissues; cooled 15 min</td>
+      <td>Allyl methyl thiosulfinate</td>
+      <td>8.06 ± 2.02</td>
+      <td>89.4 ± 73.8</td>
+      <td>ppb (headspace)</td>
+      <td>PMC10420880</td>
+    </tr>
+    <tr>
+      <td>39</td>
+      <td>dairy_emulsion</td>
+      <td>garlic (Allium sativum L.), peeled and sliced ~1 mm</td>
+      <td>Fried Garlic: stir-fried in hot canola oil (125 °C), frying continued until oil returned to 125 °C at approximately 12 min; oil removed with tissues; cooled 15 min</td>
+      <td>Allyl methyl trisulfide</td>
+      <td>7.46 ± 0.76</td>
+      <td>35.7 ± 18.5</td>
+      <td>ppb (headspace)</td>
+      <td>PMC10420880</td>
+    </tr>
+    <tr>
+      <td>40</td>
+      <td>dairy_emulsion</td>
+      <td>garlic (Allium sativum L.), peeled and sliced ~1 mm</td>
+      <td>Fried Garlic: stir-fried in hot canola oil (125 °C), frying continued until oil returned to 125 °C at approximately 12 min; oil removed with tissues; cooled 15 min</td>
+      <td>Aniline</td>
+      <td>5.93 ± 3.34</td>
+      <td>2.56 ± 1.56</td>
+      <td>ppb (headspace)</td>
+      <td>PMC10420880</td>
+    </tr>
+    <tr>
+      <td>41</td>
+      <td>dairy_emulsion</td>
+      <td>garlic (Allium sativum L.), peeled and sliced ~1 mm</td>
+      <td>Fried Garlic: stir-fried in hot canola oil (125 °C), frying continued until oil returned to 125 °C at approximately 12 min; oil removed with tissues; cooled 15 min</td>
+      <td>Diallyl disulfide</td>
+      <td>69.1 ± 43.5</td>
+      <td>26,200 ± 19,000</td>
+      <td>ppb (headspace)</td>
+      <td>PMC10420880</td>
+    </tr>
+    <tr>
+      <td>42</td>
+      <td>dairy_emulsion</td>
+      <td>garlic (Allium sativum L.), peeled and sliced ~1 mm</td>
+      <td>Fried Garlic: stir-fried in hot canola oil (125 °C), frying continued until oil returned to 125 °C at approximately 12 min; oil removed with tissues; cooled 15 min</td>
+      <td>Diallyl sulfide</td>
+      <td>51.8 ± 5.7</td>
+      <td>1900 ± 711</td>
+      <td>ppb (headspace)</td>
+      <td>PMC10420880</td>
+    </tr>
+    <tr>
+      <td>43</td>
+      <td>dairy_emulsion</td>
+      <td>garlic (Allium sativum L.), peeled and sliced ~1 mm</td>
+      <td>Fried Garlic: stir-fried in hot canola oil (125 °C), frying continued until oil returned to 125 °C at approximately 12 min; oil removed with tissues; cooled 15 min</td>
+      <td>Diallyl tetrasulfide</td>
+      <td>1.18 ± 0.51</td>
+      <td>2.80 ± 2.12</td>
+      <td>ppb (headspace)</td>
+      <td>PMC10420880</td>
+    </tr>
+    <tr>
+      <td>44</td>
+      <td>dairy_emulsion</td>
+      <td>garlic (Allium sativum L.), peeled and sliced ~1 mm</td>
+      <td>Fried Garlic: stir-fried in hot canola oil (125 °C), frying continued until oil returned to 125 °C at approximately 12 min; oil removed with tissues; cooled 15 min</td>
+      <td>Diallyl trisulfide</td>
+      <td>14.7 ± 4.2</td>
+      <td>236 ± 175</td>
+      <td>ppb (headspace)</td>
+      <td>PMC10420880</td>
+    </tr>
+    <tr>
+      <td>45</td>
+      <td>dairy_emulsion</td>
+      <td>garlic (Allium sativum L.), peeled and sliced ~1 mm</td>
+      <td>Fried Garlic: stir-fried in hot canola oil (125 °C), frying continued until oil returned to 125 °C at approximately 12 min; oil removed with tissues; cooled 15 min</td>
+      <td>Dimethyl disulfide</td>
+      <td>47.9 ± 24.8</td>
+      <td>554 ± 367</td>
+      <td>ppb (headspace)</td>
+      <td>PMC10420880</td>
+    </tr>
+    <tr>
+      <td>46</td>
+      <td>dairy_emulsion</td>
+      <td>garlic (Allium sativum L.), peeled and sliced ~1 mm</td>
+      <td>Fried Garlic: stir-fried in hot canola oil (125 °C), frying continued until oil returned to 125 °C at approximately 12 min; oil removed with tissues; cooled 15 min</td>
+      <td>Dimethyl sulfide</td>
+      <td>384 ± 159</td>
+      <td>981 ± 692</td>
+      <td>ppb (headspace)</td>
+      <td>PMC10420880</td>
+    </tr>
+    <tr>
+      <td>47</td>
+      <td>dairy_emulsion</td>
+      <td>garlic (Allium sativum L.), peeled and sliced ~1 mm</td>
+      <td>Fried Garlic: stir-fried in hot canola oil (125 °C), frying continued until oil returned to 125 °C at approximately 12 min; oil removed with tissues; cooled 15 min</td>
+      <td>Dimethyl thioether</td>
+      <td>447 ± 174</td>
+      <td>1130 ± 794</td>
+      <td>ppb (headspace)</td>
+      <td>PMC10420880</td>
+    </tr>
+    <tr>
+      <td>48</td>
+      <td>dairy_emulsion</td>
+      <td>garlic (Allium sativum L.), peeled and sliced ~1 mm</td>
+      <td>Fried Garlic: stir-fried in hot canola oil (125 °C), frying continued until oil returned to 125 °C at approximately 12 min; oil removed with tissues; cooled 15 min</td>
+      <td>Dimethyl thiosulfinate</td>
+      <td>3.63 ± 0.08</td>
+      <td>10.7 ± 4.7</td>
+      <td>ppb (headspace)</td>
+      <td>PMC10420880</td>
+    </tr>
+    <tr>
+      <td>49</td>
+      <td>dairy_emulsion</td>
+      <td>garlic (Allium sativum L.), peeled and sliced ~1 mm</td>
+      <td>Fried Garlic: stir-fried in hot canola oil (125 °C), frying continued until oil returned to 125 °C at approximately 12 min; oil removed with tissues; cooled 15 min</td>
+      <td>Dimethyl trisulfide</td>
+      <td>9.58 ± 4.06</td>
+      <td>10.9 ± 4.94</td>
+      <td>ppb (headspace)</td>
+      <td>PMC10420880</td>
+    </tr>
+    <tr>
+      <td>50</td>
+      <td>dairy_emulsion</td>
+      <td>garlic (Allium sativum L.), peeled and sliced ~1 mm</td>
+      <td>Fried Garlic: stir-fried in hot canola oil (125 °C), frying continued until oil returned to 125 °C at approximately 12 min; oil removed with tissues; cooled 15 min</td>
+      <td>Dipropyl sulfide</td>
+      <td>16.3 ± 4.1</td>
+      <td>5130 ± 4240</td>
+      <td>ppb (headspace)</td>
+      <td>PMC10420880</td>
+    </tr>
+    <tr>
+      <td>51</td>
+      <td>dairy_emulsion</td>
+      <td>garlic (Allium sativum L.), peeled and sliced ~1 mm</td>
+      <td>Fried Garlic: stir-fried in hot canola oil (125 °C), frying continued until oil returned to 125 °C at approximately 12 min; oil removed with tissues; cooled 15 min</td>
+      <td>Methyl mercaptan</td>
+      <td>55.9 ± 7.15</td>
+      <td>24,400 ± 3580</td>
+      <td>ppb (headspace)</td>
+      <td>PMC10420880</td>
+    </tr>
+    <tr>
+      <td>52</td>
+      <td>dairy_emulsion</td>
+      <td>garlic (Allium sativum L.), peeled and sliced ~1 mm</td>
+      <td>Fried Garlic: stir-fried in hot canola oil (125 °C), frying continued until oil returned to 125 °C at approximately 12 min; oil removed with tissues; cooled 15 min</td>
+      <td>Methyl propyl disulfide</td>
+      <td>19.5 ± 9.9</td>
+      <td>1970 ± 1350</td>
+      <td>ppb (headspace)</td>
+      <td>PMC10420880</td>
+    </tr>
+    <tr>
+      <td>53</td>
+      <td>dairy_emulsion</td>
+      <td>garlic (Allium sativum L.), peeled and sliced ~1 mm</td>
+      <td>Fried Garlic: stir-fried in hot canola oil (125 °C), frying continued until oil returned to 125 °C at approximately 12 min; oil removed with tissues; cooled 15 min</td>
+      <td>Pyridine</td>
+      <td>6.91 ± 3.19</td>
+      <td>2.42 ± 1.65</td>
+      <td>ppb (headspace)</td>
+      <td>PMC10420880</td>
+    </tr>
+    <tr>
+      <td>54</td>
+      <td>dairy_emulsion</td>
+      <td>garlic (Allium sativum L.), peeled and sliced ~1 mm</td>
+      <td>Fried Garlic: stir-fried in hot canola oil (125 °C), frying continued until oil returned to 125 °C at approximately 12 min; oil removed with tissues; cooled 15 min</td>
+      <td>Trimethylpyrazine</td>
+      <td>6.14 ± 2.86</td>
+      <td>493 ± 344</td>
+      <td>ppb (headspace)</td>
+      <td>PMC10420880</td>
+    </tr>
+    <tr>
+      <td>55</td>
+      <td>fermented</td>
+      <td>KCSB‐100 (Chinese steamed bread with kiwifruit powder; steaming stage sample)</td>
+      <td>Steaming (stage sample; shaped, proofed dough steamed for 19 min)</td>
+      <td>TPC</td>
+      <td>1.10 d</td>
+      <td>0.984 e</td>
+      <td>g GAE kg−1 db</td>
+      <td>PMC13157245</td>
+    </tr>
+    <tr>
+      <td>56</td>
+      <td>fermented</td>
+      <td>KCSB‐100 (Chinese steamed bread with kiwifruit powder; steaming stage sample)</td>
+      <td>Steaming (stage sample; shaped, proofed dough steamed for 19 min)</td>
+      <td>Vitamin C</td>
+      <td>0.754 b</td>
+      <td>0.644 c</td>
+      <td>g kg−1 db</td>
+      <td>PMC13157245</td>
+    </tr>
+    <tr>
+      <td>57</td>
+      <td>fermented</td>
+      <td>KCSB‐100 (Chinese steamed bread with kiwifruit powder; steaming stage sample)</td>
+      <td>Steaming (stage sample; shaped, proofed dough steamed for 19 min)</td>
+      <td>Procyanidin B2</td>
+      <td>0.0811 b</td>
+      <td>0.0701 b</td>
+      <td>g kg−1 db</td>
+      <td>PMC13157245</td>
+    </tr>
+    <tr>
+      <td>58</td>
+      <td>fermented</td>
+      <td>KCSB‐300 (Chinese steamed bread with kiwifruit powder; steaming stage sample)</td>
+      <td>Steaming (stage sample; shaped, proofed dough steamed for 19 min)</td>
+      <td>TPC</td>
+      <td>1.39 e</td>
+      <td>1.61 c</td>
+      <td>g GAE kg−1 db</td>
+      <td>PMC13157245</td>
+    </tr>
+    <tr>
+      <td>59</td>
+      <td>fermented</td>
+      <td>KCSB‐300 (Chinese steamed bread with kiwifruit powder; steaming stage sample)</td>
+      <td>Steaming (stage sample; shaped, proofed dough steamed for 19 min)</td>
+      <td>Vitamin C</td>
+      <td>1.50 ab</td>
+      <td>1.29 b</td>
+      <td>g kg−1 db</td>
+      <td>PMC13157245</td>
+    </tr>
+    <tr>
+      <td>60</td>
+      <td>fermented</td>
+      <td>KCSB‐300 (Chinese steamed bread with kiwifruit powder; steaming stage sample)</td>
+      <td>Steaming (stage sample; shaped, proofed dough steamed for 19 min)</td>
+      <td>Procyanidin B2</td>
+      <td>0.219 b</td>
+      <td>0.218 b</td>
+      <td>g kg−1 db</td>
+      <td>PMC13157245</td>
+    </tr>
+  </tbody>
+</table>

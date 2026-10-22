@@ -1,0 +1,246 @@
+{
+  "input": {
+    "path": "A1/outputs/Q1/Q1c_recipe_ingredient.csv",
+    "sha256": "f637aa7d33ad143cde3c1547ca07be5f14919ec4dcc96d6a5843fe34a20b44f6",
+    "recipes": 11934,
+    "ingredients": 6346,
+    "memberships": 115197
+  },
+  "method": "Clauset-Shalizi-Newman 2009; discrete MLE; KS xmin; semi-parametric bootstrap with CSN eq. D.6 tail sampler (approximation); Vuong for non-nested; chi2_1 for PL vs truncated PL",
+  "real": {
+    "xmin": 2,
+    "alpha": 1.6255559876196026,
+    "alpha_at_optimizer_bound": false,
+    "alpha_se": 0.011994488526701857,
+    "ks": 0.027856214644701005,
+    "n_tail": 2720,
+    "n": 6346,
+    "gof_p": 0.0,
+    "n_boot": 1000,
+    "params": {
+      "power_law": {
+        "alpha": 1.6255559876196026
+      },
+      "exponential": {
+        "lambda": 0.025306486398250505
+      },
+      "lognormal": {
+        "mu": -12.706540715654315,
+        "sigma": 5.079916706921658
+      },
+      "truncated_power_law": {
+        "alpha": 1.5607812050613528,
+        "lambda": 0.00047383475191647707
+      }
+    },
+    "loglik": {
+      "power_law": -9564.731573728079,
+      "exponential": -12720.75608899389,
+      "lognormal": -9556.29056524827,
+      "truncated_power_law": -9538.451715945333
+    },
+    "comparisons": {
+      "power_law_vs_exponential": {
+        "R": 3156.02451526581,
+        "normalised_R": 16.616995164164152,
+        "p": 5.249878623323813e-62,
+        "favours": "power_law"
+      },
+      "power_law_vs_lognormal": {
+        "R": -8.441008479807529,
+        "normalised_R": -2.8005243142048055,
+        "p": 0.0051019663836512,
+        "favours": "lognormal"
+      },
+      "power_law_vs_truncated_power_law": {
+        "R": -26.27985778274487,
+        "p_nested_chi2_1": 4.173629418638035e-13,
+        "favours": "truncated_power_law"
+      }
+    }
+  },
+  "null_q2a_uniform": {
+    "xmin": 18,
+    "alpha": 5.999999501619901,
+    "alpha_at_optimizer_bound": true,
+    "alpha_se": 0.08500254164203987,
+    "ks": 0.07146010075557374,
+    "n_tail": 3460,
+    "n": 6346,
+    "gof_p": null,
+    "n_boot": 0,
+    "params": {
+      "power_law": {
+        "alpha": 5.999999501619901
+      },
+      "exponential": {
+        "lambda": 0.2730783116718139
+      },
+      "lognormal": {
+        "mu": 2.9343794162398043,
+        "sigma": 0.1915337074018949
+      },
+      "truncated_power_law": {
+        "alpha": -20.691331340258184,
+        "lambda": 1.1709990977234201
+      }
+    },
+    "loglik": {
+      "power_law": -8110.1733011130655,
+      "exponential": -7961.799780492309,
+      "lognormal": -7842.367624972079,
+      "truncated_power_law": -7840.542686343102
+    },
+    "comparisons": {
+      "power_law_vs_exponential": {
+        "R": -148.3735206207557,
+        "normalised_R": -37.44044035350671,
+        "p": 8.59415003756554e-307,
+        "favours": "exponential"
+      },
+      "power_law_vs_lognormal": {
+        "R": -267.80567614098584,
+        "normalised_R": -15.400933349066086,
+        "p": 1.6132389671159684e-53,
+        "favours": "lognormal"
+      },
+      "power_law_vs_truncated_power_law": {
+        "R": -269.63061476996313,
+        "p_nested_chi2_1": 2.7299246809440415e-119,
+        "favours": "truncated_power_law"
+      }
+    }
+  },
+  "null_note": "one Q2(a) size-preserving uniform cuisine; GoF bootstrap not run on the null (descriptive contrast only). The Q3 frequency-weighted null reproduces f_i by construction and is NOT a test of the tail.",
+  "heaps": {
+    "n": [
+      1,
+      306,
+      612,
+      918,
+      1224,
+      1530,
+      1836,
+      2142,
+      2448,
+      2754,
+      3060,
+      3366,
+      3672,
+      3978,
+      4284,
+      4590,
+      4896,
+      5202,
+      5508,
+      5814,
+      6120,
+      6426,
+      6732,
+      7038,
+      7344,
+      7650,
+      7956,
+      8262,
+      8568,
+      8874,
+      9180,
+      9486,
+      9792,
+      10098,
+      10404,
+      10710,
+      11016,
+      11322,
+      11628,
+      11934
+    ],
+    "V_mean": [
+      10.4,
+      812.15,
+      1199.25,
+      1499.05,
+      1766.15,
+      1994.4,
+      2212.4,
+      2409.5,
+      2603.3,
+      2771.8,
+      2937.6,
+      3099.7,
+      3254.2,
+      3403.75,
+      3545.05,
+      3685.6,
+      3821.85,
+      3951.05,
+      4076.25,
+      4207.7,
+      4329.3,
+      4455.35,
+      4576.5,
+      4690.05,
+      4805.55,
+      4917.15,
+      5025.6,
+      5141.6,
+      5253.65,
+      5363.4,
+      5463.95,
+      5564.5,
+      5665.6,
+      5768.8,
+      5865.3,
+      5964.65,
+      6059.35,
+      6156.75,
+      6253.05,
+      6346.0
+    ],
+    "V_sd": [
+      3.5411862419251547,
+      20.112869014638363,
+      26.028590050173673,
+      29.379372015072075,
+      29.72587256919467,
+      29.47609200691299,
+      30.984512260159914,
+      27.796582523756406,
+      32.9015197217393,
+      33.788459568320064,
+      30.318970958790803,
+      35.290366957570726,
+      38.35048891474528,
+      35.4906677874621,
+      39.64400963575707,
+      41.30060532244049,
+      40.57496149104765,
+      40.82214472562656,
+      41.004725337453486,
+      39.80339181527122,
+      43.333705126610155,
+      39.652585035530784,
+      38.67880556583928,
+      41.44451109616327,
+      37.041159539085704,
+      36.16942769798825,
+      35.16304878704348,
+      32.92324406859081,
+      33.10026434939758,
+      29.268413007882746,
+      27.610641064633036,
+      30.87798568559808,
+      29.651981384049197,
+      25.3980314197774,
+      23.767835408383323,
+      23.292219731060413,
+      19.634854213871822,
+      15.046178916921066,
+      11.633894446830778,
+      0.0
+    ],
+    "heaps_beta_descriptive": 0.5625059133445678,
+    "note": "\u03b2 is a descriptive log-log slope over the last 90% of recipes, not a fitted model"
+  },
+  "kinouchi_reproduction": "BLOCKED: original paper (Kinouchi et al. 2008, NJP 10 073020) not yet obtained; SSOT \u00a7261.18 #1 forbids reconstruction from secondary notation"
+}

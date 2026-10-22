@@ -1,0 +1,13 @@
+gold_format: DEL3-GOLD-v0
+recipe_id: FIX-UX04
+annotator: CLAUDE-EXAMPLE
+guideline_version: v1
+source_text: Chop 2 onions.
+# UNKNOWN is correct: size (small/large) and mass are not stated — count only; never convert to grams
+steps:
+  - step: 1
+    text: Chop 2 onions.
+    events:
+      - op: CREATE
+        outputs: [{id: onion, concept: onion, label: onions, qty: {raw: 2 onions, unit: piece, value: 2}}]
+      - {op: TRANSFORM, input: onion, process: chop, plan: {form: chopped}}

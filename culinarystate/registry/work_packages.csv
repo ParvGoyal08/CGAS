@@ -1,0 +1,48 @@
+wp_id,title,owner,reviewer,weeks,lane,next7_id,status,blocker
+K1,CI / validators / gate harness,Kush,Parv,W1,A,,DONE_PENDING_REVIEW,gate.py runs locally; CI executes only once the repo exists (H7)
+K2,USDA/source snapshot ingestion,Kush,Parv,W1,A,,DONE_PENDING_REVIEW,
+K3,schemas + provenance + condition contracts,Kush,Parv,W1,A,,DONE_PENDING_REVIEW,
+K4,Phenol-Explorer / alternative acquisition ADR,Kush,Parv,W1,A,,BLOCKED_EXTERNAL,no export; terms allow non-commercial research use; maintainer request drafted (H1) — DEC-035
+K5,evidence ingestion v0,Kush,Parv,W2,A,,DONE_PENDING_REVIEW,
+K6,internal canonical names + external crosswalks,Kush,Parv,W2,A,,DONE_PENDING_REVIEW,ING v0 + A1 crosswalk are PROPOSED; stratified human audit (≥200 aliases) pending
+K7,CQPO / unit + symbolic quantity v0,Kush,Parv,W1–W3,A/B,,DONE_PENDING_REVIEW,
+K8,verified literature evidence,Kush,Parv,W3–W5,A/B,,BLOCKED_HUMAN,"5,919 verbatim cells (v1) + AI pre-check (DEC-033); ≥40 HUMAN verifications needed"
+K9,DEL-1 freeze + EDA,Kush,Parv,W3,A,,IN_PROGRESS,v0 data card done; DEL-1 v1 freeze waits on K8 verified rows
+K10,retrieval B1–B3,Kush,Parv,W4,A,,DONE_PENDING_REVIEW,dev only
+K11,compatibility/confidence/calibration,Kush,Parv,W5,A,,DONE_PENDING_REVIEW,dev only
+K12,DEL-4 locked evaluation,Kush,Parv,W6,A,,BLOCKED_HUMAN,locked evaluation needs the frozen benchmark (J2)
+K13,DEL-5 ladder wiring,Kush,Parv,W6,A,,DONE_PENDING_REVIEW,ladder wired; dev smoke on local Ollama only
+K14,locked final model/API runs,Kush,Parv,W7,A,,BLOCKED_GATE,needs H3 (Claude API spend) and the frozen benchmark
+K15,B03-lite classical regression substrate,Kush,Parv,W1–W2,B,,DONE_PENDING_REVIEW,
+K16,B04-lite molecule/fingerprint registry,Kush,Parv,W1–W3,B,,DONE_PENDING_REVIEW,
+K17,10k Silver pipeline support / batch validators,Kush,Parv,W3–W5,B,,BLOCKED_EXTERNAL,"10k Silver pilot needs RecipeDB access, then §257P checklist and H3"
+P1,registries / traceability / gates,Parv,Kush,W0–W1,A,WP-01,DONE_PENDING_REVIEW,
+P2,process ontology,Parv,Kush,W1–W3,A/B,,DONE_PENDING_REVIEW,
+P3,event/state graph core,Parv,Kush,W1–W2,A,WP-07,DONE_PENDING_REVIEW,
+P4,Gold guideline / agreement,Parv,Kush,W1–W2,A,,DONE_PENDING_REVIEW,
+P5,DEL-2 mask/split/cards,Parv,Kush,W3,A,,DONE_PENDING_REVIEW,"card frozen, sha in preregistration.csv"
+P6,RecipeDB adapter / candidate pool,Parv,Kush,W3,A,,BLOCKED_EXTERNAL,"RecipeDB access (WP-03 email, H1)"
+P7,DEL-2 D0–D7 runs,Parv,Kush,W4,A,,COMPLETE,full run 20261008-004800
+P8,DEL-2 results/gates,Parv,Kush,W5,A,,COMPLETE,results.md + verdicts.json; H2 UNDERPOWERED by card §X (DEC-032)
+P9,sessions / DEL-3 evaluation,Parv,Kush,W5,A,,BLOCKED_EXTERNAL,RecipeDB recipes for the 20-recipe pilot and Gold
+P10,decision/diagnosis/recovery,Parv,Kush,W6,A,,DONE_PENDING_REVIEW,
+P11,UI/demo,Parv,Kush,W7,A,,DONE_PENDING_REVIEW,
+P12,vocabulary/alias growth audit,Parv,Kush,W3–W6,B,,DONE_PENDING_REVIEW,audit on A1 vocabulary; rerun on RecipeDB when available
+P13,10k Silver semantic/event audit,Parv,Kush,W5,B,,BLOCKED_EXTERNAL,Silver pilot not launched (see K17)
+P14,B08 reproduction/scorer hygiene,Parv,Kush,W2–W4,B,,ACTIVE_PARALLEL,scorer + leakage audit done; resource landscape cards running; matched reproduction needs RecipeDB3 artefacts
+P15,B15 bounded evolution/null reproduction if capacity,Parv,Kush,W5+,B,,ACTIVE_PARALLEL,"CSN fit + null done; Kinouchi source approved (DEC-035), card in progress"
+J1,research briefs and source verification,Joint,Joint,W0–W2,A,,IN_PROGRESS,
+J2,benchmark creation/locking,Joint,Joint,W2–W4,A,,BLOCKED_HUMAN,"humans author items (target 320, floor 104)"
+J3,independent Gold annotation/adjudication,Joint,Joint,W2–W4,A,,BLOCKED_EXTERNAL,RecipeDB recipes
+J4,human/chef review,Joint,Joint,W7,A,,TODO,after locked runs
+J5,final report/cards/release,Joint,Joint,W8,A,,TODO,
+J6,weekly adversarial audit,Joint,Joint,weekly,A,,TODO,
+J7,claim/novelty audit,Joint,Joint,W7–W8,A,,TODO,
+J8,programme-scale backlog/gate review,Joint,Joint,W8,C,,TODO,
+WP-01,seed registries (P1),Parv,Kush,W0,A,WP-01,DONE_PENDING_REVIEW,
+WP-02,"DECISIONS.md: D-1 revised, D-2…D-6, AH1–AH15, X1–X3",Parv,Kush,W0,A,WP-02,DONE_PENDING_REVIEW,
+WP-03,edit + send Part AS email (H1),Kush,Parv,W0,A,WP-03,BLOCKED_HUMAN,Kush sends (H1) — brief published
+WP-04,"repo + collaborators (H7), CI skeleton, gate.py stub",Kush,Parv,W0,A,WP-04,BLOCKED_HUMAN,Parv creates the GitHub repo and invites kushiiitd05 (H7)
+WP-05,SNAP-/API- re-verification; R6 download + count,Kush,Parv,W0,A,WP-05,DONE_PENDING_REVIEW,R6 downloaded and counted (SNAP-0001…0003)
+WP-06,evidence schema v1 (AH1/AH2/AM2) + broken-row CI test,Kush,Parv,W0,A,WP-06,DONE_PENDING_REVIEW,
+WP-07,"state-engine core: 3 identities, trajectory, replay, fixtures",Parv,Kush,W0,A,WP-07,DONE_PENDING_REVIEW,

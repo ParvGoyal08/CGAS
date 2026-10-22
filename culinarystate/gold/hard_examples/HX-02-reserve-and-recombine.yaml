@@ -1,0 +1,28 @@
+gold_format: DEL3-GOLD-v0
+recipe_id: FIX-HX02
+annotator: CLAUDE-EXAMPLE
+guideline_version: v1
+source_text: Cook the rice in 500 ml water. Keep back 2 tbsp of the cooking water. Stir it back in at the end.
+# HARD: "keep back" = RESERVE (volume stays a volume); "stir it back" = RECOMBINE with the reserved lot (coreference "it")
+steps:
+  - step: 1
+    text: Cook the rice in 500 ml water.
+    events:
+      - op: CREATE
+        outputs:
+          - {id: rice, concept: rice, label: rice}
+          - {id: water, concept: water, label: water, qty: {raw: 500 ml, unit: ml, value: 500}}
+      - {op: MERGE, inputs: [rice, water], process: cook, outputs: [{id: pot, label: rice in cooking water}]}
+  - step: 2
+    text: Keep back 2 tbsp of the cooking water.
+    events:
+      - op: RESERVE
+        input: pot
+        process: reserve
+        outputs:
+          - {id: water_res, label: reserved cooking water, qty: {raw: 2 tbsp, unit: tbsp, value: 2}}
+          - {id: pot_rest, label: rice with remaining water}
+  - step: 3
+    text: Stir it back in at the end.
+    events:
+      - {op: RECOMBINE, inputs: [pot_rest, water_res], process: stir, span: Stir it back in, outputs: [{id: dish, label: finished rice}]}

@@ -1,0 +1,12 @@
+gold_format: DEL3-GOLD-v0
+recipe_id: FIX-UX01
+annotator: CLAUDE-EXAMPLE
+guideline_version: v1
+source_text: Season with a pinch of salt.
+# UNKNOWN is correct: 'a pinch' has no defined mass — record the raw text, no unit value
+steps:
+  - step: 1
+    text: Season with a pinch of salt.
+    events:
+      - op: CREATE
+        outputs: [{id: salt, concept: salt, label: salt, qty: {raw: a pinch, unit: pinch}}]

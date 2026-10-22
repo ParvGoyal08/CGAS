@@ -1,0 +1,20 @@
+# environments / caches
+.venv/
+__pycache__/
+*.pyc
+.pytest_cache/
+.ruff_cache/
+.ipynb_checkpoints/
+.DS_Store
+
+# third-party raw data: never in version control (re-fetch from ledgers/snapshots/*; hashes pinned there)
+data/raw/
+
+# run logs (session logs are kept)
+logs/runs/
+logs/llm/
+logs/gate/
+
+# large regenerable run outputs (metrics, results and verdicts are kept)
+experiments/**/oof_*.parquet
+logs/id_audit.json

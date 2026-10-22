@@ -1,0 +1,89 @@
+{
+  "run": "20261008-004800",
+  "card_sha256": "da8430244208f88c29a2afb63201a4288949036340cf2cd0cc8dcb940bd06031",
+  "quick": false,
+  "seed_rule": "all seeds must pass",
+  "H2_D5": {
+    "verdict": "UNDERPOWERED",
+    "per_seed_ci_gt0": {
+      "pair": [
+        true,
+        true,
+        true
+      ],
+      "ingredient": [
+        true,
+        true,
+        true
+      ]
+    },
+    "groups": {
+      "pair": [
+        176,
+        176,
+        176
+      ],
+      "ingredient": [
+        19,
+        19,
+        19
+      ]
+    }
+  },
+  "H2_D7": {
+    "verdict": "UNDERPOWERED",
+    "per_seed_ci_gt0": {
+      "pair": [
+        true,
+        true,
+        true
+      ],
+      "ingredient": [
+        false,
+        true,
+        true
+      ]
+    },
+    "groups": {
+      "pair": [
+        176,
+        176,
+        176
+      ],
+      "ingredient": [
+        19,
+        19,
+        19
+      ]
+    }
+  },
+  "D7_promotion": {
+    "verdict": "UNDERPOWERED \u2192 NOT PROMOTED (card \u00a7X: the ingredient harm check cannot be established)",
+    "pair_ci_gt0_per_seed": [
+      false,
+      false,
+      false
+    ],
+    "ingredient_D7_over_D5_per_seed": [
+      1.0745310699596884,
+      1.1580742761128617,
+      1.0903708552397748
+    ]
+  },
+  "negative_control": {
+    "verdict": "PASS (advantage gone)",
+    "diff": -0.05509522847025273,
+    "ci": [
+      -0.20738300289793024,
+      0.09554759313305344
+    ]
+  },
+  "positive_control": {
+    "injected_effect": -20.0,
+    "recovered_on_boil_cells": -19.669155860734772,
+    "spillover_on_other_cells": -0.0015629504837188603,
+    "boil_cells": 1196,
+    "recovered_share": 0.9834577930367386,
+    "verdict": "card sets no numeric tolerance \u2014 reported for human judgement"
+  }
+}

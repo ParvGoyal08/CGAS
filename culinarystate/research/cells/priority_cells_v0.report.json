@@ -1,0 +1,214 @@
+{
+ "cells": 6802,
+ "ingredient_concepts": 288,
+ "gap_distribution": {
+  "1.0": 5268,
+  "0.5": 1403,
+  "0.15": 131
+ },
+ "safety_cells": 91,
+ "agenda_top25": [
+  [
+   1,
+   "olive oil",
+   "PROC-fry",
+   "oxidation-products",
+   3764,
+   1.0
+  ],
+  [
+   2,
+   "plain flour",
+   "PROC-bake",
+   "acrylamide",
+   1808,
+   1.0
+  ],
+  [
+   3,
+   "potato",
+   "PROC-roast",
+   "acrylamide",
+   732,
+   1.0
+  ],
+  [
+   4,
+   "olive oil",
+   "PROC-fry",
+   "fat-soluble vitamin",
+   3764,
+   1.0
+  ],
+  [
+   5,
+   "garlic",
+   "PROC-boil",
+   "polyphenol",
+   3460,
+   1.0
+  ],
+  [
+   6,
+   "egg",
+   "PROC-fry",
+   "water-soluble vitamin",
+   3064,
+   1.0
+  ],
+  [
+   7,
+   "lemon",
+   "PROC-boil",
+   "water-soluble vitamin",
+   2030,
+   1.0
+  ],
+  [
+   8,
+   "milk",
+   "PROC-boil",
+   "water-soluble vitamin",
+   1302,
+   1.0
+  ],
+  [
+   9,
+   "tomato",
+   "PROC-boil",
+   "water-soluble vitamin",
+   1121,
+   1.0
+  ],
+  [
+   10,
+   "carrot",
+   "PROC-boil",
+   "polyphenol",
+   939,
+   1.0
+  ],
+  [
+   11,
+   "parmesan",
+   "PROC-grill",
+   "water-soluble vitamin",
+   670,
+   1.0
+  ],
+  [
+   12,
+   "sweet potato",
+   "PROC-roast",
+   "acrylamide",
+   75,
+   1.0
+  ],
+  [
+   13,
+   "spinach",
+   "PROC-boil",
+   "polyphenol",
+   452,
+   1.0
+  ],
+  [
+   14,
+   "chicken breast",
+   "PROC-boil",
+   "water-soluble vitamin",
+   395,
+   1.0
+  ],
+  [
+   15,
+   "avocado",
+   "PROC-bake",
+   "polyphenol",
+   328,
+   1.0
+  ],
+  [
+   16,
+   "chickpea",
+   "PROC-boil",
+   "polyphenol",
+   283,
+   1.0
+  ],
+  [
+   17,
+   "almond",
+   "PROC-roast",
+   "polyphenol",
+   282,
+   1.0
+  ],
+  [
+   18,
+   "rice",
+   "PROC-boil",
+   "water-soluble vitamin",
+   267,
+   1.0
+  ],
+  [
+   19,
+   "prawn",
+   "PROC-grill",
+   "water-soluble vitamin",
+   174,
+   1.0
+  ],
+  [
+   20,
+   "salmon fillet",
+   "PROC-steam",
+   "water-soluble vitamin",
+   173,
+   1.0
+  ],
+  [
+   21,
+   "beef",
+   "PROC-boil",
+   "water-soluble vitamin",
+   74,
+   1.0
+  ],
+  [
+   22,
+   "lamb",
+   "PROC-boil",
+   "water-soluble vitamin",
+   62,
+   1.0
+  ],
+  [
+   23,
+   "pork mince",
+   "PROC-boil",
+   "water-soluble vitamin",
+   55,
+   1.0
+  ],
+  [
+   24,
+   "spaghetti",
+   "PROC-boil",
+   "water-soluble vitamin",
+   91,
+   0.5
+  ],
+  [
+   25,
+   "vegetable oil",
+   "PROC-fry",
+   "oxidation-products",
+   888,
+   1.0
+  ]
+ ],
+ "agenda_groups_in_top100": 24,
+ "note": "ordering heuristic only; process prior flat until RecipeDB; applicability table PROPOSED"
+}

@@ -1,0 +1,4 @@
+hyp_id,statement,ladder_level,source,status
+HYP-0001,"Water-soluble vitamins show lower retention than minerals across preparations in R6",L1,"EDA evidence v0: EDA §4 medians",OPEN
+HYP-0002,"Processes that discard cooking water retain less of water-soluble vitamins than those that consume it",L1,"EDA evidence v0: water-handling field",OPEN
+HYP-0003,"Study coverage (which food×process pairs exist) is non-random by food group",L1,"EDA evidence v0: EDA §5 density",OPEN

@@ -1,0 +1,4 @@
+snap_id,source_id,url,retrieved_utc,sha256,bytes,licence,raw_storage,local_path
+SNAP-0001,SRC-0001,https://ndownloader.figshare.com/files/44488754,2026-10-07T19:09:07Z,b863e891989020edf3a429af8060523e5dee275699ae08893a5f91ff9a84b1e5,472734,CC0 (catalog.data.gov),allowed,data/raw/usda_r6/NutrientRetention.csv
+SNAP-0002,SRC-0001,https://ndownloader.figshare.com/files/44488757,2026-10-07T19:09:07Z,2e7184d15dcad88749e41095ea6cfba587350f62c4b86c4ac3d4fa8af72fca78,803,CC0 (catalog.data.gov),allowed,data/raw/usda_r6/NutrientRetentionDD.csv
+SNAP-0003,SRC-0001,https://ndownloader.figshare.com/files/44488751,2026-10-07T19:09:07Z,53ea1b82008226d8f4d24998d10a19995268bf64cd63da87543d0b94e6c8af8f,126629,CC0 (catalog.data.gov),allowed,data/raw/usda_r6/retn06.pdf

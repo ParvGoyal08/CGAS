@@ -1,0 +1,160 @@
+{
+  "note": "synthetic dev queries from the ledger; NOT the locked DEL-5 benchmark",
+  "n_queries": 290,
+  "atoms": 6994,
+  "retrieval_ablation": {
+    "structured": {
+      "DIRECT": {
+        "n": 150,
+        "recall@5": 1.0,
+        "recall@10": 1.0,
+        "mrr": 0.9322222222222221
+      },
+      "NEAR": {
+        "n": 100,
+        "recall@5": 0.95,
+        "recall@10": 0.99,
+        "mrr": 0.7918452380952381
+      },
+      "class_accuracy": {
+        "DIRECT": 1.0,
+        "NEAR": 0.95,
+        "UNSUPPORTED": 1.0
+      }
+    },
+    "bm25": {
+      "DIRECT": {
+        "n": 150,
+        "recall@5": 0.88,
+        "recall@10": 0.94,
+        "mrr": 0.7874523809523809
+      },
+      "NEAR": {
+        "n": 100,
+        "recall@5": 0.24,
+        "recall@10": 0.47,
+        "mrr": 0.21466666666666667
+      },
+      "class_accuracy": {
+        "DIRECT": 0.94,
+        "NEAR": 0.43,
+        "UNSUPPORTED": 1.0
+      }
+    },
+    "dense_lsa": {
+      "DIRECT": {
+        "n": 150,
+        "recall@5": 0.8533333333333334,
+        "recall@10": 0.92,
+        "mrr": 0.6439232804232805
+      },
+      "NEAR": {
+        "n": 100,
+        "recall@5": 0.17,
+        "recall@10": 0.24,
+        "mrr": 0.1515238095238095
+      },
+      "class_accuracy": {
+        "DIRECT": 0.92,
+        "NEAR": 0.2,
+        "UNSUPPORTED": 1.0
+      }
+    },
+    "bm25+dense": {
+      "DIRECT": {
+        "n": 150,
+        "recall@5": 0.9,
+        "recall@10": 0.94,
+        "mrr": 0.779515873015873
+      },
+      "NEAR": {
+        "n": 100,
+        "recall@5": 0.22,
+        "recall@10": 0.31,
+        "mrr": 0.14651190476190476
+      },
+      "class_accuracy": {
+        "DIRECT": 0.94,
+        "NEAR": 0.27,
+        "UNSUPPORTED": 1.0
+      }
+    },
+    "hybrid_all": {
+      "DIRECT": {
+        "n": 150,
+        "recall@5": 0.9866666666666667,
+        "recall@10": 1.0,
+        "mrr": 0.9120079365079364
+      },
+      "NEAR": {
+        "n": 100,
+        "recall@5": 0.44,
+        "recall@10": 0.76,
+        "mrr": 0.3330674603174603
+      },
+      "class_accuracy": {
+        "DIRECT": 1.0,
+        "NEAR": 0.72,
+        "UNSUPPORTED": 1.0
+      }
+    }
+  },
+  "calibration_heldout_half": {
+    "ece": 0.0657955754379425,
+    "aurc": 0.18044425976093878,
+    "risk_coverage_curve": [
+      {
+        "coverage": 0.006896551724137931,
+        "risk": 0.0
+      },
+      {
+        "coverage": 0.10344827586206896,
+        "risk": 0.19999999999999996
+      },
+      {
+        "coverage": 0.2,
+        "risk": 0.10344827586206895
+      },
+      {
+        "coverage": 0.296551724137931,
+        "risk": 0.06976744186046513
+      },
+      {
+        "coverage": 0.3931034482758621,
+        "risk": 0.052631578947368474
+      },
+      {
+        "coverage": 0.4896551724137931,
+        "risk": 0.07042253521126762
+      },
+      {
+        "coverage": 0.5862068965517241,
+        "risk": 0.14117647058823535
+      },
+      {
+        "coverage": 0.6827586206896552,
+        "risk": 0.21212121212121215
+      },
+      {
+        "coverage": 0.7793103448275862,
+        "risk": 0.2654867256637168
+      },
+      {
+        "coverage": 0.8758620689655172,
+        "risk": 0.3464566929133859
+      },
+      {
+        "coverage": 0.9724137931034482,
+        "risk": 0.4113475177304965
+      }
+    ],
+    "always_answer_risk": 0.4275862068965517,
+    "abstention_recall_on_unsupported": 1.0,
+    "false_abstain_on_direct": 0.0,
+    "decision_counts": {
+      "ABSTAIN": 72,
+      "ANSWER": 62,
+      "ANSWER_WITH_CONFLICT": 11
+    }
+  }
+}

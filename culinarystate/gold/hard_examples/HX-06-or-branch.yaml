@@ -1,0 +1,14 @@
+gold_format: DEL3-GOLD-v0
+recipe_id: FIX-HX06
+annotator: CLAUDE-EXAMPLE
+guideline_version: v1
+source_text: Grill or pan-fry the chicken until cooked through.
+# HARD: an OR between processes — annotate the process verbatim as written ("grill or pan-fry"); the resolver keeps it
+# unmapped rather than choosing one; the session decides which happened (OBSERVE), never the annotator
+steps:
+  - step: 1
+    text: Grill or pan-fry the chicken until cooked through.
+    events:
+      - op: CREATE
+        outputs: [{id: chicken, concept: chicken, label: chicken}]
+      - {op: TRANSFORM, input: chicken, process: grill or pan-fry, plan: {endpoint: cooked through}}

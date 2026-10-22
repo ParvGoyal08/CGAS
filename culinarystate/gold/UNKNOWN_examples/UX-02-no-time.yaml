@@ -1,0 +1,13 @@
+gold_format: DEL3-GOLD-v0
+recipe_id: FIX-UX02
+annotator: CLAUDE-EXAMPLE
+guideline_version: v1
+source_text: Simmer the sauce until thick.
+# UNKNOWN is correct: no time or temperature is stated — record only the endpoint, never a typical time
+steps:
+  - step: 1
+    text: Simmer the sauce until thick.
+    events:
+      - op: CREATE
+        outputs: [{id: sauce, label: sauce}]
+      - {op: TRANSFORM, input: sauce, process: simmer, plan: {endpoint: thick}}

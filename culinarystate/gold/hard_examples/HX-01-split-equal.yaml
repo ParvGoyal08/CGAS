@@ -1,0 +1,20 @@
+gold_format: DEL3-GOLD-v0
+recipe_id: FIX-HX01
+annotator: CLAUDE-EXAMPLE
+guideline_version: v1
+source_text: Divide 600 g dough into three equal balls and shape each into a round.
+# HARD: equal division → SPLIT with fractions (1/3 each); grams of each piece stay derived, never typed in
+steps:
+  - step: 1
+    text: Divide 600 g dough into three equal balls and shape each into a round.
+    events:
+      - op: CREATE
+        outputs: [{id: dough, concept: dough, label: dough, qty: {raw: 600 g, unit: g, value: 600}}]
+      - op: SPLIT
+        input: dough
+        process: divide
+        span: Divide 600 g dough into three equal balls
+        outputs:
+          - {id: ball1, concept: dough, label: ball 1, fraction: 0.3333333333}
+          - {id: ball2, concept: dough, label: ball 2, fraction: 0.3333333333}
+          - {id: ball3, concept: dough, label: ball 3, fraction: 0.3333333334}

@@ -1,0 +1,17 @@
+gold_format: DEL3-GOLD-v0
+recipe_id: FIX-HX03
+annotator: CLAUDE-EXAMPLE
+guideline_version: v1
+source_text: "Fry the onions until golden. (Session) The cook says: the onions are still pale."
+# HARD: the plan says golden; the cook's observation overrides it — the PLANNED value stays in the audit trail
+steps:
+  - step: 1
+    text: Fry the onions until golden.
+    events:
+      - op: CREATE
+        outputs: [{id: onion, concept: onion, label: onions}]
+      - {op: TRANSFORM, input: onion, process: fry, plan: {colour: golden}}
+  - step: 2
+    text: "(session) the onions are still pale"
+    events:
+      - {op: OBSERVE, input: onion, observe: {colour: pale}, span: the onions are still pale}

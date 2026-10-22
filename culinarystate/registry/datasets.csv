@@ -1,0 +1,14 @@
+source_id,name,role,serves,access_route,licence_status,storage_rule_proposed,verified_by,requested,gate,notes
+SRC-0001,USDA Table of Nutrient Retention Factors Release 6 (2007),process-effect evidence (tier E3),DEL-1,public download (USDA ARS),[U] unverified,store raw if public domain is confirmed,N3,no,H2,cited in proposal references
+SRC-0002,Phenol-Explorer 3.0 food-processing data,process-effect evidence (tier E3),DEL-1,public website download,[U] unverified,derived rows + citation until terms are read,N3,no,H2,cited in proposal (Rothwell 2013; 2015)
+SRC-0003,EuroFIR / other retention compilations,process-effect evidence,DEL-1,unknown,[U] unverified,unknown,N3,no,H2,candidate only
+SRC-0004,RecipeDB / RecipeDB2 (CoSyLab),recipe context; process vocabulary; name normalisation,DEL-1 DEL-3 DEL-5,API via Prof. Bagler,[U] pending email,per lab terms,N2 N9,no,H1 H2,Batra et al. 2020 in proposal references
+SRC-0005,FlavorDB / FlavorDB2 (CoSyLab),ingredient names; molecule links,DEL-1 stretch,web / API via Prof. Bagler,[U] pending email,per lab terms,N2 N16,no,H1 H2,
+SRC-0006,Foodoscope API suite,RAG tools; feasibility; baselines,DEL-4 DEL-5,API via Prof. Bagler,[U] pending email,per lab terms,N2,no,H1 H2,
+SRC-0007,DietRx / SpiceRx / SustainableFoodDB / CulinaryDB,context and constraint metadata only (no health claims),DEL-5,via Prof. Bagler,[U] pending email,per lab terms,N2,no,H1 H2,
+SRC-0008,Assignment-1 corpus (BBC Good Food; 11983 recipes with step text; scraped 2026-09-08),DEL-3 development input,DEL-3,local copy in ../A1/data/raw,[U] coursework scrape; robots.txt allowed recipe paths per A1 DECISION_LOG; reuse terms unverified,local only; release offsets/derived annotations only,N1,n/a (already held),H2,Q5 asks whether to reuse
+SRC-0009,USDA FoodData Central portions (SR Legacy / FNDDS),count and density grounding,DEL-3,public download,[U] unverified,store raw if public domain is confirmed,N17,no,H2,
+SRC-0010,USDA FSIS safe minimum internal temperatures,food-safety constraints (authority),DEL-5,public web page,[U] unverified,cite + snapshot with retrieval date,N14,no,H2,authoritative source required by Part I3
+SRC-0011,FSSAI food-safety guidance,food-safety constraints (authority; India),DEL-5,public web page,[U] unverified,cite + snapshot with retrieval date,N14,no,H2,
+SRC-0012,Peer-reviewed literature (raw-vs-cooked; kinetics),>=40 hand-verified rows,DEL-1,DOI / publisher / PMC,per-article,derived rows + citation; quote <= 1 sentence,N13 N4,no,H2,
+SRC-0013,IFCT 2017 (India composition tables),Indian composition / portions,program,unknown,[U] unverified,unknown,N17,no,H2,program-level unless DEL-3 needs Indian measures
